@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>手開發票小幫手 | 擬真發票模擬器 SUN77</title>
+    <title>手開發票小幫手 (SUN77)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         :root {
@@ -775,7 +775,7 @@
         </div>
 
         <button class="print-btn" id="printBtn"
-            style="margin: 20px auto 80px auto; padding: 18px 40px; background: #2c3e50; color: #fff; border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: all 0.2s; width: 90%; max-width: 350px; display: block; position: relative; z-index: 9999; -webkit-appearance: none;"
+            style="margin: 30px auto 100px auto; padding: 20px 40px; background: #2c3e50; color: #fff; border: none; font-size: 1.25rem; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); transition: all 0.2s; width: 95%; max-width: 400px; display: block; position: relative; z-index: 10000;"
             onclick="handlePrint()">點此列印 / 另存為 PDF</button>
     </div>
 
@@ -900,19 +900,13 @@
             boxes.forEach((b, i) => b.innerText = (type === '3' ? (taxid[i] || '') : ''));
         }
         function handlePrint() {
-            const btn = document.getElementById('printBtn');
-            btn.style.opacity = '0.5';
-            btn.innerText = '正在呼叫列印功能...';
-
-            setTimeout(() => {
-                try {
-                    window.print();
-                } catch (e) {
-                    alert('抱歉，此環境不支援直接列印。請使用瀏覽器選單中的「列印」或「分享 -> 列印」功能來另存 PDF。');
-                }
-                btn.style.opacity = '1';
-                btn.innerText = '點此列印 / 另存為 PDF';
-            }, 500);
+            // 直接呼叫以提升手機瀏覽器相容性
+            try {
+                window.focus();
+                window.print();
+            } catch (e) {
+                alert('抱歉，此瀏覽器不支援直接列印。請點擊瀏覽器選單中的「分享」並選擇「列印」來儲存 PDF。');
+            }
         }
         updateUI();
     </script>
