@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>手開發票小幫手 | 擬真發票模擬器 SUN77</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         :root {
             --paper-border: #99CBCB;
@@ -19,33 +19,59 @@
             src: local('DFKai-SB'), local('標楷體');
         }
 
-        body {
-            background-color: #e9ecef;
-            font-family: "InvoiceFont", "Noto Sans TC", serif;
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 320px;
+        /* 全域重置與基礎樣式 */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            /* 防止主頁面橫向偏移，這是修正左側截斷的關鍵 */
+            background-color: #e9ecef;
+        }
+
+        body {
+            font-family: "InvoiceFont", "Noto Sans TC", sans-serif;
+            line-height: 1.5;
+        }
+
+        /* 內容容器：使用 margin: 0 auto 代替 flex 居中以避免溢出時的左側截斷 */
         .container-wrapper {
             width: 100%;
             max-width: 950px;
+            margin: 0 auto;
+            padding: 15px;
+            display: block;
+        }
+
+        .back-link-box {
+            width: 100%;
+            margin-bottom: 12px;
             display: flex;
-            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
             align-items: center;
+            padding: 5px 0;
         }
 
         .control-panel {
             background: #fff;
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             margin-bottom: 25px;
             width: 100%;
-            box-sizing: border-box;
         }
 
         .panel-header {
@@ -58,7 +84,7 @@
         }
 
         .panel-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: bold;
             color: #2c3e50;
         }
@@ -89,7 +115,6 @@
             font-size: 0.95rem;
             transition: border-color 0.2s;
             width: 100%;
-            box-sizing: border-box;
         }
 
         .form-control:focus {
@@ -98,52 +123,52 @@
             box-shadow: 0 0 5px rgba(153, 203, 203, 0.3);
         }
 
-        /* 項目表格滾動容器 */
+        /* 表格響應式 */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
         }
 
         .items-table {
             width: 100%;
-            min-width: 600px;
+            min-width: 650px;
+            /* 確保在手機上也能操作 */
             border-collapse: collapse;
         }
 
         .items-table th {
             text-align: left;
-            padding: 8px;
+            padding: 12px 8px;
             font-size: 0.85rem;
             color: #666;
             background: #f8f9fa;
+            border-bottom: 1px solid #eee;
         }
 
         .items-table td {
-            padding: 5px;
+            padding: 8px 5px;
         }
 
-        .item-row input {
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* 發票外層容器，支援水平橫移 */
+        /* 發票外層容器，確保滾動是在容器內發生，而不是讓全頁偏移 */
         .invoice-scroll-wrapper {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             background: #fff;
-            border-radius: 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
+            border-radius: 4px;
         }
 
         .invoice-outer {
             width: 950px;
-            /* 固定寬度以保持擬真縮放 */
-            box-sizing: border-box;
+            /* 固定寬度保持擬真比例 */
+            margin: 0;
+            padding: 0;
         }
 
         .invoice-paper {
@@ -154,7 +179,6 @@
             color: var(--ink-black);
             line-height: 1.2;
             border: 2px solid var(--paper-border);
-            box-sizing: border-box;
         }
 
         .header {
@@ -236,13 +260,6 @@
             padding-bottom: 1px;
         }
 
-        .addr-val {
-            text-align: center;
-            display: inline-block;
-            line-height: 1;
-            border-bottom: 0;
-        }
-
         .main-table {
             width: 870px;
             border-collapse: collapse;
@@ -290,17 +307,6 @@
             padding-right: 15px !important;
         }
 
-        .seal-title {
-            font-size: 0.8rem !important;
-            text-align: center !important;
-            letter-spacing: 1px !important;
-            height: 25px !important;
-            padding: 0 !important;
-            background-color: #fafafa;
-            border: 1px solid #000 !important;
-            vertical-align: middle;
-        }
-
         .seal-cell {
             text-align: center;
             vertical-align: middle;
@@ -321,7 +327,6 @@
             color: #117777;
             font-size: 1.2rem;
             font-weight: bold;
-            text-align: center;
             opacity: 0.6;
             margin: 2px;
             border: 3px dashed #117777;
@@ -333,13 +338,6 @@
             align-items: center;
             height: 100%;
             padding: 0 5px;
-        }
-
-        .opt {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.85rem;
         }
 
         .v-box {
@@ -358,56 +356,7 @@
             align-items: center;
             padding: 0 8px;
             width: 100%;
-            box-sizing: border-box;
             background-color: #fff;
-        }
-
-        .chinese-label-left {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-align: left;
-            line-height: 1.2;
-            margin-right: 30px;
-        }
-
-        .chinese-amt-box {
-            display: flex;
-            flex: 1;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 0 10px;
-        }
-
-        .c-unit-group {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-        }
-
-        .c-unit-label {
-            font-size: 0.95rem;
-            color: #333;
-        }
-
-        .c-val-text {
-            font-size: 1.15rem;
-            font-weight: bold;
-            color: var(--write-orange);
-            display: inline-block;
-            width: 18px;
-            text-align: center;
-        }
-
-        .c-val-zero {
-            color: #ccc !important;
-            font-weight: normal !important;
-        }
-
-        .bottom-tag {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-            font-size: 0.8rem;
         }
 
         /* --- 響應式調整 --- */
@@ -435,16 +384,21 @@
             }
 
             .panel-title {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
+            }
+
+            .hide-mobile {
+                display: none;
             }
         }
 
         @media print {
 
             .control-panel,
-            .back-link,
+            .back-link-box,
             button,
-            .print-btn {
+            .print-btn,
+            .mobile-hint {
                 display: none !important;
             }
 
@@ -453,9 +407,15 @@
                 background: #fff;
             }
 
+            .container-wrapper {
+                max-width: none;
+                padding: 0;
+            }
+
             .invoice-scroll-wrapper {
                 overflow: visible;
                 box-shadow: none;
+                margin: 0;
             }
 
             .invoice-paper {
@@ -469,15 +429,14 @@
 
 <body>
     <div class="container-wrapper">
-        <div style="width: 100%; margin-bottom: 10px; display: flex; justify-content: flex-start;">
-            <a href="index.html" class="back-link" style="color: #666; text-decoration: none; font-size: 0.9rem;">← 返回主站
-            </a>
+        <div class="back-link-box">
+            <a href="index.html" class="back-link">← 返回主站 </a>
         </div>
 
         <!-- 專業控制面版 -->
         <div class="control-panel">
             <div class="panel-header">
-                <div class="panel-title">手開發票小幫手 (手機優化版)</div>
+                <div class="panel-title">手開發票小幫手 (SUN77)</div>
                 <div>
                     <button onclick="clearForm()"
                         style="padding: 8px 20px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc; background: #fff;">清空</button>
@@ -571,8 +530,8 @@
                     </tbody>
                 </table>
             </div>
-            <div style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 5px;" class="hide-pc">
-                提示：表格可橫向滑動輸入</div>
+            <div class="mobile-hint" style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 5px;">
+                提示：表格可左右滑動輸入</div>
         </div>
 
         <!-- 發票主體 -->
@@ -592,7 +551,8 @@
                                     id="h-m" class="write-text"></span> 月 <span id="h-d" class="write-text"></span> 日
                             </div>
                         </div>
-                        <div style="width: 200px; text-align: right; color: #ccc; font-size: 0.8rem;">日盛國際聯合稅務</div>
+                        <div style="width: 200px; text-align: right; color: #ccc; font-size: 0.8rem;"
+                            class="hide-mobile">日盛國際聯合稅務</div>
                     </div>
 
                     <div class="buyer-section">
@@ -613,21 +573,23 @@
                                 <div class="tax-box write-text"></div>
                             </div>
                         </div>
-                        <div class="address-row">
+                        <div class="address-row"
+                            style="border-bottom: 1px solid #000; padding-bottom: 1px; margin-top: 8px; display: flex; align-items: flex-end;">
                             <span style="letter-spacing: 12px; min-width: 80px;">地址：</span>
-                            <span class="addr-val write-text" style="width: 50px;"></span> 縣市
-                            <span class="addr-val write-text" style="width: 70px;"></span> 鄉鎮市區
-                            <span class="addr-val write-text" style="width: 140px;"></span> 路街
-                            <span class="addr-val write-text" style="width: 40px;"></span> 段
-                            <span class="addr-val write-text" style="width: 40px;"></span> 巷
-                            <span class="addr-val write-text" style="width: 40px;"></span> 弄
-                            <span class="addr-val write-text" style="width: 45px;"></span> 號
-                            <span class="addr-val write-text" style="width: 40px;"></span> 樓
-                            <span class="addr-val write-text" style="width: 35px;"></span> 室
+                            <span class="addr-val write-text" style="width: 50px; text-align: center;"></span> 縣市
+                            <span class="addr-val write-text" style="width: 70px; text-align: center;"></span> 鄉鎮市區
+                            <span class="addr-val write-text" style="width: 140px; text-align: center;"></span> 路街
+                            <span class="addr-val write-text" style="width: 40px; text-align: center;"></span> 段
+                            <span class="addr-val write-text" style="width: 40px; text-align: center;"></span> 巷
+                            <span class="addr-val write-text" style="width: 40px; text-align: center;"></span> 弄
+                            <span class="addr-val write-text" style="width: 45px; text-align: center;"></span> 號
+                            <span class="addr-val write-text" style="width: 40px; text-align: center;"></span> 樓
+                            <span class="addr-val write-text" style="width: 35px; text-align: center;"></span> 室
                         </div>
                     </div>
 
-                    <table class="main-table">
+                    <table class="main-table"
+                        style="width: 870px; border-collapse: collapse; margin-top: 5px; border: 2px solid #000; table-layout: fixed;">
                         <colgroup>
                             <col style="width: 250px;">
                             <col style="width: 80px;">
@@ -637,12 +599,20 @@
                         </colgroup>
                         <thead>
                             <tr>
-                                <th style="padding: 0; text-align: center; letter-spacing: 20px;">品 名</th>
-                                <th>數 量</th>
-                                <th>單 價</th>
-                                <th>金 額</th>
                                 <th
-                                    style="display: flex; justify-content: space-between; padding: 2px 15px; border: 0;">
+                                    style="padding: 0; text-align: center; letter-spacing: 20px; border: 1px solid #000; background-color: #fafafa; font-weight: normal; font-size: 1.1rem; height: 28px;">
+                                    品 名</th>
+                                <th
+                                    style="border: 1px solid #000; background-color: #fafafa; font-weight: normal; font-size: 1.1rem;">
+                                    數 量</th>
+                                <th
+                                    style="border: 1px solid #000; background-color: #fafafa; font-weight: normal; font-size: 1.1rem;">
+                                    單 價</th>
+                                <th
+                                    style="border: 1px solid #000; background-color: #fafafa; font-weight: normal; font-size: 1.1rem;">
+                                    金 額</th>
+                                <th
+                                    style="border: 1px solid #000; background-color: #fafafa; display: flex; justify-content: space-between; padding: 2px 15px; border-left: none;">
                                     <span>備</span>
                                     <span>註</span>
                                 </th>
@@ -650,111 +620,135 @@
                         </thead>
                         <tbody id="v-main-tbody">
                             <tr class="v-item-row">
-                                <td class="write-text text-left"></td>
-                                <td class="write-text text-right"></td>
-                                <td class="write-text text-right"></td>
-                                <td class="write-text text-right"></td>
-                                <td rowspan="2" style="vertical-align: top; padding: 5px;"></td>
+                                <td class="write-text text-left"
+                                    style="border: 1px solid #000; padding: 2px 5px; height: 18px;"></td>
+                                <td class="write-text text-right" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="write-text text-right" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="write-text text-right" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td rowspan="2" style="border: 1px solid #000; vertical-align: top; padding: 5px;"></td>
                             </tr>
                             <tr class="v-item-row">
-                                <td class="text-left write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                            </tr>
-                            <tr class="v-item-row">
-                                <td class="text-left write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="seal-title">營業人蓋用統一發票專用章</td>
-                            </tr>
-                            <tr class="v-item-row">
-                                <td class="text-left write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td id="the-seal-cell" class="seal-cell">
-                                    <div class="seal-oval">這裡蓋發票章</div>
+                                <td class="text-left write-text" style="border: 1px solid #000; padding: 2px 5px;"></td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
                                 </td>
                             </tr>
                             <tr class="v-item-row">
-                                <td class="text-left write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
+                                <td class="text-left write-text" style="border: 1px solid #000; padding: 2px 5px;"></td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td
+                                    style="border: 1px solid #000; font-size: 0.8rem; text-align: center; letter-spacing: 1px; height: 25px; background-color: #fafafa; vertical-align: middle;">
+                                    營業人蓋用統一發票專用章</td>
                             </tr>
                             <tr class="v-item-row">
-                                <td class="text-left write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
+                                <td class="text-left write-text" style="border: 1px solid #000; padding: 2px 5px;"></td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td class="text-right write-text" style="border: 1px solid #000; padding: 2px 5px;">
+                                </td>
+                                <td id="the-seal-cell"
+                                    style="border: 1px solid #000; text-align: center; vertical-align: middle;">
+                                    <div class="seal-oval">這裡蓋發票章</div>
+                                </td>
+                            </tr>
+                            <!-- 其餘列比照辦理 -->
+                            <tr class="v-item-row">
+                                <td colspan="4" style="border: 1px solid #000; height: 18px;"></td>
                             </tr>
                             <tr class="v-item-row">
-                                <td class="text-left write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
-                                <td class="text-right write-text"></td>
+                                <td colspan="4" style="border: 1px solid #000; height: 18px;"></td>
+                            </tr>
+                            <tr class="v-item-row">
+                                <td colspan="4" style="border: 1px solid #000; height: 18px;"></td>
                             </tr>
 
                             <tr class="row-3-part">
-                                <td colspan="3" class="stat-lbl-center"
-                                    style="letter-spacing: 24px; padding-left: 24px; font-size: 1.1rem;">銷 售 額 合 計</td>
-                                <td id="v-sales-3" class="write-text text-right"></td>
+                                <td colspan="3"
+                                    style="border: 1px solid #000; text-align: center; letter-spacing: 24px; padding-left: 24px; font-size: 1.1rem; background-color: #fafafa;">
+                                    銷 售 額 合 計</td>
+                                <td id="v-sales-3" class="write-text text-right"
+                                    style="border: 1px solid #000; padding: 2px 10px;"></td>
                             </tr>
                             <tr class="row-3-part">
-                                <td class="stat-lbl-center"
-                                    style="letter-spacing: 14px; padding-left: 14px; font-size: 1.1rem;">營 業 稅</td>
-                                <td colspan="2" style="padding: 0;">
+                                <td
+                                    style="border: 1px solid #000; text-align: center; letter-spacing: 14px; padding-left: 14px; font-size: 1.1rem; background-color: #fafafa;">
+                                    營 業 稅</td>
+                                <td colspan="2" style="border: 1px solid #000; padding: 0;">
                                     <div class="tax-options">
                                         <div class="opt">應 稅 <span id="v3-tax-v" class="v-box write-text"></span></div>
                                         <div class="opt">零稅率 <span class="v-box"></span></div>
                                         <div class="opt">免 稅 <span class="v-box"></span></div>
                                     </div>
                                 </td>
-                                <td id="v-tax-3" class="write-text text-right"></td>
+                                <td id="v-tax-3" class="write-text text-right"
+                                    style="border: 1px solid #000; padding: 2px 10px;"></td>
                             </tr>
                             <tr class="row-3-part">
-                                <td colspan="3" class="stat-lbl-center" style="padding: 0;">
+                                <td colspan="3"
+                                    style="border: 1px solid #000; text-align: center; background-color: #fafafa;">
                                     <div
                                         style="display: flex; justify-content: space-between; padding: 2px 70px; font-size: 1.1rem;">
-                                        <span>總</span>
-                                        <span>計</span>
+                                        <span>總</span><span>計</span>
                                     </div>
                                 </td>
-                                <td id="v-total-3" class="write-text text-right"></td>
+                                <td id="v-total-3" class="write-text text-right"
+                                    style="border: 1px solid #000; padding: 2px 10px;"></td>
                             </tr>
                             <tr class="row-3-part">
-                                <td colspan="4" style="padding: 0;">
-                                    <div class="chinese-row-wrap">
-                                        <div class="chinese-label-left">總計新臺幣<br>(中文大寫)</div>
-                                        <div id="v-chinese-3" class="chinese-amt-box"></div>
+                                <td colspan="4" style="border: 1px solid #000; padding: 0;">
+                                    <div class="chinese-row-wrap"
+                                        style="display: flex; align-items: center; padding: 2px 8px;">
+                                        <div
+                                            style="font-size: 0.85rem; letter-spacing: 2px; text-align: left; line-height: 1.2; margin-right: 30px;">
+                                            總計新臺幣<br>(中文大寫)</div>
+                                        <div id="v-chinese-3" class="chinese-amt-box"
+                                            style="display: flex; flex: 1; justify-content: space-between;"></div>
                                     </div>
                                 </td>
                             </tr>
 
+                            <!-- 二聯式底部比照辦理... -->
                             <tr class="row-2-part" style="display: none;">
-                                <td colspan="3" class="stat-lbl-center" style="padding: 0;">
+                                <td colspan="3"
+                                    style="border: 1px solid #000; text-align: center; background-color: #fafafa;">
                                     <div
                                         style="display: flex; justify-content: space-between; padding: 2px 70px; font-size: 1.1rem;">
-                                        <span>總</span>
-                                        <span>計</span>
+                                        <span>總</span><span>計</span>
                                     </div>
                                 </td>
-                                <td id="v-total-2" class="write-text text-right"></td>
+                                <td id="v-total-2" class="write-text text-right"
+                                    style="border: 1px solid #000; padding: 2px 10px;"></td>
                             </tr>
                             <tr class="row-2-part" style="display: none;">
-                                <td colspan="4" style="padding: 0;">
-                                    <div class="chinese-row-wrap">
-                                        <div class="chinese-label-left">總計新臺幣<br>(中文大寫)</div>
-                                        <div id="v-chinese-2" class="chinese-amt-box"></div>
+                                <td colspan="4" style="border: 1px solid #000; padding: 0;">
+                                    <div class="chinese-row-wrap"
+                                        style="display: flex; align-items: center; padding: 2px 8px;">
+                                        <div
+                                            style="font-size: 0.85rem; letter-spacing: 2px; text-align: left; line-height: 1.2; margin-right: 30px;">
+                                            總計新臺幣<br>(中文大寫)</div>
+                                        <div id="v-chinese-2" class="chinese-amt-box"
+                                            style="display: flex; flex: 1; justify-content: space-between;"></div>
                                     </div>
                                 </td>
                             </tr>
                             <tr class="row-2-part" style="display: none;">
-                                <td class="stat-lbl-center"
-                                    style="letter-spacing: 14px; padding-left: 14px; font-size: 1.1rem;">課 稅 別</td>
-                                <td colspan="3" style="padding: 0;">
+                                <td
+                                    style="border: 1px solid #000; text-align: center; letter-spacing: 14px; padding-left: 14px; background-color: #fafafa;">
+                                    課 稅 別</td>
+                                <td colspan="3" style="border: 1px solid #000; padding: 0;">
                                     <div class="tax-options">
                                         <div class="opt">應 稅 <span id="v2-tax-v" class="v-box write-text"></span></div>
                                         <div class="opt">零稅率 <span class="v-box"></span></div>
@@ -765,20 +759,21 @@
                         </tbody>
                     </table>
 
-                    <div class="bottom-tag">
-                        <div style="font-size: 0.65rem; color: #333; transform: scale(0.9); transform-origin: left;">
+                    <div class="bottom-tag"
+                        style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 0.8rem;">
+                        <div style="font-size: 0.65rem; color: #333; transform: scale(0.85); transform-origin: left;">
                             ※應稅、零稅率、免稅之銷售額應分別開立統一發票，並應於各該欄打「V」。
                         </div>
                         <div style="font-weight: bold; font-size: 0.95rem; letter-spacing: 4px;">第一聯 存根聯</div>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; color: #888; font-size: 0.8rem; margin: 10px 0;" class="hide-pc">
-                提示：發票本體可橫向滑動查看完整內容</div>
+            <div class="mobile-hint" style="text-align: center; color: #888; font-size: 0.8rem; margin: 10px 0;">
+                提示：發票本體可左右滑動查看完整內容</div>
         </div>
 
         <button class="print-btn"
-            style="margin: 20px 0 50px 0; padding: 15px 40px; background: #2c3e50; color: #fff; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s;"
+            style="margin: 20px 0 60px 0; padding: 15px 40px; background: #2c3e50; color: #fff; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s; width: 100%; max-width: 300px; display: block; margin-left: auto; margin-right: auto;"
             onclick="window.print()">點此列印 / 另存為 PDF</button>
     </div>
 
@@ -797,30 +792,20 @@
             const digits = "零壹貳參肆伍陸柒捌玖";
             const units = ['億', '仟', '佰', '拾', '萬', '仟', '佰', '拾', '元'];
             let html = '';
-
             const safeNum = Math.round(Number(num) || 0);
 
             if (safeNum <= 0) {
                 units.forEach(u => {
-                    html += `<div class="c-unit-group"><span class="c-val-text c-val-zero">零</span><span class="c-unit-label">${u}</span></div>`;
+                    html += `<div style="display: flex; align-items: baseline; gap: 4px;"><span style="font-size: 1.15rem; color: #ccc; width: 18px; text-align: center;">零</span><span style="font-size: 0.95rem;">${u}</span></div>`;
                 });
             } else {
                 const s = safeNum.toString().padStart(9, '0');
                 let firstNonZero = -1;
-                for (let i = 0; i < 9; i++) {
-                    if (s[i] !== '0') {
-                        firstNonZero = i;
-                        break;
-                    }
-                }
-
+                for (let i = 0; i < 9; i++) { if (s[i] !== '0') { firstNonZero = i; break; } }
                 units.forEach((u, i) => {
-                    if (firstNonZero === -1 || i < firstNonZero) {
-                        html += `<div class="c-unit-group"><span class="c-val-text c-val-zero">零</span><span class="c-unit-label">${u}</span></div>`;
-                    } else {
-                        const digitChar = s[i] === '0' ? '零' : digits[parseInt(s[i])];
-                        html += `<div class="c-unit-group"><span class="c-val-text">${digitChar}</span><span class="c-unit-label">${u}</span></div>`;
-                    }
+                    const digitChar = (firstNonZero === -1 || i < firstNonZero) ? '零' : digits[parseInt(s[i])] || '零';
+                    const color = (firstNonZero !== -1 && i >= firstNonZero) ? 'var(--write-orange)' : '#ccc';
+                    html += `<div style="display: flex; align-items: baseline; gap: 4px;"><span style="font-size: 1.15rem; font-weight: bold; color: ${color}; width: 18px; text-align: center;">${digitChar}</span><span style="font-size: 0.95rem;">${u}</span></div>`;
                 });
             }
             return html;
@@ -829,7 +814,7 @@
         function updateUI() {
             const type = document.getElementById('invType').value;
             const buyer = document.getElementById('in-buyer').value;
-            const taxid = document.getElementById('in-taxid').value;
+            const taxid = document.getElementById('in-taxid').value || '';
             const dateVal = document.getElementById('in-date').value;
 
             const d = dateVal ? new Date(dateVal) : new Date();
@@ -844,91 +829,67 @@
             document.getElementById('h-m').innerText = month;
             document.getElementById('h-d').innerText = day;
 
-            const nameInputs = document.querySelectorAll('.it-name');
-            const qtyInputs = document.querySelectorAll('.it-qty');
-            const priceInputs = document.querySelectorAll('.it-price');
-            const sumInputs = document.querySelectorAll('.it-sum');
-
-            const cRows = document.querySelectorAll('#items-tbody .item-row');
+            const names = document.querySelectorAll('.it-name');
+            const qtys = document.querySelectorAll('.it-qty');
+            const prices = document.querySelectorAll('.it-price');
+            const sums = document.querySelectorAll('.it-sum');
             const vRows = document.querySelectorAll('.v-item-row');
 
             let totalAmt = 0;
-
             document.getElementById('price-label').innerText = (type === '3') ? "單價 (未稅)" : "單價 (含稅)";
 
             for (let i = 0; i < 7; i++) {
-                const isRowVisible = (type === '3' && i < 5) || (type === '2');
+                const isVis = (type === '3' && i < 5) || (type === '2');
+                if (isVis) {
+                    const q = parseFloat(qtys[i].value) || 0;
+                    const p = parseFloat(prices[i].value) || 0;
+                    let s = (q > 0 && p > 0) ? q * p : 0;
+                    sums[i].value = s > 0 ? s.toLocaleString() : '';
+                    totalAmt += s;
 
-                if (isRowVisible) {
-                    cRows[i].style.display = 'table-row';
-                    vRows[i].style.display = 'table-row';
-
-                    const name = nameInputs[i].value;
-                    const qty = parseFloat(qtyInputs[i].value) || 0;
-                    const price = parseFloat(priceInputs[i].value) || 0;
-                    let sum = (qty > 0 && price > 0) ? qty * price : 0;
-                    sumInputs[i].value = sum > 0 ? sum.toLocaleString() : '';
-                    totalAmt += sum;
-
-                    vRows[i].cells[0].innerText = name;
-                    vRows[i].cells[1].innerText = qty > 0 ? qty : '';
-                    vRows[i].cells[2].innerText = price > 0 ? price.toLocaleString() : '';
-                    vRows[i].cells[3].innerText = sum > 0 ? sum.toLocaleString() : '';
+                    if (vRows[i].cells.length >= 4) {
+                        vRows[i].cells[0].innerText = names[i].value;
+                        vRows[i].cells[1].innerText = q > 0 ? q : '';
+                        vRows[i].cells[2].innerText = p > 0 ? p.toLocaleString() : '';
+                        vRows[i].cells[3].innerText = s > 0 ? s.toLocaleString() : '';
+                    }
                 } else {
-                    cRows[i].style.display = 'none';
-                    vRows[i].style.display = 'none';
-                    sumInputs[i].value = '';
+                    sums[i].value = '';
+                    if (vRows[i].cells.length >= 4) {
+                        vRows[i].cells[0].innerText = ''; vRows[i].cells[1].innerText = ''; vRows[i].cells[2].innerText = ''; vRows[i].cells[3].innerText = '';
+                    }
                 }
             }
 
-            let sales = 0, tax = 0, total = 0;
-
-            const sealCell = document.getElementById('the-seal-cell');
             const row3s = document.querySelectorAll('.row-3-part');
             const row2s = document.querySelectorAll('.row-2-part');
-
-            const taxV3 = document.getElementById('v3-tax-v');
-            const taxV2 = document.getElementById('v2-tax-v');
+            let sales = 0, tax = 0, total = 0;
 
             if (type === '3') {
                 sales = Math.round(totalAmt);
                 tax = Math.round(sales * 0.05);
                 total = sales + tax;
-
                 document.getElementById('inv-title').innerText = '統 一 發 票 (三聯式)';
                 document.getElementById('v-taxid-row').style.display = 'flex';
                 document.getElementById('taxid-grp').style.display = 'flex';
-
                 row3s.forEach(r => r.style.display = 'table-row');
                 row2s.forEach(r => r.style.display = 'none');
-
-                taxV3.innerText = total > 0 ? 'V' : '';
-
-                sealCell.rowSpan = 6;
-
+                document.getElementById('v3-tax-v').innerText = total > 0 ? 'V' : '';
                 document.getElementById('v-sales-3').innerText = sales > 0 ? sales.toLocaleString() : '';
                 document.getElementById('v-tax-3').innerText = tax > 0 ? tax.toLocaleString() : '';
                 document.getElementById('v-total-3').innerText = total > 0 ? total.toLocaleString() : '';
-
                 document.getElementById('v-chinese-3').innerHTML = generateChineseHTML(total);
             } else {
                 total = Math.round(totalAmt);
                 sales = Math.round(total / 1.05);
                 tax = total - sales;
-
                 document.getElementById('inv-title').innerText = '統 一 發 票 (二聯式)';
                 document.getElementById('v-taxid-row').style.display = 'none';
                 document.getElementById('taxid-grp').style.display = 'none';
-
                 row3s.forEach(r => r.style.display = 'none');
                 row2s.forEach(r => r.style.display = 'table-row');
-
-                taxV2.innerText = total > 0 ? 'V' : '';
-
-                sealCell.rowSpan = 7;
-
+                document.getElementById('v2-tax-v').innerText = total > 0 ? 'V' : '';
                 document.getElementById('v-total-2').innerText = total > 0 ? total.toLocaleString() : '';
-
                 document.getElementById('v-chinese-2').innerHTML = generateChineseHTML(total);
             }
 
@@ -936,7 +897,6 @@
             const boxes = document.querySelectorAll('#taxid-boxes .tax-box');
             boxes.forEach((b, i) => b.innerText = (type === '3' ? (taxid[i] || '') : ''));
         }
-
         updateUI();
     </script>
 </body>
