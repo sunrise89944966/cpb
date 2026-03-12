@@ -324,12 +324,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: #117777;
+            color: #6F4E37;
+            /* 咖啡色 */
             font-size: 1.2rem;
             font-weight: bold;
-            opacity: 0.6;
+            opacity: 0.8;
             margin: 2px;
-            border: 3px dashed #117777;
+            border: 2px solid #000;
+            /* 黑色邊框 */
         }
 
         .tax-options {
@@ -772,9 +774,9 @@
                 提示：發票本體可左右滑動查看完整內容</div>
         </div>
 
-        <button class="print-btn"
-            style="margin: 20px 0 60px 0; padding: 15px 40px; background: #2c3e50; color: #fff; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s; width: 100%; max-width: 300px; display: block; margin-left: auto; margin-right: auto;"
-            onclick="window.print()">點此列印 / 另存為 PDF</button>
+        <button class="print-btn" id="printBtn"
+            style="margin: 20px auto 80px auto; padding: 18px 40px; background: #2c3e50; color: #fff; border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: all 0.2s; width: 90%; max-width: 350px; display: block; position: relative; z-index: 9999; -webkit-appearance: none;"
+            onclick="handlePrint()">點此列印 / 另存為 PDF</button>
     </div>
 
     <script>
@@ -896,6 +898,21 @@
             document.getElementById('v-buyer').innerText = buyer;
             const boxes = document.querySelectorAll('#taxid-boxes .tax-box');
             boxes.forEach((b, i) => b.innerText = (type === '3' ? (taxid[i] || '') : ''));
+        }
+        function handlePrint() {
+            const btn = document.getElementById('printBtn');
+            btn.style.opacity = '0.5';
+            btn.innerText = '正在呼叫列印功能...';
+
+            setTimeout(() => {
+                try {
+                    window.print();
+                } catch (e) {
+                    alert('抱歉，此環境不支援直接列印。請使用瀏覽器選單中的「列印」或「分享 -> 列印」功能來另存 PDF。');
+                }
+                btn.style.opacity = '1';
+                btn.innerText = '點此列印 / 另存為 PDF';
+            }, 500);
         }
         updateUI();
     </script>
