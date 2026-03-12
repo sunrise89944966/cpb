@@ -582,6 +582,307 @@
                 transition: var(--transition-smooth);
             }
         }
+
+        /* --- 發票專屬樣式 (從 SUN74.html 遷移還原) --- */
+        #invoice {
+            background-color: #e9ecef;
+        }
+
+        #invoice .control-panel {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        #invoice .form-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        #invoice .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #invoice .form-group label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        #invoice .form-control {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        #invoice .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        #invoice .items-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+        }
+
+        #invoice .items-table th {
+            text-align: left;
+            padding: 8px;
+            font-size: 0.85rem;
+            color: #666;
+            background: #f8f9fa;
+        }
+
+        #invoice .items-table td {
+            padding: 5px;
+        }
+
+        #invoice .invoice-scroll-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            background: #e9ecef;
+            margin-bottom: 30px;
+        }
+
+        #invoice .invoice-outer {
+            width: 950px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        #invoice .invoice-paper {
+            background-color: #fff;
+            padding: 25px 40px;
+            min-height: 500px;
+            position: relative;
+            color: #333;
+            line-height: 1.2;
+            border: 2px solid #99CBCB;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        #invoice .inv-write-text {
+            color: #FF6600 !important;
+            font-weight: 700;
+        }
+
+        #invoice .tax-box {
+            width: 35px;
+            height: 30px;
+            border: 1px solid #000;
+            margin-right: -1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        #invoice .main-table {
+            width: 870px;
+            border-collapse: collapse;
+            margin-top: 5px;
+            border: 2px solid #000;
+            table-layout: fixed;
+        }
+
+        #invoice .main-table th {
+            border: 1px solid #000;
+            padding: 2px;
+            font-weight: normal;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            height: 28px;
+            background-color: #fafafa;
+        }
+
+        #invoice .main-table td {
+            border: 1px solid #000;
+            padding: 2px 5px;
+            height: 18px;
+            font-size: 1rem;
+            vertical-align: middle;
+            overflow: hidden;
+            word-break: break-all;
+        }
+
+        #invoice .stat-lbl-center {
+            text-align: center;
+            letter-spacing: 5px;
+            font-size: 1.05rem;
+            padding: 2px 0;
+            background-color: #fafafa;
+            white-space: nowrap;
+        }
+
+        #invoice .seal-oval {
+            width: 140px;
+            height: 95px;
+            background-color: transparent;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #6F4E37;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            opacity: 1;
+            margin: 2px;
+            border: 2px solid #000;
+        }
+
+        #invoice .chinese-row-wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 8px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        #invoice .c-val-text {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #FF6600;
+            display: inline-block;
+            width: 18px;
+            text-align: center;
+        }
+
+        #invoice .c-val-zero {
+            color: #ccc !important;
+            font-weight: normal !important;
+        }
+
+        #invoice .print-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 20px 40px;
+            background: #2c3e50;
+            color: #fff;
+            border: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            width: 95%;
+            max-width: 400px;
+        }
+
+        #line-guide {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            color: #fff;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .guide-arrow {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 3rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            #invoice .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            #invoice .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+
+            .nav-bar,
+            .site-header-content,
+            .header-image-bar,
+            .hamburger-menu,
+            .cta-bar,
+            footer,
+            .page-section-title,
+            #invoice .control-panel,
+            #invoice .print-btn,
+            #line-guide {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background: #fff;
+            }
+
+            #invoice {
+                display: block !important;
+                opacity: 1 !important;
+                padding: 0 !important;
+                background: #fff;
+            }
+
+            .page-section {
+                padding: 0 !important;
+                border: none !important;
+            }
+
+            #invoice .invoice-scroll-wrapper,
+            #invoice .invoice-outer {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #fff;
+            }
+
+            #invoice .invoice-paper {
+                box-shadow: none !important;
+                border: 2px solid #99CBCB !important;
+                padding: 15px 30px !important;
+            }
+        }
     </style>
 </head>
 
@@ -613,11 +914,19 @@
         <a href="#loan">貸款創業補助</a>
         <a href="#faq">常見問題</a>
         <a href="#files">相關文件下載</a>
-        <a href="SUN77.html">手開發票小幫手</a>
+        <a href="#invoice">手開發票小幫手</a>
         <a href="#about">關於我們</a>
     </nav>
 
     <div class="nav-overlay"></div>
+
+    <div id="line-guide">
+        <div class="guide-arrow">↗️</div>
+        <div class="guide-content">
+            <h2>請點擊右上角「...」</h2>
+            <p>並選擇「使用預設瀏覽器開啟」<br>以進行發票列印或另存 PDF</p>
+        </div>
+    </div>
 
     <!-- 首頁 -->
     <div class="page-section active" id="home">
@@ -1050,6 +1359,218 @@
         </div>
     </div>
 
+    <!-- 手開發票小幫手 (自 SUN77.html 完整整合) -->
+    <div class="page-section" id="invoice">
+        <div class="page-section-title">手開發票小幫手 (行動優化版)</div>
+
+        <div class="control-panel">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>發票種類</label>
+                    <select class="form-control" id="invType" onchange="updateInvoiceUI()">
+                        <option value="3">三聯式 (B2B)</option>
+                        <option value="2">二聯式 (B2C)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>買受人統編</label>
+                    <input type="text" id="in-taxid" class="form-control" placeholder="8位數字" maxlength="8"
+                        oninput="updateInvoiceUI()">
+                </div>
+                <div class="form-group">
+                    <label>買受人名稱</label>
+                    <input type="text" id="in-buyer" class="form-control" placeholder="公司或行號名稱"
+                        oninput="updateInvoiceUI()">
+                </div>
+                <div class="form-group">
+                    <label>日期</label>
+                    <input type="date" id="in-date" class="form-control" onchange="updateInvoiceUI()">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%">品名</th>
+                            <th style="width: 15%">數量</th>
+                            <th style="width: 20%">單價</th>
+                            <th style="width: 25%">金額</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-tbody">
+                        <script>
+                            for (let i = 0; i < 7; i++) {
+                                document.write(`
+                                    <tr class="item-row">
+                                        <td><input type="text" class="form-control it-name" oninput="updateInvoiceUI()"></td>
+                                        <td><input type="number" class="form-control it-qty" oninput="updateInvoiceUI()"></td>
+                                        <td><input type="number" class="form-control it-price" oninput="updateInvoiceUI()"></td>
+                                        <td><input type="text" class="form-control it-sum" readonly style="background:#f8f9fa"></td>
+                                    </tr>
+                                `);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: right;">
+                <button onclick="clearInvoiceForm()"
+                    style="padding: 8px 20px; border-radius: 4px; border: 1px solid #ccc; background: #fff; cursor: pointer;">清空內容</button>
+            </div>
+        </div>
+
+        <div class="invoice-scroll-wrapper">
+            <div class="invoice-outer">
+                <div class="invoice-paper" id="invoice-capture-area">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="font-size: 1.5rem; letter-spacing: 2px;">AB 51685168</div>
+                        <div style="text-align: center; flex: 1;">
+                            <h1 id="v-title"
+                                style="margin: 0; font-size: 1.5rem; letter-spacing: 6px; font-weight: normal;">統 一 發 票
+                                (三聯式)</h1>
+                            <div style="margin-top: 6px; font-size: 1.1rem;">
+                                <span id="v-yr" class="inv-write-text"></span> 年 <span id="v-mth-range"
+                                    class="inv-write-text"></span> 月份
+                            </div>
+                            <div style="margin-top: 4px;">
+                                中 華 民 國 <span id="h-y" class="inv-write-text"></span> 年 <span id="h-m"
+                                    class="inv-write-text"></span> 月 <span id="h-d" class="inv-write-text"></span> 日
+                            </div>
+                        </div>
+                        <div style="width: 200px; text-align: right; color: #ccc; font-size: 0.8rem;">收執聯</div>
+                    </div>
+
+                    <div style="margin-bottom: 8px; font-size: 1.1rem;">
+                        <div style="display: flex; align-items: flex-end; margin-bottom: 6px;">
+                            <label style="letter-spacing: 12px; min-width: 90px;">買受人：</label>
+                            <div class="inv-write-text" id="v-buyer"
+                                style="border-bottom: 1px solid #000; flex: 1; padding: 0 10px; min-height: 25px;">
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;" id="v-taxid-row">
+                            <label style="letter-spacing: 2px; min-width: 90px;">統一編號：</label>
+                            <div style="display: flex; margin-left: 10px;">
+                                <script>
+                                    for (let i = 0; i < 8; i++) {
+                                        document.write('<div class="tax-box inv-write-text"></div>');
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        <div
+                            style="display: flex; align-items: flex-end; gap: 0; font-size: 1rem; margin-top: 8px; border-bottom: 1px solid #000; padding-bottom: 1px;">
+                            <span style="letter-spacing: 12px; min-width: 80px;">地址：</span>
+                            <span class="inv-write-text" style="width: 50px; text-align: center;"></span> 縣市
+                            <span class="inv-write-text" style="width: 70px; text-align: center;"></span> 鄉鎮市區
+                            <span class="inv-write-text" style="width: 140px; text-align: center;"></span> 路街
+                            <span class="inv-write-text" style="width: 40px; text-align: center;"></span> 段
+                            <span class="inv-write-text" style="width: 40px; text-align: center;"></span> 巷
+                            <span class="inv-write-text" style="width: 40px; text-align: center;"></span> 弄
+                            <span class="inv-write-text" style="width: 45px; text-align: center;"></span> 號
+                            <span class="inv-write-text" style="width: 40px; text-align: center;"></span> 樓
+                            <span class="inv-write-text" style="width: 35px; text-align: center;"></span> 室
+                        </div>
+                    </div>
+
+                    <table class="main-table">
+                        <colgroup>
+                            <col style="width: 250px;">
+                            <col style="width: 80px;">
+                            <col style="width: 120px;">
+                            <col style="width: 142px;">
+                            <col style="width: 278px;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th style="padding: 0; text-align: center; letter-spacing: 20px;">品 名</th>
+                                <th>數 量</th>
+                                <th>單 價</th>
+                                <th>金 額</th>
+                                <th style="padding: 2px 15px; border: 1px solid #000; background-color: #fafafa;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>備</span><span>註</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="v-main-tbody">
+                            <script>
+                                for (let i = 0; i < 7; i++) {
+                                    let remarkHtml = '';
+                                    if (i === 0) remarkHtml = '<td rowspan="2" style="border: 1px solid #000; vertical-align: top; padding: 5px;"></td>';
+                                    if (i === 2) remarkHtml = '<td style="font-size: 0.8rem; text-align: center; background: #fafafa; border: 1px solid #000; letter-spacing: 1px; height: 25px;">營業人蓋用統一發票專用章</td>';
+                                    if (i === 3) remarkHtml = '<td rowspan="8" style="text-align: center; vertical-align: middle; border: 1px solid #000;"><div class="seal-oval">這裏蓋<br>發票章</div></td>';
+                                    document.write(`
+                                        <tr style="height: 35px;">
+                                            <td class="inv-write-text" style="text-align: left; padding-left: 10px;"></td>
+                                            <td class="inv-write-text" style="text-align: right; padding-right: 15px;"></td>
+                                            <td class="inv-write-text" style="text-align: right; padding-right: 15px;"></td>
+                                            <td class="inv-write-text" style="text-align: right; padding-right: 15px;"></td>
+                                            ${remarkHtml}
+                                        </tr>
+                                    `);
+                                }
+                            </script>
+                            <tr id="row-sales-3">
+                                <td colspan="3" class="stat-lbl-center"
+                                    style="letter-spacing: 24px; padding-left: 24px; font-size: 1.1rem;">銷 售 額 合 計</td>
+                                <td id="v-sales-3" class="inv-write-text"
+                                    style="text-align: right; padding-right: 15px;"></td>
+                            </tr>
+                            <tr id="row-tax-3">
+                                <td class="stat-lbl-center"
+                                    style="letter-spacing: 14px; padding-left: 14px; font-size: 1.1rem;">營 業 稅</td>
+                                <td colspan="2" style="padding: 0;">
+                                    <div
+                                        style="display: flex; justify-content: space-around; font-size: 0.85rem; align-items: center; height: 100%;">
+                                        <span>應 稅 <span id="v3-tax-v"
+                                                style="display: inline-block; border: 1px solid #000; width: 14px; height: 14px; line-height: 12px; text-align: center; font-size: 12px;"
+                                                class="inv-write-text"></span></span>
+                                        <span>零稅率 <span
+                                                style="display: inline-block; border: 1px solid #000; width: 14px; height: 14px;"></span></span>
+                                        <span>免 稅 <span
+                                                style="display: inline-block; border: 1px solid #000; width: 14px; height: 14px;"></span></span>
+                                    </div>
+                                </td>
+                                <td id="v-tax-3" class="inv-write-text" style="text-align: right; padding-right: 15px;">
+                                </td>
+                            </tr>
+                            <tr id="row-total">
+                                <td colspan="3" class="stat-lbl-center" style="padding: 0;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; padding: 2px 70px; font-size: 1.1rem;">
+                                        <span>總</span><span>計</span>
+                                    </div>
+                                </td>
+                                <td id="v-total" class="inv-write-text" style="text-align: right; padding-right: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="padding: 0;">
+                                    <div class="chinese-row-wrap">
+                                        <div
+                                            style="font-size: 0.85rem; letter-spacing: 2px; text-align: left; line-height: 1.2; margin-right: 30px;">
+                                            總計新臺幣<br>(中文大寫)</div>
+                                        <div id="v-chinese"
+                                            style="display: flex; flex: 1; justify-content: space-between; align-items: baseline; padding: 0 10px;">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 0.8rem;">
+                        <div style="font-size: 0.65rem; color: #333; transform: scale(0.9); transform-origin: left;">
+                            ※應稅、零稅率、免稅之銷售額應分別開立統一發票，並應於各該欄打「V」。</div>
+                        <div style="font-weight: bold; font-size: 0.95rem; letter-spacing: 4px;">收執聯</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="print-btn" onclick="handlePrint()">點此列印 / 另存為 PDF</button>
+    </div>
+
     <div class="cta-bar">
         ☎ 專業諮詢專線：(02) 8994-4966<br>
         LINE官方ID | Email：sunrise89944966@gmail.com
@@ -1156,6 +1677,121 @@
         document.querySelectorAll('.faq-question-list li').forEach(li => {
             li.addEventListener('click', function () { showFaqAns(this.dataset.faq); });
         });
+
+        // --- 發票邏輯 (從 SUN77.html 完整移植) ---
+        const invDateInput = document.getElementById('in-date');
+        invDateInput.valueAsDate = new Date();
+
+        function clearInvoiceForm() {
+            document.querySelectorAll('#invoice .form-control').forEach(el => {
+                if (el.id !== 'invType' && el.id !== 'in-date') el.value = '';
+            });
+            updateInvoiceUI();
+        }
+
+        function generateChineseHTML(num) {
+            const units = ['億', '仟', '佰', '拾', '萬', '仟', '佰', '拾', '元'];
+            const digits = "零壹貳參肆伍陸柒捌玖";
+            let html = '';
+            const s = Math.round(num).toString().padStart(9, '0');
+            for (let i = 0; i < 9; i++) {
+                let char = (s[i] === '0') ? '零' : digits[parseInt(s[i])];
+                let colorClass = (s[i] === '0') ? 'class="c-val-text c-val-zero"' : 'class="c-val-text inv-write-text"';
+                html += `<div class="c-unit-group" style="display: flex; align-items: baseline; gap: 4px;"><span ${colorClass} style="font-size: 1.15rem; font-weight: bold; width: 18px; text-align: center;">${char}</span><span style="font-size: 0.95rem; color: #333;">${units[i]}</span></div>`;
+            }
+            return html;
+        }
+
+        function updateInvoiceUI() {
+            const type = document.getElementById('invType').value;
+            const buyer = document.getElementById('in-buyer').value;
+            const taxid = document.getElementById('in-taxid').value;
+            const d = invDateInput.valueAsDate || new Date();
+
+            // 日期更新
+            const rocYear = d.getFullYear() - 1911;
+            const month = d.getMonth() + 1;
+            document.getElementById('v-yr').innerText = rocYear;
+            document.getElementById('v-mth-range').innerText = (month % 2 === 0) ? `${month - 1}、${month}` : `${month}、${month + 1}`;
+            document.getElementById('h-y').innerText = rocYear;
+            document.getElementById('h-m').innerText = month;
+            document.getElementById('h-d').innerText = d.getDate();
+
+            // 金額計算
+            let totalAmt = 0;
+            const rows = document.querySelectorAll('#items-tbody .item-row');
+            const dataRows = document.querySelectorAll('#v-main-tbody tr:not([id])');
+
+            rows.forEach((row, i) => {
+                const qty = parseFloat(row.querySelector('.it-qty').value) || 0;
+                const price = parseFloat(row.querySelector('.it-price').value) || 0;
+                const sum = qty * price;
+                row.querySelector('.it-sum').value = sum > 0 ? sum.toLocaleString() : '';
+                totalAmt += sum;
+
+                const vRow = dataRows[i];
+                if (vRow) {
+                    vRow.cells[0].innerText = row.querySelector('.it-name').value;
+                    vRow.cells[1].innerText = qty > 0 ? qty : '';
+                    vRow.cells[2].innerText = price > 0 ? price.toLocaleString() : '';
+                    vRow.cells[3].innerText = sum > 0 ? sum.toLocaleString() : '';
+                }
+            });
+
+            if (type === '3') {
+                const sales = Math.round(totalAmt);
+                const tax = Math.round(sales * 0.05);
+                const total = sales + tax;
+                document.getElementById('v-title').innerText = '統 一 發 票 (三聯式)';
+                document.getElementById('v-sales-3').innerText = sales > 0 ? sales.toLocaleString() : '';
+                document.getElementById('v-tax-3').innerText = tax > 0 ? tax.toLocaleString() : '';
+                document.getElementById('v-total').innerText = total > 0 ? total.toLocaleString() : '';
+                document.getElementById('v-chinese').innerHTML = generateChineseHTML(total);
+                document.getElementById('v3-tax-v').innerText = total > 0 ? 'V' : '';
+                document.getElementById('v-taxid-row').style.visibility = 'visible';
+                document.getElementById('row-sales-3').style.display = 'table-row';
+                document.getElementById('row-tax-3').style.display = 'table-row';
+            } else {
+                const total = Math.round(totalAmt);
+                document.getElementById('v-title').innerText = '統 一 發 票 (二聯式)';
+                document.getElementById('v-total').innerText = total > 0 ? total.toLocaleString() : '';
+                document.getElementById('v-chinese').innerHTML = generateChineseHTML(total);
+                document.getElementById('v-taxid-row').style.visibility = 'hidden';
+                document.getElementById('row-sales-3').style.display = 'none';
+                document.getElementById('row-tax-3').style.display = 'none';
+            }
+
+            document.getElementById('v-buyer').innerText = buyer;
+            const taxBoxes = document.querySelectorAll('.tax-box');
+            taxBoxes.forEach((box, i) => { box.innerText = taxid[i] || ''; });
+        }
+
+        function handlePrint() {
+            const isLine = /Line/i.test(navigator.userAgent);
+            if (isLine) {
+                document.getElementById('line-guide').style.display = 'block';
+            } else {
+                window.print();
+            }
+        }
+
+        // Line 環境偵測與跳脫強制外部瀏覽器
+        function checkBrowser() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isLine = ua.indexOf("Line") > -1;
+
+            if (isLine) {
+                // 如果在 Line 中，嘗試加上參數強制跳轉
+                if (window.location.href.indexOf('openExternalBrowser=1') === -1) {
+                    const sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+                }
+            }
+        }
+
+        checkBrowser();
+        // 初始化
+        updateInvoiceUI();
     </script>
 </body>
 
