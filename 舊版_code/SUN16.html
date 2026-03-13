@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>日盛國際聯合稅務記帳士事務所</title>
+  <style>
+    /* 主色：溫和奶茶、淡米黃、深岩灰、咖啡杏色、淡橙 */
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      background-color: #f7f5f3; /* 極淡米黃 */
+      color: #575351;
+    }
+    header {
+      background-color: #cebb99; /* 杏咖啡色 */
+      color: #5c4433;
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 23px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      border-bottom: 3px solid #f5d7af; /* 柔和框線 */
+    }
+    .nav-bar {
+      background-color: #f5d7af; /* 奶油杏黃色 */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+      border-bottom: 2px solid #e7cfb4;
+    }
+    .nav-bar a {
+      color: #895a28; /* 溫暖深棕 */
+      margin: 8px 18px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      letter-spacing: 1px;
+      font-size: 17px;
+      border-radius: 4px;
+      padding: 5px 10px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-bar a:hover {
+      background-color: #fff1d8;
+      color: #db9146; /* 暖橙色 */
+    }
+    main {
+      padding: 28px 12px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 36px;
+      background: #fffdfa; /* 乾淨白中帶奶 */
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(190,160,110,0.08);
+      padding: 28px;
+    }
+    section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 18px;
+      box-shadow: 0 1px 4px rgba(195,160,90,0.10);
+    }
+    .alert {
+      background: #fff8e3; /* 柔黃提醒底 */
+      color: #b1731d;
+      padding: 13px 18px;
+      border-left: 5px solid #db9146;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+    .login-box {
+      margin: 45px auto 0 auto;
+      max-width: 360px;
+      background: #f9f6ee;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(170,140,60,0.09);
+      padding: 32px 28px;
+      text-align: left;
+    }
+    .login-box label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      color: #865c25;
+    }
+    .login-box input, .login-box textarea {
+      width: 100%;
+      padding: 9px;
+      border: 1px solid #ede2d3;
+      border-radius: 4px;
+      margin-bottom: 17px;
+      background: #f6f3eb;
+    }
+    .login-box button {
+      width: 100%;
+      background: #db9146;
+      color: #fffefa;
+      border: none;
+      padding: 12px 0;
+      border-radius: 4px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: background 0.15s;
+    }
+    .login-box button:hover { background:#e5a356; }
+    .login-links { display: flex; justify-content: space-between; font-size:14px;}
+    .login-links a {color:#ad8363; text-decoration:none;}
+    .login-links a:hover {text-decoration:underline;}
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #cebb99;
+      color: #5c4433;
+      font-size: 15px;
+      letter-spacing: 1px;
+      border-top: 3px solid #f5d7af;
+    }
+    ul {padding-left: 22px;}
+    @media (max-width: 768px) {
+      .nav-bar { flex-direction: column; }
+      .nav-bar a { margin: 12px 0; }
+      header { font-size: 16px; }
+      main { padding: 13px; }
+      section { padding: 13px; }
+    }
+    /* ★ 進場滑入動畫（由上至下） ★ */
+    @keyframes slideInDown {
+      0% {opacity:0; transform:translateY(-60px);}
+      100% {opacity:1; transform:translateY(0);}
+    }
+    .section-animate {
+      animation: slideInDown 0.65s cubic-bezier(.23,1.13,.71,1.04);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    日盛國際聯合稅務記帳士事務所
+  </header>
+  <div class="nav-bar">
+    <a data-target="home">首頁</a>
+    <a data-target="about">公司簡介</a>
+    <a data-target="services">專業服務</a>
+    <a data-target="member">會員登入</a>
+    <a data-target="news">最新消息</a>
+    <a data-target="contact">聯絡我們</a>
+  </div>
+  <main>
+    <!-- 官方LINE財稅諮詢公告 -->
+    <div class="alert">
+      LINE財稅諮詢：官方LINE ID「@jc45104」，歡迎企業主及個人隨時訊問！
+      LINE財稅諮詢：官方LINE ID「@jc45104」，歡迎企業主及個人隨時訊問！
+      LINE財稅諮詢：官方LINE ID「@jc45104」，歡迎企業主及個人隨時訊問！
+      LINE財稅諮詢：官方LINE ID「@jc45104」，歡迎企業主及個人隨時訊問！
+      LINE財稅諮詢：官方LINE ID「@jc45104」，歡迎企業主及個人隨時訊問！
+      LINE財稅諮詢：官方LINE ID「@jc45104」，歡迎企業主及個人隨時訊問！
+    </div>
+    <!-- 首頁/公司簡介 -->
+    <section id="home" class="content-section">
+      <h2>公司簡介與品牌承諾</h2>
+      <p>日盛國際聯合稅務記帳士事務所自創立以來，專注於中小企業財務、會計、稅務顧問全方位服務，累積逾20年專業經驗，為逾千家企業帶來完善財務規劃。團隊由資深記帳士、稅務顧問組成，堅持「專業、誠信、效率」三大核心，深受客戶推崇。</p>
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1200&q=80" alt="事務所形象圖">
+         <p>日盛國際聯合稅務記帳士事務所自創立以來，專注於中小企業財務、會計、稅務顧問全方位服務，累積逾20年專業經驗，為逾千家企業帶來完善財務規劃。團隊由資深記帳士、稅務顧問組成，堅持「專業、誠信、效率」三大核心，深受客戶推崇。</p>
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1200&q=80" alt="事務所形象圖">
+         <p>日盛國際聯合稅務記帳士事務所自創立以來，專注於中小企業財務、會計、稅務顧問全方位服務，累積逾20年專業經驗，為逾千家企業帶來完善財務規劃。團隊由資深記帳士、稅務顧問組成，堅持「專業、誠信、效率」三大核心，深受客戶推崇。</p>
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1200&q=80" alt="事務所形象圖">
+         <p>日盛國際聯合稅務記帳士事務所自創立以來，專注於中小企業財務、會計、稅務顧問全方位服務，累積逾20年專業經驗，為逾千家企業帶來完善財務規劃。團隊由資深記帳士、稅務顧問組成，堅持「專業、誠信、效率」三大核心，深受客戶推崇。</p>
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1200&q=80" alt="事務所形象圖">
+         <p>日盛國際聯合稅務記帳士事務所自創立以來，專注於中小企業財務、會計、稅務顧問全方位服務，累積逾20年專業經驗，為逾千家企業帶來完善財務規劃。團隊由資深記帳士、稅務顧問組成，堅持「專業、誠信、效率」三大核心，深受客戶推崇。</p>
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1200&q=80" alt="事務所形象圖">
+    </section>
+    <!-- 專業服務 -->
+    <section id="services" class="content-section" style="display:none">
+      <h2>主要服務內容</h2>
+      <ul>
+        <li>帳務處理、記帳報稅、財務報表編製</li>
+        <li>營業稅、所得稅申報及顧問諮詢</li>
+        <li>工商登記 (公司設立／變更)</li>
+        <li>會計制度規劃、薪資與勞健保申報</li>
+        <li>稅務顧問暨節稅方案設計</li>
+        <li>財務管理顧問、企業教育訓練與政府補助申請</li>
+        <li>全省加盟店服務，皆可協助公司設立、帳務管理</li>
+         <li>帳務處理、記帳報稅、財務報表編製</li>
+        <li>營業稅、所得稅申報及顧問諮詢</li>
+        <li>工商登記 (公司設立／變更)</li>
+        <li>會計制度規劃、薪資與勞健保申報</li>
+        <li>稅務顧問暨節稅方案設計</li>
+        <li>財務管理顧問、企業教育訓練與政府補助申請</li>
+        <li>全省加盟店服務，皆可協助公司設立、帳務管理</li>
+         <li>帳務處理、記帳報稅、財務報表編製</li>
+        <li>營業稅、所得稅申報及顧問諮詢</li>
+        <li>工商登記 (公司設立／變更)</li>
+        <li>會計制度規劃、薪資與勞健保申報</li>
+        <li>稅務顧問暨節稅方案設計</li>
+        <li>財務管理顧問、企業教育訓練與政府補助申請</li>
+        <li>全省加盟店服務，皆可協助公司設立、帳務管理</li>
+      </ul>
+    </section>
+    <!-- 最新消息 -->
+    <section id="news" class="content-section" style="display:none">
+      <h2>最新消息 & 活動</h2>
+      <ul>
+        <li>2025/09/01：推出創業記帳優惠，新創公司享首年8折。</li>
+        <li>2025/08/15：所得稅申報季即將開始，請提前準備資料。</li>
+        <li>2025/07/10：本所榮獲「中小企業優質服務獎」肯定。</li>
+        <li>445104教育學院：本所客戶享創業講座、稅務回訓及相關課程優惠。</li>
+         <li>2025/09/01：推出創業記帳優惠，新創公司享首年8折。</li>
+        <li>2025/08/15：所得稅申報季即將開始，請提前準備資料。</li>
+        <li>2025/07/10：本所榮獲「中小企業優質服務獎」肯定。</li>
+        <li>445104教育學院：本所客戶享創業講座、稅務回訓及相關課程優惠。</li>
+         <li>2025/09/01：推出創業記帳優惠，新創公司享首年8折。</li>
+        <li>2025/08/15：所得稅申報季即將開始，請提前準備資料。</li>
+        <li>2025/07/10：本所榮獲「中小企業優質服務獎」肯定。</li>
+        <li>445104教育學院：本所客戶享創業講座、稅務回訓及相關課程優惠。</li>
+      </ul>
+    </section>
+    <!-- 會員登入區 -->
+    <section id="member" class="content-section" style="display:none">
+      <h2>會員登入</h2>
+      <div class="login-box">
+        <form>
+          <label for="username">使用者名稱 或 電子郵件</label>
+          <input type="text" id="username" name="username" required>
+          <label for="password">密碼</label>
+          <input type="password" id="password" name="password" required>
+          <button type="submit">登入</button>
+          <div class="login-links">
+            <a href="#">忘記您的密碼？</a>
+            <span>
+              <input type="checkbox" id="remember" name="remember">
+              <label for="remember" style="display:inline;">保持登入</label>
+            </span>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- 聯絡我們 -->
+    <section id="contact" class="content-section" style="display:none">
+      <h2>聯絡我們</h2>
+      <ul>
+        <li>地址：新北市新莊區中華路二段11號九樓</li>
+        <li>電話：(02) 8994-4966</li>
+        <li>Email：sunrise_account@yahoo.com.tw</li>
+        <li>LINE官方：@jc45104</li>
+      </ul>
+      <form style="margin-top:20px;">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name">
+        <label for="message">訊息：</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+        <button type="submit">送出</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 日盛國際聯合稅務記帳士事務所 | 版權所有
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navLinks = document.querySelectorAll(".nav-bar a");
+      const sections = document.querySelectorAll(".content-section");
+      navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("data-target");
+          sections.forEach(section => {
+            if (section.id === targetId) {
+              section.style.display = "block";
+              section.classList.remove("section-animate");
+              void section.offsetWidth;
+              section.classList.add("section-animate");
+            } else {
+              section.style.display = "none";
+              section.classList.remove("section-animate");
+            }
+          });
+        });
+      });
+      sections.forEach(section => {
+        section.style.display = section.id === "home" ? "block" : "none";
+        section.classList.remove("section-animate");
+        if(section.id === "home") {
+          void section.offsetWidth;
+          section.classList.add("section-animate");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

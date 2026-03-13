@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日盛國際聯合稅務記帳士事務所</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Montserrat:wght@600&display=swap">
+<style>
+body { margin:0; font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif; background:#f9f7f3; color:#364048; line-height:1.73; }
+.header-gold-frame { background:linear-gradient(80deg,#ffe7ad,#eac771 35%,#fffbe2 100%); border-radius:52px; box-shadow:0 0 0 10px #ffe7ad99,0 0 0 20px #eac77144,0 18px 80px 0 #eac77133,0 0 80px 0 #fff9e288; border:5px solid #eac771; margin:36px auto 0 auto; max-width:820px; padding:0 0 2px 0; position:relative; }
+.header-gold-frame:after { content:""; pointer-events:none; border-radius:52px; position:absolute; inset:0; background:radial-gradient(circle at 80% 7%,#ffe27066 0 13%,transparent 24% 100%),radial-gradient(circle at 8% 77%,#fffbe7bb 0 12%,transparent 35% 100%); opacity:.65; z-index:1; }
+header { background:none; color:#65430c; text-align:center; font-size:1.75rem; letter-spacing:3px; font-weight:bold; border-bottom:0; border-radius:52px; position:relative; z-index:2; padding-top:10px; }
+.eng-title { font-family:'Montserrat','Noto Sans TC',sans-serif; font-size:1.15rem; font-weight:600; letter-spacing:2px; color:#b4883e; margin-top:3px; margin-bottom:9px; display:block; text-align:center; opacity:.93; }
+html { scroll-behavior:smooth; }
+.nav-bar { background:#fff7e4; display:flex; justify-content:center; align-items:center; box-shadow:0 2px 8px rgba(200,160,70,0.07); position:sticky; top:0; z-index:10; flex-wrap:wrap; }
+.nav-bar a { font-weight:700; color:#6d4c19; margin:0 14px; padding:15px 0; text-decoration:none; font-size:1.12rem; }
+.nav-bar a.active,.nav-bar a:hover { color:#ff9100; border-bottom:2.5px solid #ff9100; transform:scale(1.07); }
+.page-section { display:none; opacity:0; transition:opacity 0.3s; }
+.page-section.active { display:block; opacity:1; background:#fffbe7; border-radius:28px; box-shadow:0 8px 32px 0 rgba(207,174,95,0.13); margin-top:36px; }
+.banner-art-border { border-radius:32px; background:rgba(255,247,228,0.85); border:3.7px solid rgba(219,183,99,0.66); box-shadow:0 8px 40px 0 rgba(207,192,129,0.25),0 0 0 6px rgba(233,199,93,0.13); backdrop-filter:blur(3.5px) contrast(1.01); overflow:hidden; padding:0; margin:48px auto 36px auto; max-width:1240px; }
+.banner { background:linear-gradient(120deg,#f4e3c0 70%,#fff6df 100%); display:flex; flex-wrap:wrap; align-items:center; gap:48px; padding:44px 10vw 36px 7vw; min-height:360px; border-radius:32px; }
+.banner-imgbox { flex:1.2 1 340px; max-width:420px; }
+.banner-imgbox img { max-width:100%; border-radius:15px; box-shadow:0 2px 14px 2px rgba(190,160,110,0.13); border:2.7px solid #ebd8b6; display:block; }
+.banner-content { flex:2 1 320px; min-width:240px; }
+.banner-title { font-size:2rem; font-weight:700; color:#6d4c19; margin-bottom:12px; letter-spacing:1.2px; text-shadow:0 4px 16px rgba(233,199,100,0.13); }
+.banner-txt { font-size:1.1rem; margin-bottom:22px; color:#523600; opacity:.92; line-height:2.1; }
+.banner-cta { display:inline-block; padding:12px 34px; background:linear-gradient(90deg,#eac771,#ffb74d 68%); color:#fff; font-weight:bold; font-size:1.13rem; letter-spacing:1.5px; border-radius:7px; border:none; box-shadow:0 2px 9px rgba(224,154,0,0.09); text-decoration:none; }
+.banner-cta:hover { background:#f89d18; color:#ffe0ad; transform:scale(1.04); }
+/* 服務項目專屬 */
+.services-3col-layout { display:flex; gap:30px; justify-content:center; background:rgba(255,230,163,0.13); }
+.services-card { border-radius:17px; box-shadow:0 2px 10px #eac77133; width:340px; flex:1 1 320px; display:flex; flex-direction:column; align-items:center; min-width:280px; }
+.card-whitebox { background:#fff; border-radius:12px; box-shadow:0 2px 11px #cbb66522; margin-top:10px; padding:14px 10px; width:96%; text-align:left; }
+.services-card:nth-child(1) { background:rgba(255,245,226,0.93); }
+.services-card:nth-child(2) { background:rgba(248,249,255,0.92); }
+.services-card:nth-child(3) { background:rgba(255,243,224,0.93); }
+ul { margin:0; padding-left:1.2em; font-size:1em; }
+li { margin:3.7px 0; }
+@media (max-width:1100px){
+.services-3col-layout { flex-direction:column; }
+.services-card { width:99%; margin-bottom:19px; }
+}
+.food-flex3col {display:flex;flex-wrap:wrap;gap:32px;justify-content:center;}
+.food-card {background:#fcfaf5;border-radius:17px;box-shadow:0 2px 12px #ebd8af33;padding:28px 16px; width:355px; flex:1 1 320px; display:flex;flex-direction:column; gap:8px;align-items:center;}
+.food-title { color:#479c22; font-size:1.4rem; font-weight:700; margin-bottom:22px;}
+.loan-flex3col {display:flex;flex-wrap:wrap;gap:32px;justify-content:center;}
+.loan-card {background:#fffde4;border-radius:17px;box-shadow:0 2px 12px #ebd8af33;padding:28px 16px;width:355px;flex:1 1 320px;display:flex;flex-direction:column;gap:8px;align-items:center;}
+.loan-title {color:#b47521; font-size:1.4rem; font-weight:700; margin-bottom:22px;}
+.faq-flex3col {display:flex;flex-wrap:wrap;gap:32px;justify-content:center;}
+.faq-card {background:#eef9ff;border-radius:17px;box-shadow:0 2px 12px #bbbaf733;padding:28px 16px;width:355px;flex:1 1 320px;display:flex;flex-direction:column;gap:8px;align-items:center;}
+.faq-title {color:#3453a7; font-size:1.4rem; font-weight:700; margin-bottom:22px;}
+.files-flex3col {display:flex;flex-wrap:wrap;gap:32px;justify-content:center;}
+.files-card {background:#fff6f8;border-radius:17px;box-shadow:0 2px 12px #ab63db33;padding:28px 16px;width:355px;flex:1 1 320px;display:flex;flex-direction:column;gap:8px;align-items:center;}
+.files-title {color:#984c8c; font-size:1.4rem; font-weight:700; margin-bottom:22px;}
+.about-title { color:#b4883e; font-size:1.35rem; font-weight:700; margin-bottom:22px; text-align:center; }
+@media (max-width:1100px){
+.food-flex3col,.loan-flex3col,.faq-flex3col,.files-flex3col {flex-direction:column;}
+.food-card,.loan-card,.faq-card,.files-card {width:98%;margin-bottom:24px;}
+}
+.cta-bar {text-align:center; background:#ffeecf; color:#875c20; font-size:1.12rem; margin:38px 0 0 0; border-radius:16px; padding:14px;}
+footer {text-align:center; margin-top:22px; background:#cebb99; color:#5c4433; font-size:15px; letter-spacing:1px; border-top:3px solid #f5d7af; padding:18px;}
+</style>
+</head>
+<body>
+<div class="header-gold-frame">
+<header>
+日盛國際聯合稅務記帳士事務所
+<span class="eng-title">Sunrise Accounting Office</span>
+</header>
+</div>
+<nav class="nav-bar">
+<a href="#home" class="active">首頁</a>
+<a href="#services">服務項目</a>
+<a href="#food">食品工廠登記</a>
+<a href="#loan">貸款創業補助</a>
+<a href="#faq">常見問題</a>
+<a href="#files">相關文件下載</a>
+<a href="#about">關於我們</a>
+</nav>
+<!-- 首頁內容：團隊橫幅 -->
+<div class="banner-art-border page-section active" id="home">
+<section class="banner">
+<div class="banner-imgbox">
+<img src="cheng-gong-08.jpg" alt="事務所團隊照">
+</div>
+<div class="banner-content">
+<div class="banner-title">讓日盛專業，成爲您的財稅好夥伴</div>
+<div class="banner-txt">我們擁有二十多年會計稅務經驗，服務逾千家企業與創業家，以嚴謹、誠信與高效，協助您「財稅零煩惱」。</div>
+<a href="#contact" class="banner-cta">LINE財稅諮詢</a>
+</div>
+</section>
+</div>
+<!-- 服務項目 -->
+<section class="services-section page-section" id="services">
+  <div class="services-visual-title" style="text-align:center; margin:18px 0 22px 0; font-weight:bold; font-size:1.38rem; color:#b47b22;">服務項目</div>
+  <div class="services-3col-layout">
+    <!-- 公司設立/變更 -->
+    <div class="services-card">
+      <div style="font-size:2.1rem; margin-bottom:5px;">&#128188;</div>
+      <b style="font-size:1.18rem; color:#995e00; margin-bottom:6px;">公司、行號設立/變更</b>
+      <div style="color:#b4863e; margin-bottom:5px; font-size:0.99rem;">協助公司、行號開設登記、變更</div>
+      <div class="card-whitebox">
+        <b style="color:#345ba7;">我們的核心服務</b>
+        <div style="margin-top:7px;"><b style="color:#76529d;">公司設立流程</b></div>
+        <ul>
+          <li>新創公司流程規劃</li>
+          <li>名稱預查與登記申請</li>
+          <li>稅務規劃輔導</li>
+        </ul>
+        <div><b style="color:#348986;">公司變更服務</b></div>
+        <ul>
+          <li>名稱變更、地址遷移</li>
+          <li>負責人異動</li>
+          <li>登記資料異動、資本額調整</li>
+        </ul>
+        <div><b style="color:#c9811e;">營業登記&特殊申請</b></div>
+        <ul>
+          <li>個人行號設立</li>
+          <li>各類營業登記</li>
+          <li>VIP全面性稅務規劃</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 帳務處理與報稅 -->
+    <div class="services-card">
+      <div style="font-size:2.1rem; margin-bottom:5px;">&#128196;</div>
+      <b style="font-size:1.18rem; color:#4f4664; margin-bottom:6px;">帳務處理與報稅</b>
+      <div style="color:#b4863e; margin-bottom:5px; font-size:0.99rem;">專業記帳與稅務申報服務</div>
+      <div class="card-whitebox">
+        <b style="color:#1550a5;">專業帳務與報稅服務</b>
+        <div><b style="color:#198191;">財務報表製作</b></div>
+        <ul>
+          <li>資產負債表</li>
+          <li>損益表</li>
+          <li>現金流量表</li>
+        </ul>
+        <div><b style="color:#c9811e;">稅務申報服務</b></div>
+        <ul>
+          <li>公司營所稅/營業稅申報</li>
+          <li>綜合所得稅申報</li>
+          <li>扣繳／二代健保申報</li>
+        </ul>
+        <div><b style="color:#508028;">會計制度設計</b></div>
+        <ul>
+          <li>設計/優化企業帳務流程</li>
+          <li>協助財報完成</li>
+          <li>協助股東會財務報告</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 稅務諮詢與規劃 -->
+    <div class="services-card">
+      <div style="font-size:2.1rem; margin-bottom:5px;">&#128155;</div>
+      <b style="font-size:1.18rem; color:#b17024; margin-bottom:6px;">稅務諮詢與規劃</b>
+      <div style="color:#b4863e; margin-bottom:5px; font-size:0.99rem;">量身節稅方案規劃</div>
+      <div class="card-whitebox">
+        <b style="color:#ad8404;">高效稅務諮詢與稅務規劃</b>
+        <div style="margin-top:7px;"><b style="color:#b8992e;">節稅規劃設計</b></div>
+        <ul>
+          <li>專屬節稅方案設計</li>
+          <li>多元節稅佈局</li>
+          <li>合適節稅流程規劃</li>
+        </ul>
+        <div><b style="color:#008088;">稅務諮詢服務</b></div>
+        <ul>
+          <li>財稅管理諮詢</li>
+          <li>法規變動即時回饋</li>
+          <li>特殊稅務案件協助</li>
+        </ul>
+        <div><b style="color:#326481;">政府補助申請</b></div>
+        <ul>
+          <li>補助申請文件規劃</li>
+          <li>政策解釋與輔導</li>
+          <li>協助資料完整送件</li>
+        </ul>
+        <div><b style="color:#d9782e;">稅務風險專案</b></div>
+        <ul>
+          <li>稅務風險分析</li>
+          <li>合適風險管控</li>
+          <li>專人協助審查與分析</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="food-section page-section" id="food">
+  <div class="food-title">食品工廠登記</div>
+  <div class="food-flex3col">
+    <div class="food-card"><div style="font-size:2.1rem;">🏭</div><b>辦理流程一覽</b><ul style="text-align:left;"><li>廠房統包規劃</li><li>文件準備</li><li>申請送件</li><li>主管機關現場會勘</li><li>通過廠登</li></ul></div>
+    <div class="food-card"><div style="font-size:2.1rem;">📑</div><b>申請文件重點</b><ul style="text-align:left;"><li>廠房地籍資料</li><li>環保法令判釋</li><li>廠房平面配置圖</li><li>食品廠各項細部作業審查</li><li>食品業九大程序書與表單撰寫</li><li>1.衛生管理作業程序書</li><li>2.製程及品質管制作業程序書</li><li>3.倉儲管制作業程序書</li><li>4.運輸管制作業程序書</li><li>5.檢驗與量測管制作業程序書</li><li>6.客訴管制作業程序書</li><li>7.成品回收管制作業程序書</li><li>8.文件管制作業程序書</li><li>9.教育訓練作業程序書</li></ul></div>
+    <div class="food-card"><div style="font-size:2.1rem;">🧑‍💼</div><b>顧問陪同優勢</b><ul style="text-align:left;"><li>建廠規劃輔導</li><li>文件整理與申請</li><li>現場陪同會勘</li><li>完成廠登</li></ul></div>
+  </div>
+</section>
+<section class="loan-section page-section" id="loan">
+  <div class="loan-title">貸款創業補助</div>
+  <div class="loan-flex3col">
+    <div class="loan-card"><div style="font-size:2.1rem;">💰</div><b>補助vs.貸款比較</b><ul style="text-align:left;"><li>資金取得</li><li>利率條件</li><li>核准條件</li><li>額度上限</li></ul></div>
+    <div class="loan-card"><div style="font-size:2.1rem;">📑</div><b>申請所需文件</b><ul style="text-align:left;"><li>基本資料</li><li>財務資料</li><li>營運計劃</li><li>創業資格</li></ul></div>
+    <div class="loan-card"><div style="font-size:2.1rem;">📝</div><b>補助常見問題QA</b><ul style="text-align:left;"><li>信用瑕疵說明</li><li>撥款天數</li><li>彈性資金設計</li></ul></div>
+  </div>
+</section>
+<section class="faq-section page-section" id="faq">
+  <div class="faq-title">常見問題</div>
+  <div class="faq-flex3col">
+    <div class="faq-card"><div style="font-size:2.1rem;">❓</div><b>公司設立Q&A</b><ul style="text-align:left;"><li>設立時程</li><li>資本額建議</li><li>哪些產業需審查</li></ul></div>
+    <div class="faq-card"><div style="font-size:2.1rem;">🧾</div><b>帳務/報稅Q&A</b><ul style="text-align:left;"><li>費用列報規則</li><li>報稅補正流程</li><li>電子/紙本選擇建議</li></ul></div>
+    <div class="faq-card"><div style="font-size:2.1rem;">💬</div><b>其他熱門Q&A</b><ul style="text-align:left;"><li>負責人資格</li><li>簽證必要性</li><li>補助案件查詢</li></ul></div>
+  </div>
+</section>
+<section class="files-section page-section" id="files">
+  <div class="files-title">相關文件下載</div>
+  <div class="files-flex3col">
+    <div class="files-card"><div style="font-size:2.1rem;">📄</div><b>設立/登記檔下載</b><ul style="text-align:left;"><li>公司設立申請表</li><li>工廠登記完整包</li></ul></div>
+    <div class="files-card"><div style="font-size:2.1rem;">📂</div><b>OO/財稅報表</b><ul style="text-align:left;"><li>OOOO</li><li>OOOO表</li></ul></div>
+    <div class="files-card"><div style="font-size:2.1rem;">📝</div><b>下載OO說明</b><ul style="text-align:left;"><li>OOOOO</li><li>表單範例註解</li></ul></div>
+  </div>
+</section>
+<!-- 關於我們介紹區塊 -->
+<section class="about-section page-section" id="about">
+  <div class="about-title">關於我們</div>
+  <div style="color:#5b3f19; font-size:1.07rem; margin-bottom:24px;text-align:center;">
+    日盛國際團隊由資深記帳士、稅務顧問組成，超過20年會計稅務專業服務經驗，致力於成為企業、創業家的長期財會夥伴。堅守「專業・效率・誠信」，協助超過千家客戶圓滿達成財務目標與稅務優化。
+  </div>
+  <div style="width:100%;display:flex;justify-content:center;margin-bottom:24px;">
+    <img src="generated-image-004.jpg" alt="專業團隊形象照" style="max-width:480px;width:100%;border-radius:18px;box-shadow:0 2px 18px rgba(160,160,140,0.14);">
+  </div>
+</section>
+<div class="cta-bar">
+☎ 客服專線：<b>(02) 8994-4966</b>　｜　LINE官方ID：<b>$$$$$</b>　｜　Email：<b>sunrise89944966@gmail.com</b>
+</div>
+<footer>
+&copy; 2025 日盛國際聯合稅務記帳士事務所 | 版權所有
+</footer>
+<script>
+document.querySelectorAll('.nav-bar a').forEach(link=>{
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelectorAll('.nav-bar a').forEach(a=>a.classList.remove('active'));
+    this.classList.add('active');
+    const targetId = this.getAttribute('href').replace('#','');
+    document.querySelectorAll('.page-section').forEach(sec=>{
+      if (sec.id === targetId) { sec.classList.add('active'); }
+      else { sec.classList.remove('active'); }
+    });
+    window.scrollTo({ top: document.querySelector('.header-gold-frame').offsetHeight, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

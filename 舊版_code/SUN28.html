@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日盛國際聯合稅務記帳士事務所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Montserrat:wght@600&display=swap">
+<style>
+:root {
+  --main: #e7ba73;
+  --main-dark: #cebb99;
+  --bg: #f9f7f3;
+  --nav: #fff7e4;
+  --text: #364048;
+  --cta: #6d4c19;
+  --banner-top: #f4e3c0;
+  --service-icon: #fff2d0;
+  --eng-title-color: #b4883e;
+  --gold: #eac771;
+  --gold-shadow: #ffe7ad;
+  --banner-radius: 40px;
+  --section-radius: 28px;
+}
+/* 保留你原本樣式——未指示的均不動，以下只變更框線美化 */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.73;
+}
+header {
+  background: var(--main);
+  color: #65430c;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+  font-weight: bold;
+  border-bottom: 4px solid var(--main-dark);
+  position: relative;
+  box-shadow: 0 1px 18px 0 rgba(160,120,20,0.07);
+  animation: fadeInDown 1s;
+}
+.eng-title {
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--eng-title-color);
+  margin-top: 3px;
+  margin-bottom: 6px;
+  display: block;
+  text-align: center;
+  opacity: 0.93;
+}
+.nav-bar {
+  width: 100%;
+  background: var(--nav);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(200,160,70,0.07);
+  position: sticky;
+  top: 0; z-index:10;
+  flex-wrap: wrap;
+}
+.nav-bar a {
+  flex: none;
+  font-weight: 700;
+  color: var(--cta);
+  margin: 0 18px;
+  padding: 15px 0;
+  text-decoration: none;
+  font-size: 1.12rem;
+  letter-spacing: 2px;
+  transition: color 0.33s, transform 0.3s;
+  position: relative;
+}
+.nav-bar a.active, .nav-bar a:hover {
+  color: #ff9100;
+  border-bottom: 2.5px solid #ff9100;
+  transform: scale(1.07);
+}
+/* ----- BANNER強化大器金色邊框效果 ----- */
+.banner-border {
+  background: #fffbe7;
+  border-radius: var(--banner-radius);
+  box-shadow:
+    0 0 0 8px #ffd98e,
+    0 0 0 12px #fbeab5cc,
+    0 0 0 28px #eac77144,
+    0 18px 90px 0 #eac77122;
+  border: 4px solid #eac771;
+  margin: 48px auto 40px auto;
+  max-width: 1260px;
+  padding: 0;
+  position:relative;
+}
+.banner {
+  background: linear-gradient(120deg, var(--banner-top) 74%, #fffbe5 100%);
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 48px;
+  padding: 54px 10vw 39px 7vw;
+  min-height: 360px;
+  border-radius: 32px;
+}
+/* ----- 各主題區塊金色邊框 ----- */
+.page-section {
+  display: none;
+  transition: opacity 0.35s, transform 0.35s;
+  opacity: 0;
+}
+.page-section.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1.02);
+  z-index: 2;
+  background: #fffbe7;
+  border-radius: var(--section-radius);
+  box-shadow:
+    0 0 0 6px #ffe7ad,
+    0 0 0 13px #eac77130,
+    0 7px 40px 0 #eac77114;
+  border: 3px solid #eac771;
+  margin-top: 38px;
+  animation: fadeInUp 0.8s;
+  position:relative;
+}
+
+/* 以下全部是你的原本內容細節（未變更） */
+.banner-imgbox {
+  flex:1.2 1 340px;
+  max-width: 420px;
+}
+.banner-imgbox img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 3px 18px #eac77135;
+  border:2px solid #ebd8b6;
+  display:block;
+  transition: transform 0.45s, box-shadow 0.5s;
+}
+.banner-imgbox img:hover {
+  transform: scale(1.04) rotate(-2deg);
+  box-shadow: 0 12px 44px 0 #eac77170;
+}
+.banner-content {
+  flex:2 1 320px;
+  min-width:240px;
+}
+.banner-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6d4c19;
+  margin-bottom: 16px;
+  letter-spacing: 1.2px;
+  text-shadow:0 4px 16px #eac77144;
+}
+.banner-txt {
+  font-size: 1.12rem;
+  margin-bottom: 26px;
+  color: #523600;
+  opacity:0.92;
+  line-height: 2.12;
+}
+.banner-cta {
+  display: inline-block;
+  padding: 13px 36px;
+  background: linear-gradient(90deg,#eac771,#ffb74d 68%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  border-radius: 7px;
+  border:none;
+  box-shadow: 0 2px 18px #eac77144;
+  text-decoration: none;
+  transition: background 0.22s, color 0.22s, transform 0.20s;
+  cursor:pointer;
+}
+.banner-cta:hover { background: #f89d18; color:#ffe0ad; transform: scale(1.07);}
+.service-sec { padding: 26px 7vw 0 7vw; }
+.service-title {
+  color: #633f14; font-size:1.4rem; font-weight: 700; margin-bottom: 22px; letter-spacing:2px;
+}
+.service-list {
+  display: flex; flex-wrap: wrap; gap:30px; justify-content: center;
+}
+.service-card {
+  background: var(--service-icon);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(228,180,80,0.11);
+  padding: 26px 26px 20px 26px;
+  min-width:210px; max-width: 255px;
+  flex:1 1 220px;
+  text-align: center;
+  margin-bottom:15px;
+  transition: box-shadow 0.4s, transform 0.4s;
+  opacity: 0;
+  animation: cardPopIn 1.2s forwards;
+}
+.service-card:hover {
+  box-shadow: 0 10px 24px 0 #eac77140;
+  transform: scale(1.04) translateY(-2px);
+}
+.serv-ico {
+  font-size: 2.5rem; color: #e9b000; margin-bottom: 12px;
+}
+.serv-title {
+  font-weight: bold; font-size:1.11rem; color: #7a5a28; margin-bottom:8px;
+}
+.serv-desc {font-size:0.97rem; color:#555;}
+.home-news {
+  background: #f9f6ec; border-radius:12px; margin: 40px 7vw 0 7vw; padding:28px 6vw;
+  box-shadow: 0 1px 7px rgba(180,141,65,0.06);
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards;
+}
+.news-title {
+  color: #6d4c19; font-size:1.25rem;font-weight: bold;margin-bottom:16px;
+  letter-spacing: 1.2px;
+}
+.news-list {margin:0; padding-left:17px;}
+.news-list li {margin-bottom:8px;color:#555;}
+.cta-bar {
+  background: #ffecbc;
+  border-radius:11px;
+  margin: 36px 7vw 0 7vw;
+  padding: 18px 20px;
+  text-align: center;
+  font-size: 1.14rem;
+  font-weight: bold;
+  color:#9d6213;
+  box-shadow:0 1px 4px rgba(230,190,100,0.07);
+  opacity: 0;
+  animation: fadeInUp 1.5s forwards;
+}
+footer {
+  background: var(--main-dark);
+  color: #674f2c;
+  text-align: center; padding: 22px 8px 16px 8px;
+  font-size: 1rem; margin-top:24px;
+  letter-spacing: 2px;
+  border-top: 3px solid #ffe3b1;
+  opacity:0;
+  animation: fadeIn 2s forwards;
+}
+.info-boxes {
+  display: flex; flex-wrap: wrap; gap:24px; margin:18px 0 0 0;
+}
+.info-box {
+  flex:1 1 220px;
+  background: #f8f3e5;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(221,189,129,0.09);
+  padding: 26px 20px 18px 20px;
+  color: #795d2a;
+  font-size: 1.03rem;
+  font-weight: 500;
+  min-width: 220px;
+  max-width: 400px;
+  border: 2px solid #f5e6bc;
+  transition: box-shadow 0.35s, transform 0.35s;
+}
+.info-box:hover {box-shadow:0 8px 30px #eac77122;transform:scale(1.04);}
+@media (max-width:900px){
+  .banner-border {margin:10px;}
+  .banner{flex-direction:column;padding:34px 4vw;gap:18px;}
+  .service-list{flex-direction:column;}
+  .service-card{max-width:100%;}
+  .home-news, .cta-bar, .service-sec{margin-left:3vw;margin-right:3vw;}
+  .info-boxes{flex-direction:column;gap:16px;}
+  .info-box{max-width:100%;}
+}
+@keyframes fadeInDown {from {opacity:0;transform:translateY(-38px);}to {opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp {from {opacity:0;transform:translateY(60px);}to {opacity:1;transform:translateY(0);}}
+@keyframes fadeInLeft {from {opacity:0;transform:translateX(-50px);}to {opacity:1;transform:translateX(0);}}
+@keyframes fadeInRight {from {opacity:0;transform:translateX(50px);}to {opacity:1;transform:translateX(0);}}
+@keyframes fadeIn {from { opacity: 0;}to { opacity: 1;}}
+@keyframes floatTitle {from {transform: translateY(0);}to {transform: translateY(-4px);}}
+@keyframes ctaPop {from {box-shadow:0 2px 8px #eac77133;}to {box-shadow:0 4px 18px #eac77144;}}
+@keyframes cardPopIn {0% { opacity:0; transform:scale(0.94) translateY(55px);}80% { opacity: .6;}100% { opacity:1; transform:scale(1) translateY(0);}}
+@keyframes bannerZoomIn {0% { opacity:0; transform:scale(0.88);}100% { opacity:1; transform:scale(1);}}
+</style>
+</head>
+<body>
+<header>
+日盛國際聯合稅務記帳士事務所
+<span class="eng-title">Sunrise Accounting Office</span>
+</header>
+<nav class="nav-bar">
+<a href="#home" class="active">首頁</a>
+<a href="#services">服務項目</a>
+<a href="#food">食品工廠登記</a>
+<a href="#loan">貸款創業補助</a>
+<a href="#faq">常見問題</a>
+<a href="#files">相關文件下載</a>
+<a href="#about">關於我們</a>
+</nav>
+<!-- BANNER外框 (只包住banner，無多層亂碼) -->
+<div class="banner-border page-section active" id="home">
+<section class="banner">
+<div class="banner-imgbox">
+<img src="cheng-gong-04.jpg" alt="事務所團隊照">
+</div>
+<div class="banner-content">
+<div class="banner-title">讓專業，成就您的財務未來</div>
+<div class="banner-txt">我們擁有多年會計稅務顧問經驗，服務逾千家企業與創業家，以嚴謹、誠信與高效，協助您「帳務零煩惱」。</div>
+<a href="#contact" class="banner-cta">LINE財稅諮詢</a>
+</div>
+</section>
+</div>
+<section class="service-sec page-section" id="services">
+<div class="service-title">專業服務項目</div>
+<div class="service-list">
+<div class="service-card">
+<div class="serv-ico">💼</div>
+<div class="serv-title">公司設立/變更</div>
+<div class="serv-desc">協助新創及成長公司登記設立、變更、依法申請。</div>
+</div>
+<div class="service-card">
+<div class="serv-ico">🧾</div>
+<div class="serv-title">帳務處理與報稅</div>
+<div class="serv-desc">專業記帳、會計報表、營所稅/綜所稅等申報。</div>
+</div>
+<div class="service-card">
+<div class="serv-ico">🤝</div>
+<div class="serv-title">稅務諮詢與節稅</div>
+<div class="serv-desc">量身節稅方案、財務規劃、政府輔導申請。</div>
+</div>
+<div class="service-card">
+<div class="serv-ico">📚</div>
+<div class="serv-title">企業教育訓練</div>
+<div class="serv-desc">開辦稅務法令、帳務、財會管理等實體/線上課程。</div>
+</div>
+</div>
+</section>
+<section class="home-news page-section" id="food">
+<div class="news-title">食品工廠登記</div>
+<div style="color:#6d4c19;">食品工廠登記流程、所需文件及申請資格說明。</div>
+<div class="info-boxes">
+<div class="info-box">
+<b>流程透明全程指引</b><br>
+由專業顧問協助，從文件準備、申辦、現場查驗至正式核准每步都詳細說明，順利完成工廠登記程序。
+</div>
+<div class="info-box">
+<b>必備文件整理</b><br>
+包含土地及產業用地證明、消防與環保資料、負責人/設立申請書、工廠平面配置圖等，提供完整的文件清單。
+</div>
+<div class="info-box">
+<b>多元申請諮詢</b><br>
+不論新創或既有食品廠，均可免費諮詢資格及法規條件，降低申辦難度、避免失敗重複。
+</div>
+</div>
+</section>
+<section class="home-news page-section" id="loan">
+<div class="news-title">貸款創業補助</div>
+<div style="color:#6d4c19;">創業貸款補助及申請協助服務資訊。</div>
+<div class="info-boxes">
+<div class="info-box">
+<b>多元融資方案</b><br>
+政府補助、青創貸款、低利貸款依據創業型態量身規劃，協助企業資金到位。
+</div>
+<div class="info-box">
+<b>申請全程代辦</b><br>
+專人協助整理財務文件、填寫申請書和補助資料，流程簡化迅速。
+</div>
+<div class="info-box">
+<b>專業顧問一對一</b><br>
+針對補助政策和銀行核貸重點解說，大幅提升申請成功率與資金取得速度。
+</div>
+</div>
+</section>
+<section class="home-news page-section" id="faq">
+<div class="news-title">常見問題</div>
+<div style="color:#6d4c19;">各種財稅、公司設立、申報相關問答集整理。</div>
+</section>
+<section class="home-news page-section" id="files">
+<div class="news-title">相關文件下載</div>
+<div style="color:#6d4c19;">
+<ul>
+<li><a href="#" style="color:#ff9100;">公司設立申請表</a></li>
+<li><a href="#" style="color:#ff9100;">食品工廠登記文件</a></li>
+<li><a href="#" style="color:#ff9100;">貸款補助申請書</a></li>
+</ul>
+</div>
+</section>
+<section class="home-news page-section" id="about">
+<div class="news-title">關於我們</div>
+<div style="color:#5b3f19; font-size:1.07rem;">
+日盛國際團隊由資深記帳士、稅務顧問組成，超過20年會計稅務專業服務經驗，致力於成為企業、創業家的長期財會夥伴。堅守「專業・效率・誠信」，協助超過千家客戶圓滿達成財務目標與稅務優化。
+</div>
+</section>
+<div class="cta-bar">
+☎ 客服專線：<b>(02) 8994-4966</b>　｜　LINE官方ID：<b>@jc45104</b>　｜　Email：<b>sunrise89944966@gmail.com</b>
+</div>
+<footer>
+&copy; 2025 日盛國際聯合稅務記帳士事務所 | 版權所有
+</footer>
+<script>
+// 只顯示被導覽選到的主題，其餘隱藏
+document.querySelectorAll('.nav-bar a').forEach(link=>{
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelectorAll('.nav-bar a').forEach(a=>a.classList.remove('active'));
+    this.classList.add('active');
+    // 顯示選定主題，其他全部隱藏
+    const targetId = this.getAttribute('href').replace('#','');
+    document.querySelectorAll('.page-section').forEach(sec=>{
+      if (sec.id === targetId) {
+        sec.classList.add('active');
+      } else {
+        sec.classList.remove('active');
+      }
+    });
+    window.scrollTo({ top: document.querySelector('header').offsetHeight, behavior: 'smooth' });
+  });
+});
+window.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.service-card').forEach((c,i)=>{
+    c.style.animationDelay = (0.19*i+0.5)+'s';
+  });
+  document.querySelectorAll('.home-news.page-section').forEach((n,i)=>{
+    n.style.animationDelay = (1+0.12*i)+'s';
+  });
+  document.querySelector('.cta-bar').style.animationDelay='1.8s';
+  document.querySelector('footer').style.animationDelay='2.3s';
+});
+</script>
+</body>
+</html>

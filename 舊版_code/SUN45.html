@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>日盛國際聯合稅務記帳士事務所</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 引入專業襯線字體與無襯線字體 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;500;700&family=Montserrat:wght@600&display=swap">
+    <style>
+        :root {
+            /* PwC Inspired Color Palette */
+            --primary-orange: #D04A02;
+            --primary-black: #2D2D2D;
+            --accent-gold: #EAC771;
+            --bg-white: #FFFFFF;
+            --bg-light-gray: #F8F8F8;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --nav-bg: #FFFFFF;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --section-padding: 60px 8%;
+            /* 增加側邊內距以在全寬時保持閱讀舒適 */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding-top: 145px;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Navigation (Full Width) --- */
+        .site-header-content {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 95px;
+            z-index: 1010;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--nav-bg);
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .header-image-bar {
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 95px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .header-image-bar img {
+            width: 100vw;
+            max-width: 100%;
+            height: 88px;
+            object-fit: contain;
+            opacity: 0.15;
+        }
+
+        .site-header-title {
+            color: var(--primary-black);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .site-header-eng {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: var(--primary-orange);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-bar {
+            background: var(--nav-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1002;
+            top: 95px;
+            width: 100vw;
+            height: 50px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .nav-bar a {
+            font-weight: 500;
+            color: var(--primary-black);
+            margin: 0 20px;
+            padding: 10px 0;
+            text-decoration: none;
+            font-size: 1.05rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-bar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-bar a.active,
+        .nav-bar a:hover {
+            color: var(--primary-orange);
+        }
+
+        .nav-bar a.active::after,
+        .nav-bar a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Sections & Layout (Full Width) --- */
+        .page-section {
+            display: none;
+            opacity: 0;
+            padding: var(--section-padding);
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 700;
+            color: var(--primary-black);
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        /* --- Home Section Styling (Full Width Responsive) --- */
+        #home .home-flex-layout {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .home-carousel-container {
+            flex: 1 1 55%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .home-carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .home-carousel-image.active {
+            opacity: 1;
+        }
+
+        .home-carousel-caption {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.7s ease-out;
+            text-align: center;
+            pointer-events: none;
+            width: 85%;
+        }
+
+        .home-carousel-caption.visible {
+            opacity: 1;
+        }
+
+        .home-cards-container {
+            flex: 1 1 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        #home .page-card {
+            background: var(--bg-light-gray);
+            border-left: 5px solid var(--primary-orange);
+            padding: 30px;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+            cursor: default;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #home .page-card:hover {
+            background: #fff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            transform: translateX(10px);
+        }
+
+        .card-main-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.4rem;
+            color: var(--primary-black);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: var(--primary-orange);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .page-card-inner ul {
+            padding-left: 1.2em;
+            margin: 0;
+        }
+
+        .page-card-inner ul li {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        /* --- Service Cards Section (Full Width Grid) --- */
+        .services-3col-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .services-card {
+            background: #fff;
+            border: 1px solid #EEE;
+            padding: 50px 40px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .services-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .services-card-inner {
+            margin-top: 30px;
+        }
+
+        .services-card-inner ul {
+            padding-left: 1.2em;
+        }
+
+        .services-card-inner ul li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        /* --- About Section (Full Width) --- */
+        .about-flexbox {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-imgbox {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-imgbox img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 2px;
+            box-shadow: 30px 30px 0 var(--bg-light-gray);
+        }
+
+        .about-textbox {
+            flex: 1.2;
+        }
+
+        .about-desc-li {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 2;
+        }
+
+        .about-desc-li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-orange);
+        }
+
+        /* --- FAQ (Centering Content in Full Width) --- */
+        .faq-list-box {
+            background: var(--bg-light-gray);
+            padding: 60px;
+            border-radius: 4px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-ans-box {
+            background: #fff;
+            border: 1px solid #EEE;
+            padding: 60px;
+            border-radius: 4px;
+            display: none;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        /* --- CTA & Footer (Always Full Width) --- */
+        .cta-bar {
+            background: var(--primary-black);
+            color: #FFF;
+            padding: 80px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 0;
+            line-height: 2.2;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background: #1A1A1A;
+            color: #888;
+            padding: 40px;
+            text-align: center;
+            font-size: 1rem;
+            border-top: 1px solid #333;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* --- RWD Adjustments (Responsive Logic) --- */
+        @media (max-width: 1200px) {
+            :root {
+                --section-padding: 50px 5%;
+            }
+
+            .about-flexbox {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .site-header-title {
+                font-size: 1.5rem;
+            }
+
+            .page-section-title {
+                font-size: 2rem;
+            }
+
+            .home-carousel-caption {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 40px 20px;
+            }
+
+            body {
+                padding-top: 105px;
+            }
+
+            .site-header-content,
+            .header-image-bar {
+                height: 105px;
+                padding: 20px 60px 0 60px;
+                box-sizing: border-box;
+            }
+
+            .site-header-title {
+                font-size: 1.15rem;
+                line-height: 1.2;
+            }
+
+            #home .home-flex-layout {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .home-carousel-container,
+            .home-cards-container {
+                width: 100%;
+                flex: none;
+            }
+
+            .about-flexbox {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .about-imgbox img {
+                box-shadow: 15px 15px 0 var(--bg-light-gray);
+            }
+
+            .services-3col-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                width: 280px;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 80px;
+                transition: var(--transition-smooth);
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+                background: #FFF;
+            }
+
+            .nav-bar.is-open {
+                left: 0;
+            }
+
+            .nav-bar a {
+                width: 100%;
+                padding: 15px 45px;
+                margin: 0;
+                border-bottom: 1px solid #EEE;
+                box-sizing: border-box;
+                text-align: left;
+            }
+
+            .hamburger-menu {
+                display: block;
+                position: fixed;
+                top: 35px;
+                left: 20px;
+                z-index: 1030;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .hamburger-icon span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: var(--primary-black);
+                margin-bottom: 6px;
+                transition: var(--transition-smooth);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header外框圖 (大氣背景化) -->
+    <div class="header-image-bar">
+        <img src="Wei-Ming-Ming-008-005SVG.svg" alt="專業圖騰" draggable="false">
+    </div>
+    <!-- header主標 -->
+    <div class="site-header-content">
+        <div class="site-header-title">日盛國際聯合稅務記帳士事務所</div>
+        <span class="site-header-eng">Sunrise Accounting Office</span>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" aria-label="Toggle Menu">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hamburger-text" style="display:none;">點我</div>
+    </button>
+
+    <nav class="nav-bar">
+        <a href="#home" class="active">首頁</a>
+        <a href="#services">服務項目</a>
+        <a href="#food">食品工廠登記</a>
+        <a href="#loan">貸款創業補助</a>
+        <a href="#faq">常見問題</a>
+        <a href="#files">相關文件下載</a>
+        <a href="#about">關於我們</a>
+    </nav>
+
+    <div class="nav-overlay"></div>
+
+    <!-- 首頁 -->
+    <div class="page-section active" id="home">
+        <div class="page-section-title">專業財稅諮詢，點亮您的卓越事業</div>
+        <div class="home-flex-layout">
+            <!-- Left: Carousel -->
+            <div class="home-carousel-container">
+                <img src="home-02.jpg" class="home-carousel-image active" alt="專業服務形象圖1">
+                <img src="of-001.jpg" class="home-carousel-image" alt="專業服務形象圖2">
+                <img src="of-002.png" class="home-carousel-image" alt="專業服務形象圖3">
+                <img src="of-003.jpg" class="home-carousel-image" alt="專業服務形象圖4">
+                <img src="of-004.jpg" class="home-carousel-image" alt="專業服務形象圖5">
+                <div class="home-carousel-caption"></div>
+            </div>
+            <!-- Right: Cards -->
+            <div class="home-cards-container">
+                <div class="page-card">
+                    <div class="card-main-title">20年會計稅務經驗</div>
+                    <div class="card-desc">服務逾千家企業與創業家</div>
+                    <div class="page-card-inner">
+                        <ul>
+                            <li>專業財會規劃</li>
+                            <li>節稅策略建議</li>
+                            <li>客製化帳務服務</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="page-card">
+                    <div class="card-main-title">嚴謹誠信高效</div>
+                    <div class="card-desc">財稅零煩惱，創業好夥伴</div>
+                    <div class="page-card-inner">
+                        <ul>
+                            <li>快速設立、變更公司</li>
+                            <li>即時會計/稅務諮詢</li>
+                            <li>法律輔導</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="page-card">
+                    <div class="card-main-title">一站式整合服務</div>
+                    <div class="card-desc">從工廠登記到創業補助的完整支援</div>
+                    <div class="page-card-inner">
+                        <ul>
+                            <li>食品工廠登記輔導</li>
+                            <li>青年創業貸款申辦</li>
+                            <li>政府補助計畫諮詢</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 服務項目 -->
+    <div class="section-services page-section" id="services">
+        <div class="page-section-title">服務項目</div>
+        <div class="services-3col-layout">
+            <!-- 公司/行號設立變更 -->
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">💼</div>
+                <div class="services-card-main-title card-main-title">公司、行號設立/變更</div>
+                <div class="services-card-desc card-desc">協助公司/行號開設登記、變更</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li style="color:var(--primary-black);font-weight:bold;margin-bottom:10px;">我們的核心服務</li>
+                        <li><strong>公司設立流程</strong>
+                            <ul>
+                                <li>新創公司流程規劃</li>
+                                <li>名稱預查與登記申請</li>
+                                <li>各類預查與登記申請</li>
+                                <li>稅務規劃輔導</li>
+                            </ul>
+                        </li>
+                        <li><strong>公司變更服務</strong>
+                            <ul>
+                                <li>名稱變更、地址遷移</li>
+                                <li>負責人異動</li>
+                                <li>登記資料異動、資本額調整</li>
+                            </ul>
+                        </li>
+                        <li><strong>營業登記＆特殊申請</strong>
+                            <ul>
+                                <li>個人行號設立</li>
+                                <li>合夥營業登記</li>
+                                <li>VIP全面性稅務規劃</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 帳務處理與報稅 -->
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📄</div>
+                <div class="services-card-main-title card-main-title">帳務處理與報稅</div>
+                <div class="services-card-desc card-desc">專業帳務與稅務申報服務</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li style="color:var(--primary-black);font-weight:bold;margin-bottom:10px;">專業帳務與報稅服務</li>
+                        <li><strong>財務報表製作</strong>
+                            <ul>
+                                <li>資產負債表</li>
+                                <li>損益表</li>
+                                <li>現金流量表</li>
+                            </ul>
+                        </li>
+                        <li><strong>稅務/記帳服務</strong>
+                            <ul>
+                                <li>公司營所稅/營業稅申報</li>
+                                <li>綜合所得稅申報</li>
+                                <li>扣繳/二代健保申報</li>
+                            </ul>
+                        </li>
+                        <li><strong>會計制度服務</strong>
+                            <ul>
+                                <li>設計/優化企業帳務流程</li>
+                                <li>協助財報完成</li>
+                                <li>協助股東會財務報告</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 稅務諮詢與規劃 -->
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📈</div>
+                <div class="services-card-main-title card-main-title">稅務諮詢與規劃</div>
+                <div class="services-card-desc card-desc">量身節稅方案規劃</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li style="color:var(--primary-black);font-weight:bold;margin-bottom:10px;">高效稅務諮詢與稅務規劃</li>
+                        <li><strong>節稅規劃設計</strong>
+                            <ul>
+                                <li>專屬節稅方案設計</li>
+                                <li>多元節稅佈局</li>
+                                <li>合適節稅流程規劃</li>
+                            </ul>
+                        </li>
+                        <li><strong>稅務諮詢服務</strong>
+                            <ul>
+                                <li>財稅制度管理諮詢</li>
+                                <li>法規變動即時回饋</li>
+                                <li>特殊稅務案件協助</li>
+                            </ul>
+                        </li>
+                        <li><strong>政府補助申請</strong>
+                            <ul>
+                                <li>補助申請文件規劃</li>
+                                <li>政策解釋與輔導</li>
+                                <li>協助資料完整送件</li>
+                            </ul>
+                        </li>
+                        <li><strong>稅務風險專案</strong>
+                            <ul>
+                                <li>稅務風險分析</li>
+                                <li>合適風險管控</li>
+                                <li>專人協助審查與分析</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 食品工廠登記 -->
+    <div class="page-section" id="food">
+        <div class="page-section-title">食品工廠登記</div>
+        <div class="services-3col-layout">
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🏭</div>
+                <div class="card-main-title">辦理流程一覽</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>廠房統包規劃</li>
+                        <li>文件準備</li>
+                        <li>申請送件</li>
+                        <li>主管機關現場會勘</li>
+                        <li>通過廠登</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📑</div>
+                <div class="card-main-title">申請文件重點</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>廠房地籍資料</li>
+                        <li>環保法令判釋</li>
+                        <li>廠場平面配置圖</li>
+                        <li>食品廠各項細部作業審查</li>
+                        <li style="margin-top:10px; color:var(--primary-orange);font-weight:bold;">九大程序書諮詢：
+                            <ul>
+                                <li>衛生管理作業程序書</li>
+                                <li>製程及品質管紀錄儀程序書</li>
+                                <li>倉儲管制作業程序書</li>
+                                <li>運輸管制作業程序書</li>
+                                <li>檢驗與量測管制作業程序書</li>
+                                <li>客訴管制作業程序書</li>
+                                <li>成品回收管制作業程序書</li>
+                                <li>文件管制作業程序書</li>
+                                <li>教育訓練作業程序書</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🤝</div>
+                <div class="card-main-title">顧問陪同優勢</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>建廠規劃輔導</li>
+                        <li>文件整理與申請</li>
+                        <li>現場陪同會勘</li>
+                        <li>完成廠登</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 貸款創業補助 -->
+    <div class="page-section" id="loan">
+        <div class="page-section-title">貸款創業補助</div>
+        <div class="services-3col-layout">
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">💰</div>
+                <div class="card-main-title">補助vs貸款比較</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>資金取得管道與來源</li>
+                        <li>利率與償還條件分析</li>
+                        <li>核准核心要素與條件</li>
+                        <li>額度上限與資金撥款</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📝</div>
+                <div class="card-main-title">申請所需文件</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>基本資料與營運計劃</li>
+                        <li>財務報表與資產整理</li>
+                        <li>創業資格審認與公文</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">💡</div>
+                <div class="card-main-title">專業規劃建議</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>信用條件優化建議</li>
+                        <li>資金配置規劃與設計</li>
+                        <li>補助結案與撥款輔導</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="page-section" id="faq">
+        <div class="page-section-title">常見問題</div>
+        <div class="faq-list-box" id="faq-main-list">
+            <div class="faq-list-title">公司設立</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="1">公司設立需要準備哪些文件？</li>
+                <li data-faq="2">公司設立流程需要多久？</li>
+                <li data-faq="3">初創公司資本額建議多少？</li>
+                <li data-faq="4">老闆一定要有會計背景嗎？</li>
+            </ul>
+            <div class="faq-list-title">帳務報稅</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="5">營業稅和所得稅有何不同？</li>
+                <li data-faq="6">營運初期有哪些稅務申報義務？</li>
+                <li data-faq="7">如何降低公司帳務/稅務的出錯率？</li>
+                <li data-faq="8">虧損或暫停營業還需要報稅嗎？</li>
+            </ul>
+            <div class="faq-list-title">其他</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="9">租用辦公室與在家辦公的帳務差異？</li>
+                <li data-faq="10">要如何合法節稅？</li>
+            </ul>
+        </div>
+        <!-- FAQ Ans -->
+        <div class="faq-ans-box" id="faq-ans-1">
+            <div class="faq-ans-title">公司設立需要準備哪些文件？</div>
+            <div class="faq-ans-text">公司設立通常需要：負責人及股東身分證明文件、印章、資本額證明、辦公地點租約／房屋權狀、設立章程、委託書及申請書。部分行業需額外主管機關核准文件。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-2">
+            <div class="faq-ans-title">公司設立流程需要多久？</div>
+            <div class="faq-ans-text">命名預查約2-3天，設立登記文件準備1-3天，送件後審查5-7天，部分行業需額外審查時間，一般約1-2週完成。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-3">
+            <div class="faq-ans-title">初創公司資本額建議多少？</div>
+            <div class="faq-ans-text">資本額無硬性規定，但應符合營運需求與資金週轉，常見10~50萬；如需補助或大型合約可酌增。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-4">
+            <div class="faq-ans-title">老闆一定要有會計背景嗎？</div>
+            <div class="faq-ans-text">不一定。可自學基礎財務、或交由專業記帳士協助，創業主將重心放管理與業務即可。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-5">
+            <div class="faq-ans-title">營業稅和所得稅有何不同？</div>
+            <div class="faq-ans-text">營業稅對銷貨及勞務的稅額，所得稅針對企業全年盈餘，兩者報稅方式及時點不同。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-6">
+            <div class="faq-ans-title">營運初期有哪些稅務申報義務？</div>
+            <div class="faq-ans-text">包括雙月營業稅、年度所得稅申報、扣繳、二代健保等；請依行業別補充。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-7">
+            <div class="faq-ans-title">如何降低公司帳務/稅務的出錯率？</div>
+            <div class="faq-ans-text">制定SOP，定期盤點、數位會計系統＋外部審核最有效。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-8">
+            <div class="faq-ans-title">虧損或暫停營業還需要報稅嗎？</div>
+            <div class="faq-ans-text">要。無論盈虧或暫停都需依法報稅，避免罰鍰或註銷。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-9">
+            <div class="faq-ans-title">租用辦公室與在家辦公的帳務差異？</div>
+            <div class="faq-ans-text">辦公室可合法申報租金、設立、折舊等。在家受限住宅、報稅發票亦有限制。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-10">
+            <div class="faq-ans-title">要如何合法節稅？</div>
+            <div class="faq-ans-text">善用各項營業支出、合規列帳、申報折舊並搭配專業規劃，誠信申報。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+    </div>
+
+    <!-- 相關文件下載 -->
+    <div class="page-section" id="files">
+        <div class="page-section-title">資源下載</div>
+        <div class="services-3col-layout">
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🏛️</div>
+                <div class="card-main-title">政府登記文件</div>
+                <div class="services-card-inner">
+                    <ul style="list-style:none; padding:0;">
+                        <li><a href="https://www.economic.ntpc.gov.tw/List/company-registration" target="_blank"
+                                style="color:var(--primary-orange);">公司登記連結 🔗</a></li>
+                        <li><a href="https://www.economic.ntpc.gov.tw/List/bussiness-registration2" target="_blank"
+                                style="color:var(--primary-orange);">商業登記連結 🔗</a></li>
+                        <li><a href="https://www.economic.ntpc.gov.tw/List/factory-registration" target="_blank"
+                                style="color:var(--primary-orange);">工廠登記連結 🔗</a></li>
+                        <li><a href="https://www.economic.ntpc.gov.tw/Custom/%E5%B7%A5%E5%BB%A0%E7%99%BB%E8%A8%98-1"
+                                target="_blank" style="color:var(--primary-orange);">工廠登記應備書件 🔗</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📑</div>
+                <div class="card-main-title">稅務知識庫</div>
+                <div class="services-card-inner">
+                    <ul style="list-style:none; padding:0;">
+                        <li><a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/national/business-tax"
+                                target="_blank" style="color:var(--primary-orange);">營業稅節稅手冊 🔗</a></li>
+                        <li><a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/national/profit-seeking-enterprise-income-tax"
+                                target="_blank" style="color:var(--primary-orange);">營所稅節稅手冊 🔗</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">⚖️</div>
+                <div class="card-main-title">創業資源與合約</div>
+                <div class="services-card-inner">
+                    <ul style="list-style:none; padding:0;">
+                        <li><a href="WorkList_20250306.pdf" download style="color:var(--primary-orange);">勞動合約範本 🔗</a>
+                        </li>
+                        <li><a href="book_001.docx" download style="color:var(--primary-orange);">股東協議書範本 🔗</a></li>
+                        <li style="color:var(--text-muted);">會議記錄範本</li>
+                        <li style="color:var(--text-muted);">政府補助資源連結</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 關於我們 -->
+    <div class="page-section" id="about">
+        <div class="page-section-title">關於我們</div>
+        <div class="about-flexbox">
+            <div class="about-imgbox">
+                <img src="about-01.png" alt="團隊專業形象">
+            </div>
+            <div class="about-textbox">
+                <ul>
+                    <li class="about-desc-li">日盛國際團隊由資深記帳士、稅務顧問組成，</li>
+                    <li class="about-desc-li">超過 20 年會計稅務專業服務經驗，</li>
+                    <li class="about-desc-li">致力於成為企業與創業家的長期財會夥伴。</li>
+                    <li class="about-desc-li">堅守「專業．效率．誠信」，協助超過千家客戶圓滿達成財務目標與稅務優化。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-bar">
+        ☎ 專業諮詢專線：(02) 8994-4966<br>
+        LINE官方ID | Email：sunrise89944966@gmail.com
+    </div>
+
+    <footer>
+        &copy; 2025 日盛國際聯合稅務記帳士事務所 | 版權所有 | 風格啟發自 PwC Taiwan
+    </footer>
+
+    <script>
+        // --- 輪播邏輯 ---
+        let homeCarouselInterval;
+        function startHomeCarousel() {
+            if (homeCarouselInterval) clearInterval(homeCarouselInterval);
+            const carousel = document.querySelector('.home-carousel-container');
+            if (!carousel) return;
+            const images = carousel.querySelectorAll('.home-carousel-image');
+            const caption = carousel.querySelector('.home-carousel-caption');
+            const slogans = ['精密規劃您的財務藍圖，讓每分資源發揮最大效益。', '從選址到建廠一站式服務，為您打造最優生產環境。', '洞悉最新稅務法規，提供專業建議，為您聰明節稅。', '輔導您通過繁瑣的食品廠登，快速啟動您的美味事業。', '媒合最佳政府補助與貸款方案，做您創業路上的堅實後盾。'];
+            let currentIndex = 0;
+
+            images.forEach((img, index) => {
+                img.classList.remove('active');
+                if (index === 0) img.classList.add('active');
+            });
+            caption.textContent = slogans[0];
+            setTimeout(() => { caption.classList.add('visible'); }, 100);
+
+            homeCarouselInterval = setInterval(() => {
+                caption.classList.remove('visible');
+                setTimeout(() => {
+                    images[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add('active');
+                    caption.textContent = slogans[currentIndex];
+                    setTimeout(() => { caption.classList.add('visible'); }, 500);
+                }, 700);
+            }, 7000);
+        }
+
+        // --- 導覽切換 ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-bar a');
+            const sections = document.querySelectorAll('.page-section');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navBar = document.querySelector('.nav-bar');
+            const navOverlay = document.querySelector('.nav-overlay');
+
+            function toggleMenu() {
+                navBar.classList.toggle('is-open');
+                navOverlay.classList.toggle('is-active');
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    sections.forEach(s => s.classList.remove('active'));
+                    document.getElementById(targetId).classList.add('active');
+                    if (targetId === 'home') startHomeCarousel();
+                    if (navBar.classList.contains('is-open')) toggleMenu();
+                    window.scrollTo(0, 0);
+                });
+            });
+
+            hamburger.addEventListener('click', toggleMenu);
+            navOverlay.addEventListener('click', toggleMenu);
+            startHomeCarousel();
+        });
+
+        // --- FAQ 顯示控制 ---
+        function showFaqAns(num) {
+            document.getElementById('faq-main-list').style.display = 'none';
+            document.querySelectorAll('.faq-ans-box').forEach(box => box.style.display = 'none');
+            const target = document.getElementById('faq-ans-' + num);
+            if (target) target.style.display = 'block';
+        }
+
+        function showFaqList() {
+            document.getElementById('faq-main-list').style.display = 'block';
+            document.querySelectorAll('.faq-ans-box').forEach(box => box.style.display = 'none');
+        }
+
+        document.querySelectorAll('.faq-question-list li').forEach(li => {
+            li.addEventListener('click', function () { showFaqAns(this.dataset.faq); });
+        });
+    </script>
+</body>
+
+</html>
