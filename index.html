@@ -1346,7 +1346,7 @@
         <div class="page-section-title">關於我們</div>
         <div class="about-flexbox">
             <div class="about-imgbox">
-                <img src="陳炫銘09-02.png" alt="團隊專業形象">
+                <img src="陳炫銘09-01.png" alt="團隊專業形象">
             </div>
             <div class="about-textbox">
                 <ul>
@@ -1428,7 +1428,7 @@
 
         <div class="invoice-scroll-wrapper">
             <div class="invoice-outer">
-                <div class="invoice-paper" id="invoice-capture-area" style="border-top: none;">
+                <div class="invoice-paper" id="invoice-capture-area">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                         <div style="font-size: 1.5rem; letter-spacing: 2px;">AB 51685168</div>
                         <div style="text-align: center; flex: 1;">
@@ -1451,7 +1451,7 @@
                         <div style="display: flex; align-items: flex-end; margin-bottom: 6px;">
                             <label style="letter-spacing: 12px; min-width: 90px;">買受人：</label>
                             <div class="inv-write-text" id="v-buyer"
-                                style="border-bottom: 1px solid #000; flex: 1; padding: 0 10px; min-height: 25px;">
+                                style="flex: 1; padding: 0 10px; min-height: 25px;">
                             </div>
                         </div>
                         <div style="display: flex; align-items: center; margin-bottom: 6px;" id="v-taxid-row">
@@ -1479,7 +1479,7 @@
                         </div>
                     </div>
 
-                    <table class="main-table">
+                    <table class="main-table" style="width: 770px; border-right: none;">
                         <colgroup>
                             <col style="width: 200px;">
                             <col style="width: 80px;">
@@ -1494,7 +1494,7 @@
                                 <th>單 價</th>
                                 <th>金 額</th>
                                 <th
-                                    style="padding: 2px 15px; border: 1px solid #000; border-right: none; background-color: #fafafa;">
+                                    style="padding: 2px 15px; border: 1px solid #000; background-color: #fafafa; border-right: 2px solid #000;">
                                     <div style="display: flex; justify-content: space-between;">
                                         <span>備</span><span>註</span>
                                     </div>
@@ -1505,9 +1505,9 @@
                             <script>
                                 for (let i = 0; i < 7; i++) {
                                     let remarkHtml = '';
-                                    if (i === 0) remarkHtml = '<td rowspan="2" style="border: 1px solid #000; border-right: none; vertical-align: top; padding: 5px;"></td>';
-                                    if (i === 2) remarkHtml = '<td style="font-size: 0.8rem; text-align: center; background: #fafafa; border: 1px solid #000; border-right: none; letter-spacing: 1px; height: 25px;">營業人蓋用統一發票專用章</td>';
-                                    if (i === 3) remarkHtml = '<td rowspan="8" style="text-align: center; vertical-align: middle; border: 1px solid #000; border-right: none;"><div class="seal-oval">這裏蓋<br>發票章</div></td>';
+                                    if (i === 0) remarkHtml = '<td rowspan="2" style="border: 1px solid #000; border-right: 2px solid #000; vertical-align: top; padding: 5px;"></td>';
+                                    if (i === 2) remarkHtml = '<td style="font-size: 0.8rem; text-align: center; background: #fafafa; border: 1px solid #000; border-right: 2px solid #000; letter-spacing: 1px; height: 25px;">營業人蓋用統一發票專用章</td>';
+                                    if (i === 3) remarkHtml = '<td rowspan="8" style="text-align: center; vertical-align: middle; border: 1px solid #000; border-right: 2px solid #000;"><div class="seal-oval" style="border: 2px solid #e74c3c;">這裏蓋<br>發票章</div></td>';
                                     document.write(`
                                         <tr style="height: 35px;">
                                             <td class="inv-write-text" style="text-align: left; padding-left: 10px;"></td>
