@@ -838,6 +838,15 @@
         }
 
         @media print {
+            @page {
+                margin: 0;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background: #fff;
+                margin: 1cm !important;
+            }
 
             .nav-bar,
             .site-header-content,
@@ -852,16 +861,11 @@
                 display: none !important;
             }
 
-            body {
-                padding-top: 0 !important;
-                background: #fff;
-            }
-
             #invoice {
                 display: block !important;
                 opacity: 1 !important;
                 padding: 0 !important;
-                background: #fff;
+                background: #fff !important;
             }
 
             .page-section {
@@ -874,13 +878,14 @@
                 width: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                background: #fff;
+                background: #fff !important;
             }
 
             #invoice .invoice-paper {
                 box-shadow: none !important;
                 border: 2px solid #99CBCB !important;
                 padding: 15px 30px !important;
+                background: #fff !important;
             }
         }
     </style>
