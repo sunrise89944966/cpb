@@ -1858,8 +1858,8 @@
                 document.getElementById('row-tax-3').style.display = 'table-row';
 
                 // 動態顯示「(應填)」提示
-                if (document.getElementById('hint-taxid')) document.getElementById('hint-taxid').style.display = 'inline';
-                if (document.getElementById('hint-buyer')) document.getElementById('hint-buyer').style.display = 'inline';
+                document.getElementById('hint-taxid').style.display = 'inline';
+                document.getElementById('hint-buyer').style.display = 'inline';
             } else {
                 const total = Math.round(totalAmt);
                 document.getElementById('v-title').innerText = '統 一 發 票 (二聯式)';
