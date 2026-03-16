@@ -647,7 +647,7 @@
 
         #invoice .form-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
             margin-bottom: 20px;
             text-align: left;
@@ -1464,6 +1464,15 @@
                     <input type="text" id="in-buyer" class="form-control" placeholder="公司或行號名稱"
                         oninput="updateInvoiceUI()">
                 </div>
+                <div class="form-group" id="group-tax-type">
+                    <label>營業稅 <small id="hint-tax-type"
+                            style="color: #666; font-weight: normal; font-size: 0.85rem;">(應填)</small></label>
+                    <select class="form-control" id="in-tax-type" onchange="updateInvoiceUI()">
+                        <option value="1">應稅 5%</option>
+                        <option value="2">零稅率</option>
+                        <option value="3">免稅</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label>日期 <small style="color: #666; font-weight: normal; font-size: 0.85rem;">(應填)</small></label>
                     <input type="date" id="in-date" class="form-control" onchange="updateInvoiceUI()">
@@ -1655,7 +1664,7 @@
 
     <div class="cta-bar">
         ☎ 專業諮詢專線：(02) 8994-4966<br>
-        LINE官方ID | Email：sunrise89944966@gmail.com
+        LINE官方ID：加入0958046985 | Email：sunrise89944966@gmail.com
     </div>
 
     <footer>
@@ -1844,15 +1853,33 @@
             });
 
             if (type === '3') {
+                const taxType = document.getElementById('in-tax-type').value;
                 const sales = Math.round(totalAmt);
-                const tax = Math.round(sales * 0.05);
+                let tax = 0;
+
+                // 清除所有稅別勾選
+                document.getElementById('v3-tax-v').innerText = '';
+                document.getElementById('v3-tax-zero-v').innerText = '';
+                document.getElementById('v3-tax-exempt-v').innerText = '';
+
+                if (taxType === '1') { // 應稅 5%
+                    tax = Math.round(sales * 0.05);
+                    document.getElementById('v3-tax-v').innerText = sales > 0 ? 'V' : '';
+                } else if (taxType === '2') { // 零稅率
+                    tax = 0;
+                    document.getElementById('v3-tax-zero-v').innerText = sales > 0 ? 'V' : '';
+                } else if (taxType === '3') { // 免稅
+                    tax = 0;
+                    document.getElementById('v3-tax-exempt-v').innerText = sales > 0 ? 'V' : '';
+                }
+
                 const total = sales + tax;
                 document.getElementById('v-title').innerText = '統 一 發 票 (三聯式)';
                 document.getElementById('v-sales-3').innerText = sales > 0 ? sales.toLocaleString() : '';
-                document.getElementById('v-tax-3').innerText = tax > 0 ? tax.toLocaleString() : '';
+                document.getElementById('v-tax-3').innerText = tax > 0 ? tax.toLocaleString() : (sales > 0 && (taxType === '2' || taxType === '3') ? '0' : '');
                 document.getElementById('v-total').innerText = total > 0 ? total.toLocaleString() : '';
                 document.getElementById('v-chinese').innerHTML = generateChineseHTML(total);
-                document.getElementById('v3-tax-v').innerText = total > 0 ? 'V' : '';
+
                 document.getElementById('v-taxid-row').style.visibility = 'visible';
                 document.getElementById('row-sales-3').style.display = 'table-row';
                 document.getElementById('row-tax-3').style.display = 'table-row';
@@ -1860,8 +1887,10 @@
                 // 動態顯示「(應填)」提示
                 document.getElementById('hint-taxid').innerText = '(應填)';
                 document.getElementById('hint-buyer').innerText = '(應填)';
-                if (document.getElementById('hint-taxid')) document.getElementById('hint-taxid').style.display = 'inline';
-                if (document.getElementById('hint-buyer')) document.getElementById('hint-buyer').style.display = 'inline';
+                document.getElementById('hint-tax-type').innerText = '(應填)';
+                document.getElementById('hint-taxid').style.display = 'inline';
+                document.getElementById('hint-buyer').style.display = 'inline';
+                document.getElementById('group-tax-type').style.display = 'flex';
             } else {
                 const total = Math.round(totalAmt);
                 document.getElementById('v-title').innerText = '統 一 發 票 (二聯式)';
@@ -1871,9 +1900,15 @@
                 document.getElementById('row-sales-3').style.display = 'none';
                 document.getElementById('row-tax-3').style.display = 'none';
 
+                // 二聯式邏輯：清除三聯式專用勾選
+                document.getElementById('v3-tax-v').innerText = '';
+                document.getElementById('v3-tax-zero-v').innerText = '';
+                document.getElementById('v3-tax-exempt-v').innerText = '';
+
                 // 動態顯示「(免填)」提示
                 document.getElementById('hint-taxid').innerText = '(免填)';
                 document.getElementById('hint-buyer').innerText = '(免填)';
+                document.getElementById('group-tax-type').style.display = 'none';
             }
 
             document.getElementById('v-buyer').innerText = buyer;
