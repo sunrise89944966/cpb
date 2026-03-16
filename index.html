@@ -1858,6 +1858,8 @@
                 document.getElementById('row-tax-3').style.display = 'table-row';
 
                 // 動態顯示「(應填)」提示
+                document.getElementById('hint-taxid').innerText = '(應填)';
+                document.getElementById('hint-buyer').innerText = '(應填)';
                 if (document.getElementById('hint-taxid')) document.getElementById('hint-taxid').style.display = 'inline';
                 if (document.getElementById('hint-buyer')) document.getElementById('hint-buyer').style.display = 'inline';
             } else {
@@ -1868,6 +1870,10 @@
                 document.getElementById('v-taxid-row').style.visibility = 'hidden';
                 document.getElementById('row-sales-3').style.display = 'none';
                 document.getElementById('row-tax-3').style.display = 'none';
+
+                // 動態顯示「(免填)」提示
+                document.getElementById('hint-taxid').innerText = '(免填)';
+                document.getElementById('hint-buyer').innerText = '(免填)';
             }
 
             document.getElementById('v-buyer').innerText = buyer;
