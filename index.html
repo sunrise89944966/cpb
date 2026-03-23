@@ -976,7 +976,25 @@
                 background: #fff !important;
             }
         }
-    </style>
+    
+        /* --- Dropdown Menu Styles --- */
+        .nav-item-dropdown { position: relative; display: flex; align-items: center; }
+        .nav-item-dropdown .nav-dropdown-trigger { margin: 0 20px; text-decoration: none; color: var(--primary-black); font-weight: 500; font-size: 1.05rem; transition: var(--transition-smooth); position: relative; padding: 10px 0; }
+        .nav-item-dropdown .nav-dropdown-trigger::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-orange); transition: var(--transition-smooth); }
+        .nav-item-dropdown:hover .nav-dropdown-trigger { color: var(--primary-orange); }
+        .nav-item-dropdown:hover .nav-dropdown-trigger::after { width: 100%; }
+        .nav-dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1050; top: 100%; left: 20px; border-radius: 4px; border: 1px solid #eee; padding: 10px 0; }
+        .nav-dropdown-content a { color: var(--primary-black) !important; padding: 12px 25px !important; margin: 0 !important; font-size: 0.95rem !important; border-bottom: none !important; display: block !important; position: relative; }
+        .nav-dropdown-content a::after { display: none !important; }
+        .nav-dropdown-content a:hover { background-color: var(--bg-light-gray); color: var(--primary-orange) !important; }
+        .nav-item-dropdown:hover .nav-dropdown-content { display: block; }
+        @media (max-width: 768px) {
+            .nav-item-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+            .nav-item-dropdown .nav-dropdown-trigger { width: 100%; padding: 15px 45px; margin: 0; border-bottom: 1px solid #EEE; box-sizing: border-box; text-align: left; }
+            .nav-dropdown-content { position: static; box-shadow: none; display: block; background: #fdfdfd; border: none; padding: 0; width: 100%; }
+            .nav-dropdown-content a { padding: 12px 65px !important; border-bottom: 1px solid #EEE !important; }
+        }
+</style>
 </head>
 
 <body>
@@ -1006,8 +1024,16 @@
         <a href="#food">食品工廠登記</a>
         <a href="#loan">貸款創業補助</a>
         <a href="#faq">常見問題</a>
-        <a href="#files">相關文件下載</a>
-        <a href="#invoice">手開發票小幫手</a>
+        <a href="#files">相關連結下載</a>
+        <div class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-trigger">常用工具</a>
+            <div class="nav-dropdown-content">
+                <a href="#invoice">手開發票小幫手</a>
+                <a href="國內出差旅費表.pdf" download>國內出差旅費表</a>
+                <a href="國外出差旅費報告單.pdf" download>國外出差旅費報告單</a>
+                <a href="勞務報酬單.pdf" download>勞務報酬單</a>
+            </div>
+        </div>
         <a href="#about">關於我們</a>
     </nav>
 
@@ -1388,7 +1414,7 @@
 
     <!-- 相關文件下載 -->
     <div class="page-section" id="files">
-        <div class="page-section-title">資源下載</div>
+        <div class="page-section-title">相關連結下載</div>
         <div class="services-3col-layout">
             <div class="services-card">
                 <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🏛️</div>
