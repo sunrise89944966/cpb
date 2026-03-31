@@ -237,8 +237,15 @@
             justify-content: space-between;
         }
 
-        .home-carousel-container {
+        .home-left-column {
             flex: 1 1 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .home-carousel-container {
+            width: 100%;
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -638,6 +645,84 @@
                 margin-bottom: 6px;
                 transition: var(--transition-smooth);
             }
+        }
+
+        /* --- 最新消息設計區塊 --- */
+        .news-section {
+            padding: 30px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 20px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .news-header h3 {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .news-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #fff;
+            border-color: var(--primary-orange);
+        }
+
+        .news-card span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1200px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .news-grid { grid-template-columns: 1fr; }
         }
 
         /* --- 發票專屬樣式 (從 SUN74.html 遷移還原) --- */
@@ -1063,14 +1148,45 @@
     <div class="page-section active" id="home">
         <div class="page-section-title">專業財稅諮詢，點亮您的卓越事業</div>
         <div class="home-flex-layout">
-            <!-- Left: Carousel -->
-            <div class="home-carousel-container">
-                <img src="2026 - 6_04.webp" class="home-carousel-image active" alt="專業服務形象圖1">
-                <img src="of-001.jpg" class="home-carousel-image" alt="專業服務形象圖2">
-                <img src="of-002.png" class="home-carousel-image" alt="專業服務形象圖3">
-                <img src="of-003.jpg" class="home-carousel-image" alt="專業服務形象圖4">
-                <img src="of-004.jpg" class="home-carousel-image" alt="專業服務形象圖5">
-                <div class="home-carousel-caption"></div>
+            <!-- Left Column: Photo + News -->
+            <div class="home-left-column">
+                <div class="home-carousel-container">
+                    <img src="2026 - 6_04.webp" class="home-carousel-image active" alt="專業服務形象圖1">
+                    <img src="of-001.jpg" class="home-carousel-image" alt="專業服務形象圖2">
+                    <img src="of-002.png" class="home-carousel-image" alt="專業服務形象圖3">
+                    <img src="of-003.jpg" class="home-carousel-image" alt="專業服務形象圖4">
+                    <img src="of-004.jpg" class="home-carousel-image" alt="專業服務形象圖5">
+                    <div class="home-carousel-caption"></div>
+                </div>
+
+                <!-- 最新消息區塊 (移至此處以填充照片下方空白) -->
+                <div class="news-section">
+                    <div class="news-header">
+                        <h3 style="font-size:1.5rem; margin-bottom:20px;">最新消息</h3>
+                    </div>
+                    <div class="news-grid">
+                        <a href="https://www.ntbna.gov.tw/multiplehtml/374fe8c4b18e48c691a6806ac02b9984#gsc.tab=0" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🏛️</div>
+                            <span style="font-size:0.95rem;">① 財政部北區國稅局</span>
+                        </a>
+                        <a href="https://www.etax.nat.gov.tw/etwmain/announcement/news/zOWaZVw" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🔍</div>
+                            <span style="font-size:0.95rem;">② 財政部稅務入口網</span>
+                        </a>
+                        <a href="https://www.bli.gov.tw/0000009.html" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">💼</div>
+                            <span style="font-size:0.95rem;">③ 勞動部勞工保險局</span>
+                        </a>
+                        <a href="https://www.mof.gov.tw/multiplehtml/125" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📢</div>
+                            <span style="font-size:0.95rem;">④ 財政部當月施政要聞</span>
+                        </a>
+                        <a href="https://www.dot.gov.tw/multiplehtml/ch_313" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📜</div>
+                            <span style="font-size:0.95rem;">⑤ 財政部賦稅署</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <!-- Right: Cards -->
             <div class="home-cards-container">
