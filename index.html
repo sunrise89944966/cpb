@@ -341,6 +341,12 @@
             gap: 40px;
         }
 
+        .services-4col-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
         .services-card {
             background: #fff;
             border: 1px solid #EEE;
@@ -516,6 +522,11 @@
             .about-flexbox {
                 gap: 40px;
             }
+
+            .services-4col-layout {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
         }
 
         @media (max-width: 900px) {
@@ -574,6 +585,10 @@
             }
 
             .services-3col-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .services-4col-layout {
                 grid-template-columns: 1fr;
             }
 
@@ -1412,7 +1427,7 @@
     <!-- 相關文件下載 -->
     <div class="page-section" id="files">
         <div class="page-section-title">相關連結下載</div>
-        <div class="services-3col-layout">
+        <div class="services-4col-layout">
             <div class="services-card">
                 <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🏛️</div>
                 <div class="card-main-title">政府登記文件</div>
@@ -1420,7 +1435,10 @@
                     <div class="sub-section">
                         <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">📥 下載區</h4>
                         <ul style="list-style:none; padding:0; margin-bottom:20px;">
-                            <li style="color:var(--text-muted); font-size:0.9rem;">(暫無文件)</li>
+                            <li><a href="股東同意書01範本_合併.pdf" download style="color:var(--primary-orange);">股東同意書 📥</a></li>
+                            <li><a href="房屋租賃契約書_修正版.pdf" download style="color:var(--primary-orange);">房屋租賃契約書 📥</a></li>
+                            <li><a href="資本會計師簽證-客戶聲明書(設立)合併.PDF" download style="color:var(--primary-orange);">資本會計師簽證-客戶聲明書 📥</a></li>
+                            <li><a href="客戶聲明書(記帳士公會表格)合併.pdf" download style="color:var(--primary-orange);">客戶聲明書 📥</a></li>
                         </ul>
                     </div>
                     <div class="sub-section">
