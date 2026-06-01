@@ -2,1997 +2,2237 @@
 <html lang="zh-Hant">
 
 <head>
-  <meta charset="UTF-8">
-  <title>創新國際管理顧問 - 工廠登記與仲介合作專家</title>
-  <meta name="description" content="融合20年在地經驗，創新國際提供從廠房規劃、法規諮詢到工廠登記的一站式專業服務，並串聯工廠仲介與外勞仲介，共創三贏。">
-  <meta name="keywords" content="工廠登記、食品工廠規劃、食安法規、工廠設立流程、開工廠、仲介合作">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
-    rel="stylesheet">
-
-  <style>
-    /* --- 變數與基礎設定 --- */
-    :root {
-      --dark-blue: #0D2F4F;
-      --primary-blue: #1A5A96;
-      --light-blue: #eaf4ff;
-      --accent-gold: #D4AF37;
-      --light-gray: #f8f9fa;
-      --white: #ffffff;
-      --text-color: #343a40;
-      --text-light: #6c757d;
-      --shadow-color: rgba(0, 0, 0, 0.08);
-      --techy-glow: rgba(26, 90, 150, 0.4);
-      --header-height: 110px;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: var(--header-height);
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Roboto', 'Noto Sans TC', sans-serif;
-      background-color: var(--white);
-      color: var(--text-color);
-      line-height: 1.8;
-      font-size: 17px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    section {
-      padding: 100px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #features {
-      background-color: var(--white);
-    }
-
-    #audit {
-      background-color: var(--white);
-    }
-
-    #guide {
-      background-color: var(--light-blue);
-    }
-
-    #process {
-      background-color: var(--light-blue);
-    }
-
-    #contact {
-      background-color: var(--light-gray);
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--white);
-      background-color: rgba(13, 44, 79, 0.6);
-      border: 2px solid var(--accent-gold);
-      padding: 20px 40px;
-      border-radius: 15px;
-      text-align: center;
-      margin: 0 auto 80px auto;
-      position: relative;
-      backdrop-filter: blur(5px);
-      width: fit-content;
-      max-width: 90%;
-      animation: border-pulse 3s infinite alternate ease-in-out;
-    }
-
-    .section-title::after {
-      display: none;
-    }
-
-    /* --- 動畫效果 --- */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .fade-in-up.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* --- Header --- */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--header-height);
-      background-color: transparent;
-      box-shadow: none;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      transition: background-color 0.4s, box-shadow 0.4s;
-    }
-
-    .site-header.scrolled {
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 15px var(--shadow-color);
-    }
-
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      max-width: 1400px;
-      padding: 0 30px;
-      position: relative;
-    }
-
-    .logo-area {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .header-h1 {
-      color: var(--white);
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-      margin: 5px 0 0 0;
-      line-height: 1.3;
-      display: none;
-    }
-
-    .site-header:not(.scrolled) .header-h1 {
-      display: block;
-    }
-
-    .main-nav {
-      flex-shrink: 0;
-    }
-
-
-    .logo a {
-      text-decoration: none;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-      transition: color 0.3s;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    .site-header:not(.scrolled) .logo a {
-      color: var(--white);
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      color: var(--primary-blue);
-      font-weight: 500;
-      font-size: 1.1rem;
-      position: relative;
-      padding: 5px 0;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    .site-header:not(.scrolled) .main-nav a {
-      color: var(--white);
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .main-nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 3px;
-      background-color: var(--accent-gold);
-      border-radius: 2px;
-      transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .main-nav a:hover,
-    .main-nav a.active {
-      color: var(--dark-blue);
-    }
-
-    .site-header:not(.scrolled) .main-nav a:hover,
-    .site-header:not(.scrolled) .main-nav a.active {
-      color: var(--accent-gold);
-    }
-
-    .main-nav a:hover::after,
-    .main-nav a.active::after {
-      width: 100%;
-    }
-
-    .hamburger-menu {
-      display: none;
-      z-index: 1001;
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      height: 100vh;
-      min-height: 600px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      text-align: center;
-      color: var(--white);
-      background: url('IMAG7662-08短髮.png') no-repeat center center/cover;
-      background-attachment: fixed;
-      position: relative;
-      padding-top: var(--header-height);
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(13, 44, 79, 0.5), rgba(13, 44, 79, 0.2));
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      padding-bottom: 2vh;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      max-width: 650px;
-      margin: 0 auto 40px;
-      opacity: 0.95;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px 45px;
-      background: linear-gradient(45deg, var(--accent-gold), #f0c040);
-      color: var(--dark-blue) !important;
-      text-decoration: none;
-      font-weight: 700;
-      border-radius: 50px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      border: none;
-    }
-
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: left 0.6s;
-    }
-
-    .cta-button:hover::before {
-      left: 100%;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-    }
-
-    .back-button {
-      background: var(--text-light);
-      color: var(--white) !important;
-    }
-
-    .back-button:hover {
-      background: var(--primary-blue);
-    }
-
-
-    /* LINE Icon Style */
-    .line-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      fill: #00c300;
-      filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8));
-      flex-shrink: 0;
-    }
-
-    .main-nav .cta-button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      box-shadow: none;
-    }
-
-    .main-nav .cta-button .line-icon {
-      width: 15px;
-      height: 15px;
-      margin-right: 6px;
-    }
-
-    .main-nav .cta-button:hover::after {
-      width: 0;
-    }
-
-    /* --- Features Section --- */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 100px;
-      text-align: center;
-    }
-
-    .feature-item {
-      background-color: var(--white);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 0 2px var(--primary-blue), 0 5px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-item::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, var(--techy-glow) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s;
-      z-index: 0;
-    }
-
-    .feature-item:hover::before {
-      opacity: 1;
-    }
-
-    .feature-item:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 0 0 3px var(--accent-gold), 0 12px 35px rgba(0, 0, 0, 0.15);
-    }
-
-    .feature-item>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .feature-item .icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 80px;
-      height: 80px;
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, var(--light-blue), var(--white));
-      color: var(--primary-blue);
-      margin-bottom: 25px;
-      border-radius: 50%;
-      box-shadow: 0 5px 15px var(--shadow-color);
-      transition: transform 0.3s, color 0.3s;
-    }
-
-    .feature-item:hover .icon {
-      transform: translateY(-5px) scale(1.1);
-      color: var(--accent-gold);
-    }
-
-    .feature-item h3 {
-      font-size: 1.6rem;
-      color: var(--dark-blue);
-      margin-bottom: 15px;
-    }
-
-    .feature-item p {
-      color: var(--text-light);
-      font-size: 1.05rem;
-    }
-
-    /* --- Card Layout --- */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 80px;
-    }
-
-    .item-card {
-      background-color: var(--white);
-      border-radius: 15px;
-      box-shadow: 0 0 0 2px var(--primary-blue), 0 5px 25px var(--shadow-color);
-      overflow: hidden;
-      transition: transform 0.4s, box-shadow 0.4s;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      border-top: 4px solid var(--primary-blue);
-      position: relative;
-    }
-
-    .item-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, var(--techy-glow) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s;
-      z-index: 0;
-    }
-
-    .item-card:hover::before {
-      opacity: 1;
-    }
-
-    .item-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 0 0 3px var(--accent-gold), 0 12px 35px rgba(0, 0, 0, 0.12);
-    }
-
-    .item-card>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    #audit .item-card {
-      border-top-color: var(--accent-gold);
-    }
-
-    #guide .item-card {
-      border-top-color: var(--primary-blue);
-    }
-
-    /* --- Item Card Image --- */
-    .item-card-img {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background-color: #f0f4f8;
-      background-repeat: no-repeat;
-    }
-
-    .item-card-img img,
-    .item-card-img svg {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      position: relative;
-      z-index: 2;
-      filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
-    }
-
-    .item-card-img .photo-bg {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .item-card:hover .item-card-img img,
-    .item-card:hover .item-card-img svg {
-      transform: scale(1.05);
-    }
-
-    .item-card-content {
-      padding: 30px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .item-card-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-      margin: 0 0 15px;
-      line-height: 1.4;
-    }
-
-    .item-card-date {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      margin-bottom: 20px;
-    }
-
-    .item-card-desc {
-      font-size: 1.05rem;
-      color: var(--text-color);
-      flex-grow: 1;
-    }
-
-    /* --- Process Section --- */
-    .process-layout {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .canvasbox {
-      flex: 1 1 400px;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 25px var(--shadow-color);
-      padding: 20px;
-      text-align: center;
-      max-width: 450px;
-      margin: 0 auto;
-    }
-
-    .canvasbox svg {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .svglabel {
-      font-size: 18px;
-      font-weight: bold;
-      fill: #244D61;
-    }
-
-    .svgdesc {
-      font-size: 15px;
-      fill: #445088;
-      font-family: Arial;
-    }
-
-    .svgblock {
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
-    }
-
-    .steps-container {
-      flex: 1 1 600px;
-    }
-
-    .step {
-      margin-bottom: 40px;
-      padding: 25px;
-      background: var(--white);
-      border-left: 5px solid var(--accent-gold);
-      box-shadow: 0 0 0 2px var(--primary-blue), 0 4px 15px var(--shadow-color);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .step::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, var(--techy-glow) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s;
-      z-index: 0;
-    }
-
-    .step:hover::before {
-      opacity: 1;
-    }
-
-    .step:hover {
-      transform: translateX(8px) scale(1.02);
-      box-shadow: 0 0 0 3px var(--accent-gold), 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .step>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .step strong {
-      color: var(--dark-blue);
-      font-size: 1.3rem;
-    }
-
-    .step-detail {
-      margin-top: 10px;
-      color: var(--text-light);
-      font-size: 1.05rem;
-    }
-
-
-    /* --- Footer --- */
-    .site-footer {
-      background-color: var(--dark-blue);
-      color: var(--light-gray);
-      padding: 60px 0;
-      text-align: center;
-      font-size: 1rem;
-    }
-
-    .footer-container {
-      font-size: 0.9rem;
-    }
-
-    /* --- Modal --- */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s, visibility 0.4s;
-    }
-
-    .modal-overlay.is-visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-container {
-      background: var(--white);
-      border-radius: 15px;
-      width: 90%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 45px;
-      position: relative;
-      transform: translateY(20px) scale(0.95);
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .modal-overlay.is-visible .modal-container {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 2.5rem;
-      cursor: pointer;
-      color: var(--text-light);
-      line-height: 1;
-      transition: transform 0.3s, color 0.3s;
-    }
-
-    .modal-close:hover {
-      transform: rotate(90deg);
-      color: var(--dark-blue);
-    }
-
-    .modal-title {
-      font-size: 2.2rem;
-      color: var(--dark-blue);
-      margin-bottom: 15px;
-    }
-
-    .modal-date {
-      color: var(--text-light);
-      margin-bottom: 30px;
-    }
-
-    .modal-img {
-      width: 80%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      max-height: 400px;
-      height: auto;
-      object-fit: contain;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
-    }
-
-    .modal-text {
-      line-height: 1.9;
-      font-size: 1.65rem;
-      text-align: justify;
-    }
-
-    /* --- LINE Modal Styles --- */
-    .line-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      /* Slightly darker for better contrast */
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2500;
-      /* Higher than regular modal */
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s, visibility 0.4s;
-    }
-
-    .line-modal-overlay.is-visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .line-modal-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      /* 從頂部開始排列 */
-      gap: 60px;
-      /* 適當的圖示間距 */
-      transform: translateY(20px) scale(0.95);
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      width: 95%;
-      max-width: 450px;
-      padding: 30px 15px;
-      /* 增加上下內邊距 */
-      max-height: 95vh;
-      /* 留出一些螢幕邊距 */
-      overflow-y: auto;
-      /* 在垂直方向上需要時顯示滾動條 */
-    }
-
-    .line-modal-overlay.is-visible .line-modal-content {
-      transform: translateY(0) scale(1);
-    }
-
-    .line-qr-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      border: none;
-      /* Removed thick border to prevent layout issues */
-    }
-
-    /* Override back button style for modal context */
-    .line-modal-content .cta-button.back-btn {
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      color: white !important;
-      min-width: 150px;
-    }
-
-    .line-modal-content .cta-button.back-btn:hover {
-      background: rgba(255, 255, 255, 0.4);
-      border-color: var(--accent-gold);
-    }
-
-
-    /* --- Responsive --- */
-    @media (max-width: 992px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-      }
-
-      .section-title {
-        font-size: 2.2rem;
-      }
-    }
-
-    @keyframes slow-blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.5;
-      }
-    }
-
-    .hamburger-label {
-      position: absolute;
-      top: -25px;
-      /* 調整到漢堡圖示上方 */
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--dark-blue);
-      /* 預設深色，因為桌面版背景是淺色 */
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-      animation: slow-blink 2s infinite ease-in-out;
-      display: none;
-      /* 預設隱藏，只在手機版顯示 */
-      white-space: nowrap;
-      /* 防止文字換行 */
-    }
-
-    @media (max-width: 768px) {
-      body {
-        font-size: 15px;
-      }
-
-      .main-nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--dark-blue);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 35px;
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        padding: 0;
-      }
-
-      .main-nav.is-open {
-        transform: translateX(0);
-      }
-
-      .main-nav a {
-        color: var(--white);
-        font-size: 1.8rem;
-        font-weight: 700;
-      }
-
-      .main-nav a:hover,
-      .main-nav a.active {
-        color: var(--accent-gold);
-      }
-
-      .main-nav a::after {
-        background-color: var(--accent-gold);
-      }
-
-      .hamburger-wrapper {
-        position: relative;
-        /* 為了定位裡面的 label */
-        width: 30px;
-        /* 和 hamburger-menu 的寬度一致 */
-        height: 24px;
-        /* 和 hamburger-menu 的高度一致 */
-      }
-
-      .hamburger-label {
-        display: block;
-        /* 在手機版顯示 */
-        color: var(--dark-blue);
-        /* 預設深色 */
-      }
-
-      .site-header:not(.scrolled) .hamburger-label {
-        color: var(--white);
-        /* 未滾動時白色 */
-      }
-
-      .hamburger-menu {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1001;
-      }
-
-      .hamburger-menu span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--dark-blue);
-        position: absolute;
-        left: 0;
-        transition: all 0.3s;
-        border-radius: 2px;
-      }
-
-      .hamburger-menu span:nth-child(1) {
-        top: 0;
-      }
-
-      .hamburger-menu span:nth-child(2) {
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .hamburger-menu span:nth-child(3) {
-        bottom: 0;
-      }
-
-      .site-header:not(.scrolled) .hamburger-menu span {
-        background-color: var(--white);
-      }
-
-      .hamburger-menu.is-active span {
-        background-color: var(--white);
-      }
-
-      .hamburger-menu.is-active span:nth-child(1) {
-        top: 50%;
-        transform: translateY(-50%) rotate(45deg);
-      }
-
-      .hamburger-menu.is-active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger-menu.is-active span:nth-child(3) {
-        bottom: 50%;
-        transform: translateY(50%) rotate(-45deg);
-      }
-
-      .hamburger-menu.is-active+.hamburger-label,
-      /* 當漢堡菜單打開時，隱藏 label */
-      .hamburger-wrapper .hamburger-label.is-active {
-        /* fallback for older browsers or if direct sibling selector fails */
-        display: none;
-      }
-
-      .container {
-        padding: 0 35px;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .hero {
-        align-items: flex-end;
-      }
-
-      .hero-content {
-        padding-top: 0;
-        padding-bottom: 2vh;
-      }
-
-      .hero h1 {
-        font-size: 1.12rem;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        font-weight: 400;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
-        line-height: 1.6;
-        margin-bottom: 30px;
-      }
-
-      .cta-button,
-      .back-button {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-      }
-
-      .section-title {
-        font-size: 1.6rem;
-        padding: 12px 20px;
-        margin-bottom: 40px;
-      }
-
-      .features-grid,
-      .card-grid,
-      .process-layout {
-        gap: 50px;
-      }
-
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-item {
-        padding: 20px 15px;
-      }
-
-      .feature-item .icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-      }
-
-      .feature-item h3 {
-        font-size: 1.2rem;
-      }
-
-      .feature-item p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      .item-card-img {
-        aspect-ratio: 4 / 3;
-      }
-
-      .item-card-content {
-        padding: 15px;
-      }
-
-      .item-card-title {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-      }
-
-      .item-card-date {
-        font-size: 0.8rem;
-        margin-bottom: 10px;
-      }
-
-      .item-card-desc {
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      .step {
-        padding: 15px;
-        margin-bottom: 40px;
-      }
-
-      .step strong {
-        font-size: 1rem;
-      }
-
-      .step-detail {
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        background-size: contain !important;
-        background-attachment: scroll !important;
-        background-repeat: no-repeat !important;
-        background-position: center center !important;
-      }
-
-      .body-background-video {
-        object-fit: contain;
-        filter: none;
-        transform: scale(1);
-      }
-    }
-
-    /* --- Video Background --- */
-    .body-background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      filter: blur(4px) brightness(0.9);
-      transform: scale(1.05);
-    }
-
-    #features,
-    #audit {
-      background-color: rgba(255, 255, 255, 0.1) !important;
-    }
-
-    #guide,
-    #process {
-      background-color: rgba(234, 244, 255, 0.15) !important;
-    }
-
-    #contact {
-      background-color: rgba(248, 249, 250, 0.2) !important;
-    }
-
-    .feature-item,
-    .item-card,
-    .step,
-    .canvasbox {
-      background-color: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(5px);
-    }
-
-    @keyframes text-glow {
-
-      0%,
-      100% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.3);
-      }
-
-      50% {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 25px rgba(212, 175, 55, 0.5);
-      }
-    }
-
-    .contact-subtitle {
-      max-width: 600px;
-      margin: -30px auto 30px !important;
-      color: var(--light-gray);
-      font-size: 1.2rem;
-      line-height: 1.9;
-      animation: text-glow 4s ease-in-out infinite;
-    }
-
-    @keyframes border-pulse {
-      0% {
-        box-shadow:
-          0 0 0 2px var(--accent-gold),
-          0 0 0 4px var(--primary-blue),
-          0 0 0 6px var(--accent-gold),
-          0 4px 20px rgba(0, 0, 0, 0.3),
-          0 0 15px var(--techy-glow);
-      }
-
-      50% {
-        box-shadow:
-          0 0 0 3px var(--accent-gold),
-          0 0 0 5px var(--primary-blue),
-          0 0 0 7px var(--accent-gold),
-          0 4px 25px rgba(0, 0, 0, 0.4),
-          0 0 20px var(--techy-glow);
-      }
-
-      100% {
-        box-shadow:
-          0 0 0 2px var(--accent-gold),
-          0 0 0 4px var(--primary-blue),
-          0 0 0 6px var(--accent-gold),
-          0 4px 20px rgba(0, 0, 0, 0.3),
-          0 0 15px var(--techy-glow);
-      }
-    }
-
-    #audit .item-card-img img,
-    #guide .item-card-img img,
-    .modal-img {
-      border: 4px solid var(--white) !important;
-      box-sizing: border-box !important;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.3;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    /* --- 新增的標題動畫 --- */
-    @keyframes title-glow-animation {
-      from {
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4), 0 0 25px rgba(212, 175, 55, 0.5), 0 0 35px rgba(212, 175, 55, 0.4);
-      }
-
-      to {
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6), 0 0 40px rgba(212, 175, 55, 0.7), 0 0 55px rgba(212, 175, 55, 0.6);
-      }
-    }
-
-    .animated-title {
-      animation: title-glow-animation 2.2s ease-in-out infinite alternate;
-    }
-
-    @keyframes image-custom-blink {
-      0% {
-        opacity: 1;
-      }
-
-      92.592% {
-        opacity: 1;
-      }
-
-      92.5921% {
-        opacity: 0.3;
-      }
-
-      100% {
-        opacity: 0.3;
-      }
-    }
-
-    /* 為圖片新增的閃爍動畫 */
-    .image-blink-3s {
-      animation: image-custom-blink 2.7s infinite;
-    }
-
-    /* --- Marquee Animation --- */
-    .marquee-container {
-      width: 100%;
-      overflow: hidden;
-      background-color: var(--accent-gold);
-      color: var(--dark-blue);
-      padding: 15px 0 0 0;
-      margin-bottom: 0;
-      position: relative;
-    }
-
-    .marquee-content {
-      display: inline-block;
-      white-space: nowrap;
-      animation: marquee 4s linear infinite;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    @keyframes marquee {
-      0% {
-        transform: translateX(100%);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>日盛國際聯合稅務記帳士事務所 | 專業會計、稅務顧問、工廠登記專門家</title>
+    <meta name="description" content="日盛國際聯合稅務記帳士事務所提供專業的公司登記、記帳報稅、稅務規劃及食品工廠登記服務。擁有 20 年豐富經驗，是您創業與經營的最佳財會夥伴。">
+    <meta name="keywords" content="日盛國際, 記帳士事務所, 會計師, 公司設立, 稅務申報, 食品工廠登記, 創業補助, 節稅規劃">
+    <!-- Open Graph (OG) Tags -->
+    <meta property="og:title" content="日盛國際聯合稅務記帳士事務所 | 專業稅務會計服務">
+    <meta property="og:description" content="專業、效率、誠信。提供一站式稅務規劃與工廠登記諮詢，協助企業穩健成長。">
+    <meta property="og:image" content="https://sunrise89944966.github.app/陳炫銘09-03.png">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JSON-LD Structured Data for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "日盛國際聯合稅務記帳士事務所",
+      "image": "https://sunrise89944966.github.app/陳炫銘09-03.png",
+      "@id": "https://sunrise89944966.github.io/cpb/",
+      "url": "https://sunrise89944966.github.io/cpb/",
+      "telephone": "+886-2-8994-4966",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "中華路二段11號九樓",
+        "addressLocality": "新莊區",
+        "addressRegion": "新北市",
+        "postalCode": "242",
+        "addressCountry": "TW"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://github.com/sunrise89944966/cpb"
+      ]
+    }
+    </script>
+    <!-- 引入專業襯線字體與無襯線字體 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;500;700&family=Montserrat:wght@600&display=swap">
+    <style>
+        :root {
+            /* PwC Inspired Color Palette */
+            --primary-orange: #D04A02;
+            --primary-black: #2D2D2D;
+            --accent-gold: #EAC771;
+            --bg-white: #FFFFFF;
+            --bg-light-gray: #F8F8F8;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --nav-bg: #FFFFFF;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --section-padding: 60px 8%;
+            /* 增加側邊內距以在全寬時保持閱讀舒適 */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding-top: 145px;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Navigation (Full Width) --- */
+        .site-header-content {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 95px;
+            z-index: 1010;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--nav-bg);
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .header-image-bar {
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 95px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .header-image-bar img {
+            width: 100vw;
+            max-width: 100%;
+            height: 88px;
+            object-fit: contain;
+            opacity: 0.15;
+        }
+
+        .site-header-title {
+            color: var(--primary-black);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .site-header-eng {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: var(--primary-orange);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-bar {
+            background: var(--nav-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1002;
+            top: 95px;
+            width: 100vw;
+            height: 50px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .nav-bar a {
+            font-weight: 500;
+            color: var(--primary-black);
+            margin: 0 20px;
+            padding: 10px 0;
+            text-decoration: none;
+            font-size: 1.05rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-bar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-bar a.active,
+        .nav-bar a:hover {
+            color: var(--primary-orange);
+        }
+
+        .nav-bar a.active::after,
+        .nav-bar a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Sections & Layout (Full Width) --- */
+        .page-section {
+            display: none;
+            opacity: 0;
+            padding: var(--section-padding);
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 700;
+            color: var(--primary-black);
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        /* --- Home Section Styling (Full Width Responsive) --- */
+        #home .home-flex-layout {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .home-left-column {
+            flex: 1 1 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .home-carousel-container {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .home-carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .home-carousel-image.active {
+            opacity: 1;
+        }
+
+        .home-carousel-caption {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.7s ease-out;
+            text-align: center;
+            pointer-events: none;
+            width: 85%;
+        }
+
+        .home-carousel-caption.visible {
+            opacity: 1;
+        }
+
+        .home-cards-container {
+            flex: 1 1 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        #home .page-card {
+            background: var(--bg-light-gray);
+            border-left: 5px solid var(--primary-orange);
+            padding: 30px;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+            cursor: default;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #home .page-card:hover {
+            background: #fff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            transform: translateX(10px);
+        }
+
+        .card-main-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.4rem;
+            color: var(--primary-black);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: var(--primary-orange);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .page-card-inner ul {
+            padding-left: 1.2em;
+            margin: 0;
+        }
+
+        .page-card-inner ul li {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        /* --- Service Cards Section (Full Width Grid) --- */
+        .services-3col-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .services-4col-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .services-5col-layout {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .services-card {
+            background: #fff;
+            border: 1px solid #EEE;
+            padding: 50px 40px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .services-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .services-card-inner {
+            margin-top: 30px;
+        }
+
+        .services-card-inner ul {
+            padding-left: 1.2em;
+        }
+
+        .services-card-inner ul li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        /* --- About Section (Full Width) --- */
+        .about-flexbox {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-imgbox {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-imgbox img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 2px;
+            box-shadow: 30px 30px 0 var(--bg-light-gray);
+        }
+
+        .about-textbox {
+            flex: 1.2;
+        }
+
+        .about-desc-li {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 2;
+        }
+
+        .about-desc-li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-orange);
+        }
+
+        /* --- FAQ (Centering Content in Full Width) --- */
+        .faq-list-box {
+            background: var(--bg-light-gray);
+            padding: 60px;
+            border-radius: 4px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-list-title {
+            font-size: 1.4rem;
+            font-family: 'Noto Serif TC', serif;
+            color: var(--primary-orange);
+            margin: 30px 0 15px;
+            border-left: 4px solid var(--primary-orange);
+            padding-left: 15px;
+        }
+
+        .faq-question-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-question-list li {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 18px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-question-list li:hover {
+            transform: translateX(8px);
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .faq-ans-box {
+            background: #fff;
+            border: 1px solid #EEE;
+            padding: 60px;
+            border-radius: 4px;
+            display: none;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .faq-ans-text {
+            font-size: 1.5rem;
+            line-height: 2.2;
+        }
+
+        .faq-back-btn {
+            margin-top: 30px;
+            padding: 12px 35px;
+            background: var(--primary-black);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+        }
+
+        .faq-back-btn:hover {
+            background: var(--primary-orange);
+        }
+
+        /* --- CTA & Footer (Always Full Width) --- */
+        .cta-bar {
+            background: var(--primary-black);
+            color: #FFF;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            margin-top: 0;
+            line-height: 2;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background: #1A1A1A;
+            color: #888;
+            padding: 40px;
+            text-align: center;
+            font-size: 1rem;
+            border-top: 1px solid #333;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* --- RWD Adjustments (Responsive Logic) --- */
+        @media (max-width: 1200px) {
+            :root {
+                --section-padding: 50px 5%;
+            }
+
+            .about-flexbox {
+                gap: 40px;
+            }
+
+            .services-4col-layout,
+            .services-5col-layout {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .site-header-title {
+                font-size: 1.5rem;
+            }
+
+            .page-section-title {
+                font-size: 2rem;
+            }
+
+            .home-carousel-caption {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 40px 20px;
+            }
+
+            body {
+                padding-top: 105px;
+            }
+
+            .site-header-content,
+            .header-image-bar {
+                height: 105px;
+                padding: 20px 60px 0 60px;
+                box-sizing: border-box;
+            }
+
+            .site-header-title {
+                font-size: 1.15rem;
+                line-height: 1.2;
+            }
+
+            #home .home-flex-layout {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .home-carousel-container,
+            .home-cards-container {
+                width: 100%;
+                flex: none;
+            }
+
+            .about-flexbox {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .about-imgbox img {
+                box-shadow: 15px 15px 0 var(--bg-light-gray);
+            }
+
+            .services-3col-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .services-4col-layout,
+            .services-5col-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                width: 280px;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 120px;
+                transition: var(--transition-smooth);
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+                background: #FFF;
+            }
+
+            .nav-bar.is-open {
+                left: 0;
+            }
+
+            .nav-bar a {
+                width: 100%;
+                padding: 15px 45px;
+                margin: 0;
+                border-bottom: 1px solid #EEE;
+                box-sizing: border-box;
+                text-align: left;
+            }
+
+            .hamburger-menu {
+                display: block;
+                position: fixed;
+                top: 35px;
+                left: 20px;
+                z-index: 1030;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .hamburger-icon span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: var(--primary-black);
+                margin-bottom: 6px;
+                transition: var(--transition-smooth);
+            }
+        }
+
+        /* --- 最新消息設計區塊 --- */
+        .news-section {
+            padding: 30px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 20px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .news-header h3 {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .news-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #fff;
+            border-color: var(--primary-orange);
+        }
+
+        .news-card span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1200px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .news-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- 發票專屬樣式 (從 SUN74.html 遷移還原) --- */
+        #invoice {
+            background-color: #e9ecef;
+        }
+
+        #invoice .control-panel {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .invoice-steps-box {
+            background: #f8f9fa;
+            border-left: 5px solid var(--primary-orange);
+            padding: 20px 25px;
+            margin: 20px auto 30px auto;
+            max-width: 950px;
+            box-sizing: border-box;
+            text-align: left;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .invoice-steps-box h3 {
+            margin-top: 0;
+            color: var(--primary-black);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .invoice-steps-box ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .invoice-steps-box ol li {
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .invoice-steps-box ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        .invoice-steps-box ul li {
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: normal;
+        }
+
+        #invoice .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        #invoice .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #invoice .form-group label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        #invoice .form-control {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        #invoice .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        #invoice .items-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+        }
+
+        #invoice .items-table th {
+            text-align: left;
+            padding: 8px;
+            font-size: 0.85rem;
+            color: #666;
+            background: #f8f9fa;
+        }
+
+        #invoice .items-table td {
+            padding: 5px;
+        }
+
+        #invoice .invoice-scroll-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            background: #e9ecef;
+            margin-bottom: 30px;
+        }
+
+        #invoice .invoice-outer {
+            width: 830px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        #invoice .invoice-paper {
+            background-color: #fff;
+            padding: 15px 25px;
+            min-height: 500px;
+            position: relative;
+            color: #333;
+            line-height: 1.2;
+            border: 2px solid #000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        #invoice .inv-write-text {
+            color: #FF0000 !important;
+            font-weight: 900;
+        }
+
+        #invoice .tax-box {
+            width: 35px;
+            height: 30px;
+            border: 1px solid #000;
+            margin-right: -1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        #invoice .main-table {
+            width: 772px;
+            border-collapse: collapse;
+            margin-top: 5px;
+            border: 2px solid #000;
+            table-layout: fixed;
+        }
+
+        #invoice .main-table th {
+            border: 1px solid #000;
+            padding: 2px;
+            font-weight: normal;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            height: 28px;
+            background-color: #fafafa;
+        }
+
+        #invoice .main-table td {
+            border: 1px solid #000;
+            padding: 2px 5px;
+            height: 18px;
+            font-size: 1rem;
+            vertical-align: middle;
+            overflow: hidden;
+            word-break: break-all;
+        }
+
+        #invoice .stat-lbl-center {
+            text-align: center;
+            letter-spacing: 5px;
+            font-size: 1.05rem;
+            padding: 2px 0;
+            background-color: #fafafa;
+            white-space: nowrap;
+        }
+
+        #invoice .seal-oval {
+            width: 130px;
+            height: 90px;
+            background-color: transparent;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #6F4E37;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            opacity: 1;
+            margin: 2px;
+            border: 2px solid #000;
+        }
+
+        #invoice .chinese-row-wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 8px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        #invoice .c-val-text {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #FF6600;
+            display: inline-block;
+            width: 18px;
+            text-align: center;
+        }
+
+        #invoice .c-val-zero {
+            color: #ccc !important;
+            font-weight: normal !important;
+        }
+
+        #invoice .print-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 20px 40px;
+            background: #2c3e50;
+            color: #fff;
+            border: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            width: 95%;
+            max-width: 400px;
+        }
+
+        #line-guide {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            color: #fff;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .guide-arrow {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 3rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            #invoice .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            #invoice .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            @page {
+                margin: 0;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background: #fff;
+                margin: 1cm !important;
+            }
+
+            .nav-bar,
+            .site-header-content,
+            .header-image-bar,
+            .hamburger-menu,
+            .cta-bar,
+            footer,
+            .page-section-title,
+            #invoice .control-panel,
+            #invoice .invoice-steps-box,
+            #invoice .print-btn,
+            #line-guide {
+                display: none !important;
+            }
+
+            #invoice {
+                display: block !important;
+                opacity: 1 !important;
+                padding: 0 !important;
+                background: #fff !important;
+            }
+
+            .page-section {
+                padding: 0 !important;
+                border: none !important;
+            }
+
+            #invoice .invoice-scroll-wrapper,
+            #invoice .invoice-outer {
+                width: 830px !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+                background: #fff !important;
+            }
+
+            #invoice .invoice-paper {
+                box-shadow: none !important;
+                border: 2px solid #000 !important;
+                padding: 15px 25px !important;
+                background: #fff !important;
+            }
+        }
+    
+        /* --- Dropdown Menu Styles --- */
+        .nav-item-dropdown { position: relative; display: flex; align-items: center; }
+        .nav-item-dropdown .nav-dropdown-trigger { margin: 0 20px; text-decoration: none; color: var(--primary-black); font-weight: 500; font-size: 1.05rem; transition: var(--transition-smooth); position: relative; padding: 10px 0; }
+        .nav-item-dropdown .nav-dropdown-trigger::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-orange); transition: var(--transition-smooth); }
+        .nav-item-dropdown:hover .nav-dropdown-trigger { color: var(--primary-orange); }
+        .nav-item-dropdown:hover .nav-dropdown-trigger::after { width: 100%; }
+        .nav-dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1050; top: 100%; left: 20px; border-radius: 4px; border: 1px solid #eee; padding: 10px 0; }
+        .nav-dropdown-content a { color: var(--primary-black) !important; padding: 12px 25px !important; margin: 0 !important; font-size: 0.95rem !important; border-bottom: none !important; display: block !important; position: relative; }
+        .nav-dropdown-content a::after { display: none !important; }
+        .nav-dropdown-content a:hover { background-color: var(--bg-light-gray); color: var(--primary-orange) !important; }
+        .nav-item-dropdown:hover .nav-dropdown-content { display: block; }
+        @media (max-width: 768px) {
+            .nav-item-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+            .nav-item-dropdown .nav-dropdown-trigger { width: 100%; padding: 15px 45px; margin: 0; border-bottom: 1px solid #EEE; box-sizing: border-box; text-align: left; }
+            .nav-dropdown-content { position: static; box-shadow: none; display: block; background: #fdfdfd; border: none; padding: 0; width: 100%; }
+            .nav-dropdown-content a { padding: 12px 65px !important; border-bottom: 1px solid #EEE !important; }
+        }
+</style>
 </head>
 
 <body>
-  <video autoplay loop muted playsinline class="body-background-video">
-    <source src="根據圖片生成食品工廠影片.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <header class="site-header">
-    <div class="header-container">
-      <div class="logo-area">
-        <div class="logo">
-          <a href="#">創新國際管理顧問</a>
-        </div>
-        <h1 class="header-h1">食安領航，<br>從工廠登記做起</h1>
-      </div>
-      <nav class="main-nav">
-        <a href="#home" class="nav-link active">首頁</a>
-        <a href="#features" class="nav-link">核心服務</a>
-        <a href="#audit" class="nav-link">查核重點</a>
-        <a href="#guide" class="nav-link">廠房規劃</a>
-        <a href="#process" class="nav-link">申請流程</a>
-        <a href="new-html-211-broker.html" class="nav-link">仲介合作專區</a>
-        <a href="http://www.innovation-intl.com.tw/" target="_blank" class="cta-button"
-          style="text-align: center; line-height: 1.3; padding: 8px 20px;">
-          想看更多<br>官網
-        </a>
-      </nav>
-      <div class="hamburger-wrapper">
-        <span class="hamburger-label">點我</span>
-        <button class="hamburger-menu" aria-label="Toggle Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+    <!-- header外框圖 (大氣背景化) -->
+    <div class="header-image-bar">
+        <img src="Wei-Ming-Ming-008-005SVG.svg" alt="專業圖騰" draggable="false">
     </div>
-  </header>
+    <!-- header主標 -->
+    <div class="site-header-content">
+        <div class="site-header-title">日盛國際聯合稅務記帳士事務所</div>
+        <span class="site-header-eng">Sunrise Accounting Office</span>
+    </div>
 
-  <main>
-    <!-- View: Home -->
-    <section id="home" class="hero">
-      <div class="hero-content fade-in-up">
-        <h1 class="animated-title" style="font-weight: 700; margin-bottom: 20px; line-height: 1.2;">
-          食安領航，<br>從工廠登記做起</h1>
-        <p>專業輔導，助您順利取得合法身份，<br>安心生產，拓展無限商機。</p>
-
-      </div>
-    </section>
-
-    <section id="features" class="container">
-      <h2 class="section-title fade-in-up">一站式整合服務</h2>
-      <div class="features-grid">
-        <div class="feature-item fade-in-up" style="transition-delay: 0.1s;">
-          <div class="icon">🏢</div>
-          <h3>廠房規劃與設計</h3>
-          <p>依據您的製程需求與法規，打造最高效、合規的生產動線與空間配置。</p>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" aria-label="Toggle Menu">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div class="feature-item fade-in-up" style="transition-delay: 0.2s;">
-          <div class="icon">📜</div>
-          <h3>法規諮詢與代辦</h3>
-          <p>精準掌握最新食安法規，為您處理繁瑣的工廠登記與文件申請流程。</p>
-        </div>
-        <div class="feature-item fade-in-up" style="transition-delay: 0.3s;">
-          <div class="icon">🤝</div>
-          <h3>在地溝通與協調</h3>
-          <p>憑藉多年在地經驗，有效與主管機關溝通，確保會勘審查順利通過。</p>
-        </div>
-      </div>
-    </section>
+        <div class="hamburger-text" style="display:none;">點我</div>
+    </button>
 
-    <section id="audit">
-      <div class="container">
-        <h2 class="section-title fade-in-up">查核重點</h2>
-        <div class="card-grid">
-          <div class="item-card fade-in-up" data-id="audit-0">
-            <div class="item-card-img"><img src="j20250312112736_o.jpg" alt="九大程序書"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">九大程序書</div>
-              <div class="item-card-date">2025/11/20</div>
-              <div class="item-card-desc">
+    <nav class="nav-bar">
+        <a href="#home" class="active">首頁</a>
+        <a href="#services">服務項目</a>
+        <a href="#food">食品工廠登記</a>
+        <a href="#loan">貸款創業補助</a>
+        <a href="#faq">常見問題</a>
+        <a href="#files">相關連結下載</a>
+        <div class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-trigger">常用工具</a>
+            <div class="nav-dropdown-content">
+                <a href="#invoice">手開發票小幫手</a>
+            </div>
+        </div>
+        <a href="#about">關於我們</a>
+    </nav>
+
+    <div class="nav-overlay"></div>
+
+    <div id="line-guide">
+        <div class="guide-arrow">↗️</div>
+        <div class="guide-content">
+            <h2>請點擊右上角「...」</h2>
+            <p>並選擇「使用預設瀏覽器開啟」<br>以進行發票列印或另存 PDF</p>
+        </div>
+    </div>
+
+    <!-- 首頁 -->
+    <div class="page-section active" id="home">
+        <div class="page-section-title">專業財稅諮詢，點亮您的卓越事業</div>
+        <div class="home-flex-layout">
+            <!-- Left Column: Photo + News -->
+            <div class="home-left-column">
+                <div class="home-carousel-container">
+                    <img src="2026 - 6_04.webp" class="home-carousel-image active" alt="專業服務形象圖1">
+                    <img src="of-001.jpg" class="home-carousel-image" alt="專業服務形象圖2">
+                    <img src="of-002.png" class="home-carousel-image" alt="專業服務形象圖3">
+                    <img src="of-003.jpg" class="home-carousel-image" alt="專業服務形象圖4">
+                    <img src="of-004.jpg" class="home-carousel-image" alt="專業服務形象圖5">
+                    <div class="home-carousel-caption"></div>
+                </div>
+
+                <!-- 最新消息區塊 (移至此處以填充照片下方空白) -->
+                <div class="news-section">
+                    <div class="news-header">
+                        <h3 style="font-size:1.5rem; margin-bottom:20px;">最新消息</h3>
+                    </div>
+                    <div class="news-grid">
+                        <a href="https://www.ntbna.gov.tw/multiplehtml/374fe8c4b18e48c691a6806ac02b9984#gsc.tab=0" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="margin-bottom: 15px; color:var(--primary-orange);">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3l9 7H3l9-7z"/>
+                                </svg>
+                            </div>
+                            <span style="font-size:0.95rem;">① 財政部北區國稅局</span>
+                        </a>
+                        <a href="https://www.etax.nat.gov.tw/etwmain/announcement/news/zOWaZVw" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="margin-bottom: 15px; color:var(--primary-orange);">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 21l-6-6M11 19a8 8 0 100-16 8 8 0 000 16zM8 11h6M11 8v6"/>
+                                </svg>
+                            </div>
+                            <span style="font-size:0.95rem;">② 財政部稅務入口網</span>
+                        </a>
+                        <a href="https://www.bli.gov.tw/0000009.html" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="margin-bottom: 15px; color:var(--primary-orange);">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <span style="font-size:0.95rem;">③ 勞動部勞工保險局</span>
+                        </a>
+                        <a href="https://www.mof.gov.tw/multiplehtml/125" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="margin-bottom: 15px; color:var(--primary-orange);">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"/><path d="M18 8a3 3 0 013 3 3 3 0 01-3 3M6 8a3 3 0 00-3 3 3 3 0 003 3M2 11h20M12 18v-3M12 9V6M9 12H6M18 12h-3"/>
+                                </svg>
+                            </div>
+                            <span style="font-size:0.95rem;">④ 財政部當月施政要聞</span>
+                        </a>
+                        <a href="https://www.dot.gov.tw/multiplehtml/ch_313" target="_blank" class="news-card" style="padding:15px;">
+                            <div style="margin-bottom: 15px; color:var(--primary-orange);">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                                </svg>
+                            </div>
+                            <span style="font-size:0.95rem;">⑤ 財政部賦稅署</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Cards -->
+            <div class="home-cards-container">
+                <div class="page-card">
+                    <div class="card-main-title">20年會計稅務經驗</div>
+                    <div class="card-desc">服務逾千家企業與創業家</div>
+                    <div class="page-card-inner">
+                        <ul>
+                            <li>專業財會規劃</li>
+                            <li>節稅策略建議</li>
+                            <li>客製化帳務服務</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="page-card">
+                    <div class="card-main-title">嚴謹誠信高效</div>
+                    <div class="card-desc">財稅零煩惱，創業好夥伴</div>
+                    <div class="page-card-inner">
+                        <ul>
+                            <li>快速設立、變更公司</li>
+                            <li>即時會計/稅務諮詢</li>
+                            <li>法律輔導</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="page-card">
+                    <div class="card-main-title">一站式整合服務</div>
+                    <div class="card-desc">從工廠登記到創業補助的完整支援</div>
+                    <div class="page-card-inner">
+                        <ul>
+                            <li>食品工廠登記輔導</li>
+                            <li>青年創業貸款申辦</li>
+                            <li>政府補助計畫諮詢</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 服務項目 -->
+    <div class="section-services page-section" id="services">
+        <div class="page-section-title">服務項目</div>
+        <div class="services-3col-layout">
+            <!-- 公司/行號設立變更 -->
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">💼</div>
+                <div class="services-card-main-title card-main-title">公司、行號設立/變更</div>
+                <div class="services-card-desc card-desc">協助公司/行號開設登記、變更</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li style="color:var(--primary-black);font-weight:bold;margin-bottom:10px;">我們的核心服務</li>
+                        <li><strong>公司設立流程</strong>
+                            <ul>
+                                <li>新創公司流程規劃</li>
+                                <li>名稱預查與登記申請</li>
+                                <li>各類預查與登記申請</li>
+                                <li>稅務規劃輔導</li>
+                            </ul>
+                        </li>
+                        <li><strong>公司變更服務</strong>
+                            <ul>
+                                <li>名稱變更、地址遷移</li>
+                                <li>負責人異動</li>
+                                <li>登記資料異動、資本額調整</li>
+                            </ul>
+                        </li>
+                        <li><strong>營業登記＆特殊申請</strong>
+                            <ul>
+                                <li>個人行號設立</li>
+                                <li>合夥營業登記</li>
+                                <li>VIP全面性稅務規劃</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 帳務處理與報稅 -->
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📄</div>
+                <div class="services-card-main-title card-main-title">帳務處理與報稅</div>
+                <div class="services-card-desc card-desc">專業帳務與稅務申報服務</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li style="color:var(--primary-black);font-weight:bold;margin-bottom:10px;">專業帳務與報稅服務</li>
+                        <li><strong>財務報表製作</strong>
+                            <ul>
+                                <li>資產負債表</li>
+                                <li>損益表</li>
+                                <li>現金流量表</li>
+                            </ul>
+                        </li>
+                        <li><strong>稅務/記帳服務</strong>
+                            <ul>
+                                <li>公司營所稅/營業稅申報</li>
+                                <li>綜合所得稅申報</li>
+                                <li>扣繳/二代健保申報</li>
+                            </ul>
+                        </li>
+                        <li><strong>會計制度服務</strong>
+                            <ul>
+                                <li>設計/優化企業帳務流程</li>
+                                <li>協助財報完成</li>
+                                <li>協助股東會財務報告</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 稅務諮詢與規劃 -->
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📈</div>
+                <div class="services-card-main-title card-main-title">稅務諮詢與規劃</div>
+                <div class="services-card-desc card-desc">量身節稅方案規劃</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li style="color:var(--primary-black);font-weight:bold;margin-bottom:10px;">高效稅務諮詢與稅務規劃</li>
+                        <li><strong>節稅規劃設計</strong>
+                            <ul>
+                                <li>專屬節稅方案設計</li>
+                                <li>多元節稅佈局</li>
+                                <li>合適節稅流程規劃</li>
+                            </ul>
+                        </li>
+                        <li><strong>稅務諮詢服務</strong>
+                            <ul>
+                                <li>財稅制度管理諮詢</li>
+                                <li>法規變動即時回饋</li>
+                                <li>特殊稅務案件協助</li>
+                            </ul>
+                        </li>
+                        <li><strong>政府補助申請</strong>
+                            <ul>
+                                <li>補助申請文件規劃</li>
+                                <li>政策解釋與輔導</li>
+                                <li>協助資料完整送件</li>
+                            </ul>
+                        </li>
+                        <li><strong>稅務風險專案</strong>
+                            <ul>
+                                <li>稅務風險分析</li>
+                                <li>合適風險管控</li>
+                                <li>專人協助審查與分析</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 食品工廠登記 -->
+    <div class="page-section" id="food">
+        <div class="page-section-title">食品工廠登記</div>
+        <div class="services-3col-layout">
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🏭</div>
+                <div class="card-main-title">辦理流程一覽</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>廠房統包規劃</li>
+                        <li>文件準備</li>
+                        <li>申請送件</li>
+                        <li>主管機關現場會勘</li>
+                        <li>通過廠登</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📑</div>
+                <div class="card-main-title">申請文件重點</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>廠房地籍資料</li>
+                        <li>環保法令判釋</li>
+                        <li>廠場平面配置圖</li>
+                        <li>食品廠各項細部作業審查</li>
+                        <li style="margin-top:10px; color:var(--primary-orange);font-weight:bold;">九大程序書諮詢：
+                            <ul>
+                                <li>衛生管理作業程序書</li>
+                                <li>製程及品質管紀錄儀程序書</li>
+                                <li>倉儲管制作業程序書</li>
+                                <li>運輸管制作業程序書</li>
+                                <li>檢驗與量測管制作業程序書</li>
+                                <li>客訴管制作業程序書</li>
+                                <li>成品回收管制作業程序書</li>
+                                <li>文件管制作業程序書</li>
+                                <li>教育訓練作業程序書</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🤝</div>
+                <div class="card-main-title">顧問陪同優勢</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>建廠規劃輔導</li>
+                        <li>文件整理與申請</li>
+                        <li>現場陪同會勘</li>
+                        <li>完成廠登</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 貸款創業補助 -->
+    <div class="page-section" id="loan">
+        <div class="page-section-title">貸款創業補助</div>
+        <div class="services-3col-layout">
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">💰</div>
+                <div class="card-main-title">補助vs貸款比較</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>資金取得管道與來源</li>
+                        <li>利率與償還條件分析</li>
+                        <li>核准核心要素與條件</li>
+                        <li>額度上限與資金撥款</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📝</div>
+                <div class="card-main-title">申請所需文件</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>基本資料與營運計劃</li>
+                        <li>財務報表與資產整理</li>
+                        <li>創業資格審認與公文</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">💡</div>
+                <div class="card-main-title">專業規劃建議</div>
+                <div class="services-card-inner">
+                    <ul>
+                        <li>信用條件優化建議</li>
+                        <li>資金配置規劃與設計</li>
+                        <li>補助結案與撥款輔導</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="page-section" id="faq">
+        <div class="page-section-title">常見問題</div>
+        <div class="faq-list-box" id="faq-main-list">
+            <div class="faq-list-title">公司設立</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="1">公司設立需要準備哪些文件？ <span>+</span></li>
+                <li data-faq="2">公司設立流程需要多久？ <span>+</span></li>
+                <li data-faq="3">初創公司資本額建議多少？ <span>+</span></li>
+                <li data-faq="4">老闆一定要有會計背景嗎？ <span>+</span></li>
+            </ul>
+            <div class="faq-list-title">帳務報稅</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="5">營業稅和所得稅有何不同？ <span>+</span></li>
+                <li data-faq="6">營運初期有哪些稅務申報義務？ <span>+</span></li>
+                <li data-faq="7">如何降低公司帳務/稅務的出錯率？ <span>+</span></li>
+                <li data-faq="8">虧損或暫停營業還需要報稅嗎？ <span>+</span></li>
+            </ul>
+            <div class="faq-list-title">工廠登記常見問題</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="11">什麼情況下需要辦理工廠登記？ <span>+</span></li>
+                <li data-faq="12">廠房是否必須為合法建物才能申請廠登？ <span>+</span></li>
+                <li data-faq="13">食品工廠登記有哪些特殊衛生規範？ <span>+</span></li>
+                <li data-faq="14">沒辦理廠登會有什麼處罰？ <span>+</span></li>
+            </ul>
+            <div class="faq-list-title">其他</div>
+            <ul class="faq-question-list faq-topic-group">
+                <li data-faq="9">租用辦公室與在家辦公的帳務差異？ <span>+</span></li>
+                <li data-faq="10">要如何合法節稅？ <span>+</span></li>
+            </ul>
+        </div>
+        <!-- FAQ Ans -->
+        <div class="faq-ans-box" id="faq-ans-1">
+            <div class="faq-ans-title">公司設立需要準備哪些文件？</div>
+            <div class="faq-ans-text">公司設立通常需要：負責人及股東身分證明文件、印章、資本額證明、辦公地點租約／房屋權狀、設立章程、委託書及申請書。部分行業需額外主管機關核准文件。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-2">
+            <div class="faq-ans-title">公司設立流程需要多久？</div>
+            <div class="faq-ans-text">命名預查約2-3天，設立登記文件準備1-3天，送件後審查5-7天，部分行業需額外審查時間，一般約1-2週完成。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-3">
+            <div class="faq-ans-title">初創公司資本額建議多少？</div>
+            <div class="faq-ans-text">資本額無硬性規定，但應符合營運需求與資金週轉，常見10~50萬；如需補助或大型合約可酌增。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-4">
+            <div class="faq-ans-title">老闆一定要有會計背景嗎？</div>
+            <div class="faq-ans-text">不一定。可自學基礎財務、或交由專業記帳士協助，創業主將重心放管理與業務即可。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-5">
+            <div class="faq-ans-title">營業稅和所得稅有何不同？</div>
+            <div class="faq-ans-text">營業稅對銷貨及勞務的稅額，所得稅針對企業全年盈餘，兩者報稅方式及時點不同。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-6">
+            <div class="faq-ans-title">營運初期有哪些稅務申報義務？</div>
+            <div class="faq-ans-text">包括雙月營業稅、年度所得稅申報、扣繳、二代健保等；請依行業別補充。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-7">
+            <div class="faq-ans-title">如何降低公司帳務/稅務的出錯率？</div>
+            <div class="faq-ans-text">制定SOP，定期盤點、數位會計系統＋外部審核最有效。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-8">
+            <div class="faq-ans-title">虧損或暫停營業還需要報稅嗎？</div>
+            <div class="faq-ans-text">要。無論盈虧或暫停都需依法報稅，避免罰鍰或註銷。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-9">
+            <div class="faq-ans-title">租用辦公室與在家辦公的帳務差異？</div>
+            <div class="faq-ans-text">辦公室可合法申報租金、設立、折舊等。在家受限住宅、報稅發票亦有限制。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-10">
+            <div class="faq-ans-title">要如何合法節稅？</div>
+            <div class="faq-ans-text">善用各項營業支出、合規列帳、申報折舊並搭配專業規劃，誠信申報。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-11">
+            <div class="faq-ans-title">什麼情況下需要辦理工廠登記？</div>
+            <div class="faq-ans-text">凡從事物品製造、加工其規模達一定標準者（如電力容量達15瓩以上或廠房面積達50-100平方公尺以上），均應辦理工廠登記。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-12">
+            <div class="faq-ans-title">廠房是否必須為合法建物才能申請廠登？</div>
+            <div class="faq-ans-text">是的。工廠登記的前提是建築物必須符合建築法規並取得『使用執照』，且用途需載明為『工業用』或符合相關都市計畫之工業規定，若屬違章建築則無法直接申請。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-13">
+            <div class="faq-ans-title">食品工廠登記有哪些特殊衛生規範？</div>
+            <div class="faq-ans-text">需符合GHP（良好衛生規範）準則，包含動線區隔（生熟食分流）、不鏽鋼設備要求、水源檢測、防蟲防鼠設施及九大程序書規範。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+        <div class="faq-ans-box" id="faq-ans-14">
+            <div class="faq-ans-title">沒辦理廠登會有什麼處罰？</div>
+            <div class="faq-ans-text">無證生產可能面臨勒令停工、高額罰鍰（2萬至10萬元且可連續罰），亦會影響產品上架通路與外銷資格。</div>
+            <button class="faq-back-btn" onclick="showFaqList()">返回列表</button>
+        </div>
+    </div>
+
+    <!-- 相關文件下載 -->
+    <div class="page-section" id="files">
+        <div class="page-section-title">相關連結下載</div>
+        <div class="services-5col-layout">
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🏛️</div>
+                <div class="card-main-title">政府登記文件</div>
+                <div class="services-card-inner">
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">📥 下載區</h4>
+                        <ul style="list-style:none; padding:0; margin-bottom:20px;">
+                            <li>① <a href="股東同意書01範本_合併.pdf" download style="color:var(--primary-orange);">股東同意書 📥</a></li>
+                            <li>② <a href="房屋租賃契約書_修正版.pdf" download style="color:var(--primary-orange);">房屋租賃契約書 📥</a></li>
+                            <li>③ <a href="資本會計師簽證-客戶聲明書(設立)合併.PDF" download style="color:var(--primary-orange);">資本會計師簽證-客戶聲明書 📥</a></li>
+                            <li>④ <a href="客戶聲明書(記帳士公會表格)合併.pdf" download style="color:var(--primary-orange);">客戶聲明書 📥</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">🔗 連結區</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li>① <a href="https://www.economic.ntpc.gov.tw/List/company-registration" target="_blank"
+                                     style="color:var(--primary-orange);">公司登記連結 🔗</a></li>
+                            <li>② <a href="https://www.economic.ntpc.gov.tw/List/bussiness-registration2" target="_blank"
+                                     style="color:var(--primary-orange);">商業登記連結 🔗</a></li>
+                            <li>③ <a href="https://www.economic.ntpc.gov.tw/List/factory-registration" target="_blank"
+                                     style="color:var(--primary-orange);">工廠登記連結 🔗</a></li>
+                            <li>④ <a href="https://www.economic.ntpc.gov.tw/Custom/%E5%B7%A5%E5%BB%A0%E7%99%BB%E8%A8%98-1"
+                                     target="_blank" style="color:var(--primary-orange);">工廠登記應備書件 🔗</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">📑</div>
+                <div class="card-main-title">記帳稅務相關</div>
+                <div class="services-card-inner">
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">📥 下載區</h4>
+                        <ul style="list-style:none; padding:0; margin-bottom:20px;">
+                            <li>① <a href="國內出差旅費表.pdf" download style="color:var(--primary-orange);">國內出差旅費表 📥</a></li>
+                            <li>② <a href="國外出差旅費報告單.pdf" download style="color:var(--primary-orange);">國外出差旅費報告單 📥</a></li>
+                            <li>③ <a href="勞務報酬單.pdf" download style="color:var(--primary-orange);">勞務報酬單 📥</a></li>
+                            <li>④ <a href="114年綜所稅速算表.pdf" download style="color:var(--primary-orange);">114年綜所稅速算表 📥</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">🔗 連結區</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li>① <a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/national/business-tax"
+                                     target="_blank" style="color:var(--primary-orange);">營業稅節稅手冊 🔗</a></li>
+                            <li>② <a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/national/profit-seeking-enterprise-income-tax"
+                                     target="_blank" style="color:var(--primary-orange);">營所稅節稅手冊 🔗</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">⚖️</div>
+                <div class="card-main-title">創業資源與合約</div>
+                <div class="services-card-inner">
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">📥 下載區</h4>
+                        <ul style="list-style:none; padding:0; margin-bottom:20px;">
+                            <li>① <a href="WorkList_20250306.pdf" download style="color:var(--primary-orange);">勞動合約範本 📥</a></li>
+                            <li>② <a href="book_001.docx" download style="color:var(--primary-orange);">股東協議書範本 📥</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">🔗 連結區</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li>① <span style="color:var(--text-muted);">會議記錄範本 🔗</span></li>
+                            <li>② <span style="color:var(--text-muted);">政府補助資源連結 🔗</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🛡️</div>
+                <div class="card-main-title">勞健保專區</div>
+                <div class="services-card-inner">
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">📥 下載區</h4>
+                        <ul style="list-style:none; padding:0; margin-bottom:20px;">
+                            <li>① <a href="1-1%E5%8B%9E%E3%80%81%E5%B0%B1%E3%80%81%E7%81%BD%E3%80%81%E5%81%A5%E4%BF%9D%E5%8F%8A%E5%8B%9E%E9%80%80%E5%90%88%E4%B8%80%E6%8A%95%E4%BF%9D%E7%94%B3%E8%AB%8B%E6%9B%B8_1121219.pdf" download style="color:var(--primary-orange);">成立相關 📥</a></li>
+                            <li>② <a href="1-1%E5%8B%9E%E3%80%81%E5%B0%B1%E3%80%81%E7%81%BD%E3%80%81%E5%81%A5%E4%BF%9D%E5%8F%8A%E5%8B%9E%E9%80%80%E5%90%88%E4%B8%80%E6%8A%95%E4%BF%9D%E7%94%B3%E8%AB%8B%E6%9B%B8_1121219.pdf" download style="color:var(--primary-orange);">加保相關 📥</a></li>
+                            <li>③ <a href="1-5%E5%8B%9E%E3%80%81%E5%B0%B1%E3%80%81%E7%81%BD%E3%80%81%E5%81%A5%E4%BF%9D%E5%8F%8A%E5%8B%9E%E9%80%80%E5%90%88%E4%B8%80%E6%8A%95%E8%B3%87%E8%96%AA%E8%B3%87%E8%AA%BF%E6%95%B4%E8%A1%A8_1130621.pdf" download style="color:var(--primary-orange);">薪資調整相關 📥</a></li>
+                            <li>④ <a href="1-4%E5%8B%9E%E3%80%81%E5%B0%B1%E3%80%81%E7%81%BD%E3%80%81%E5%81%A5%E4%BF%9D%E5%8F%8A%E5%8B%9E%E9%80%80%E5%90%88%E4%B8%80%E9%80%80%E4%BF%9D%E7%94%B3%E5%A0%B1%E8%A1%A8_1130621.pdf" download style="color:var(--primary-orange);">退保相關 📥</a></li>
+                            <li>⑤ <a href="工商%2B雲端/5.%20%E5%8B%9E%E3%80%81%E5%81%A5%E4%BF%9D%E5%8F%8A%E5%8B%9E%E9%80%80%E8%B2%A0%E6%93%94%E8%B2%BB%E7%94%A8/114%E5%B9%B4%E5%8B%9E%E3%80%81%E5%81%A5%E4%BF%9D%E5%8F%8A%E5%8B%9E%E9%80%80%E8%B2%BB%E7%8E%87%E8%A1%A8%E6%A0%BC%EF%BC%88%E4%BE%9B%E7%94%A2%E5%8F%83%E7%85%A7%E4%BD%BF%E7%94%A8%EF%BC%89.pdf" download style="color:var(--primary-orange);">勞、健保及勞退負擔費用相關 📥</a></li>
+                            <li>⑥ <a href="工商%2B雲端/6.%20%E5%96%AE%E4%BD%8D%E8%B3%87%E6%96%99%E8%AE%8A%E6%9B%B4/1-2%E8%B3%87%E6%96%99%E8%AE%8A%E6%9B%B4%E7%94%B3%E5%A0%B1%E8%A1%A81130621.pdf" download style="color:var(--primary-orange);">單位資料變更相關 📥</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="services-card">
+                <div style="font-size:3rem;margin-bottom:20px;text-align:center;">🔗</div>
+                <div class="card-main-title">其他連結</div>
+                <div class="services-card-inner">
+                    <div class="sub-section">
+                        <h4 style="color:var(--primary-orange); border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:10px; font-size:1.1rem;">🔗 連結區</h4>
+                        <ul style="list-style:none; padding:0;">
+                            <li>① <a href="https://www.bli.gov.tw/0005453.html" target="_blank" style="color:var(--primary-orange);">勞工保險 🔗</a></li>
+                            <li>② <a href="https://www.nhi.gov.tw/ch/cp-4710-ee4f6-2635-1.html" target="_blank" style="color:var(--primary-orange);">健保成立投保單位之申辦 🔗</a></li>
+                            <li>③ <a href="https://eservice.nhi.gov.tw/2nd/" target="_blank" style="color:var(--primary-orange);">申報及繳納作業 🔗</a></li>
+                            <li>④ <a href="https://www.etax.nat.gov.tw/etwmain/etw144w" target="_blank" style="color:var(--primary-orange);">各類所得繳款書 🔗</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 關於我們 -->
+    <div class="page-section" id="about">
+        <div class="page-section-title">關於我們</div>
+        <div class="about-flexbox">
+            <div class="about-imgbox">
+                <img src="陳炫銘09-03.png" alt="團隊專業形象">
+            </div>
+            <div class="about-textbox">
                 <ul>
-                  <li>1. 衛生管理作業程序書</li>
-                  <li>2. 製程及品質管制作業程序書</li>
-                  <li>3. 倉儲管制作業程序書</li>
-                  <li>4. 運輸管制作業程序書</li>
-                  <li>5. 檢驗與量測管制作業程序書</li>
-                  <li>6. 客訴管制作業程序書</li>
-                  <li>7. 成品回收管制作業程序書</li>
-                  <li>8. 文件管制作業程序書</li>
-                  <li>9. 教育訓練作業程序書</li>
+                    <li class="about-desc-li">日盛國際團隊由資深記帳士、稅務顧問組成，</li>
+                    <li class="about-desc-li">超過 20 年會計稅務專業服務經驗，</li>
+                    <li class="about-desc-li">致力於成為企業與創業家的長期財會夥伴。</li>
+                    <li class="about-desc-li">堅守「專業．效率．誠信」，協助超過千家客戶圓滿達成財務目標與稅務優化。</li>
+					<li class="about-desc-li">新北市新莊區公司設立 公司記帳.報稅。</li>
                 </ul>
-                <p><strong>會勘現場顧問全程陪同</strong></p>
-              </div>
             </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="audit-1">
-            <div class="item-card-img"><img src="IMG_20250109_105040口罩03.webp" alt="查核"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">問：工廠是否已完成合法登記？</div>
-              <div class="item-card-date">2025/11/06</div>
-              <div class="item-card-desc">必須出示工廠登記證及食品業者登錄資料...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="audit-2">
-            <div class="item-card-img"><img src="IMG_20250904_144849.jpg" alt="查核"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">問：原物料來源是否有追溯記錄？</div>
-              <div class="item-card-date">2025/11/06</div>
-              <div class="item-card-desc">應備妥所有原料進貨憑證、來源證明與流向記錄...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="audit-4">
-            <div class="item-card-img"><img src="IMG_20250904_143025.jpg" alt="查核"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">問：是否建立產品追溯追蹤制度？</div>
-              <div class="item-card-date">2025/11/06</div>
-              <div class="item-card-desc">每批產品應可追蹤從原料到成品出貨的所有紀錄...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="audit-5">
-            <div class="item-card-img"><img src="IMG_20250901_151238.jpg" alt="查核"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">問：有無定期自主檢驗？</div>
-              <div class="item-card-date">2025/11/06</div>
-              <div class="item-card-desc">業者需有自主管理計畫，定期檢驗水質、原料及成品的衞生安全，並保存檢查記錄。</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="audit-7">
-            <div class="item-card-img"><img src="IMG_20250225_160217.jpg" alt="查核"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">問：有無配合衛生局查驗？</div>
-              <div class="item-card-date">2025/11/06</div>
-              <div class="item-card-desc">必須主動申報及配合衛生局現場稽查及產品抽驗...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="audit-8">
-            <div class="item-card-img"><img src="IMAG7841.jpg" alt="查核"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">問：異常事件有無通報及回收？</div>
-              <div class="item-card-date">2025/11/06</div>
-              <div class="item-card-desc">需建立異常通報與產品回收流程，出現疑慮時應即時向衞生局報告，切勿隱匿或拖延。</div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <section id="guide">
-      <div class="container">
-        <h2 class="section-title fade-in-up">廠房規劃教學</h2>
-        <div class="card-grid">
-          <div class="item-card fade-in-up" data-id="guide-1">
-            <div class="item-card-img"><img src="IMG_20250415_173637.jpg" alt="動線"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">食品工廠動線規劃實例</div>
-              <div class="item-card-date">2025/09/11</div>
-              <div class="item-card-desc">原料進廠到出貨全程分流，降低污染風險...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="guide-2">
-            <div class="item-card-img"><img src="食品廠02.jpg" alt="隔間"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">廠房隔間材質選擇</div>
-              <div class="item-card-date">2025/08/24</div>
-              <div class="item-card-desc">庫板、不鏽鋼、磚牆優缺點分析，符合消防與衛生規範...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="guide-3">
-            <div class="item-card-img"><img src="IMG_0147消毒池.png" alt="衛生"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">衛生設施標準規劃</div>
-              <div class="item-card-date">2025/08/12</div>
-              <div class="item-card-desc">洗手消毒區、更衣室、廁所的配置要點...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="guide-4">
-            <div class="item-card-img"><img src="食品廠-黑三-加寬01.jpg" alt="節能"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">節能環保廠房設計趨勢</div>
-              <div class="item-card-date">2025/07/25</div>
-              <div class="item-card-desc">採用LED照明、高效空調與太陽能，降低營運成本...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="guide-5">
-            <div class="item-card-img"><img src="食品廠神能04.jpg" alt="地坪"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">地坪工程：Epoxy與PU的選擇</div>
-              <div class="item-card-date">2025/07/11</div>
-              <div class="item-card-desc">分析不同地坪材質の耐磨、防滑、耐化學性...</div>
-            </div>
-          </div>
-          <div class="item-card fade-in-up" data-id="guide-8">
-            <div class="item-card-img"><img src="IMG_5922(1).png" alt="廢水"></div>
-            <div class="item-card-content">
-              <div class="item-card-title">廢水處理槽的規劃與設計</div>
-              <div class="item-card-date">2025/04/30</div>
-              <div class="item-card-desc">根據工廠產能與廢水水質，協助您規劃適當的處理槽容量與工法...</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <h2 class="section-title fade-in-up">工廠設立申請流程</h2>
-        <div class="process-layout fade-in-up">
-          <div class="canvasbox">
-            <svg height="1720" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 1720">
-              <rect x="0" y="0" width="410" height="1720" fill="#FFFFFF" rx="18" />
-              <g class="svgblock">
-                <rect x="15" y="30" rx="18" ry="18" width="380" height="90" fill="#E6F8EF" stroke="#429193"
-                  stroke-width="2" /><text x="205" y="60" class="svglabel" text-anchor="middle">1. 用地查核</text>
-                <foreignObject x="20" y="75" width="370" height="50">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      工業/產業用地都計分區證明</p>
-                    <p
-                      style="font-size:13px; color:#779A8F; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      查政府工業區/都市計畫科、地號選擇</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="120" x2="205" y2="172" stroke="#61A2A3" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="180" rx="18" ry="18" width="380" height="90" fill="#DDF4FA" stroke="#1977d1"
-                  stroke-width="2" /><text x="205" y="210" class="svglabel" text-anchor="middle">2. 都計審查許可</text>
-                <foreignObject x="20" y="225" width="370" height="50">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      分區證明、建設用途確認</p>
-                    <p
-                      style="font-size:13px; color:#1977d1; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      如為農業用地需事前變更申辦</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="270" x2="205" y2="322" stroke="#1977d1" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="330" rx="18" ry="18" width="380" height="90" fill="#FEF2DE" stroke="#d89a2c"
-                  stroke-width="2" /><text x="205" y="360" class="svglabel" text-anchor="middle">3. 成立公司或商號登記</text>
-                <foreignObject x="20" y="375" width="370" height="50">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      取得統編，完成登記章程</p>
-                    <p
-                      style="font-size:13px; color:#d89a2c; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      負責人身分/營業範圍清楚列出</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="420" x2="205" y2="472" stroke="#d89a2c" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="480" rx="18" ry="18" width="380" height="100" fill="#EEE8FC" stroke="#8A60D1"
-                  stroke-width="2" /><text x="205" y="510" class="svglabel" text-anchor="middle">4. 工廠空間規劃設計</text>
-                <foreignObject x="20" y="525" width="370" height="60">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      產線分區、結構安全、消防動線</p>
-                    <p
-                      style="font-size:13px; color:#8A60D1; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      委託建築師設計圖＋初步機電和流程報告</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="580" x2="205" y2="632" stroke="#8A60D1" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="640" rx="18" ry="18" width="380" height="100" fill="#FFDDE2" stroke="#CC4069"
-                  stroke-width="2" /><text x="205" y="670" class="svglabel" text-anchor="middle">5. 申請建照與使用執照</text>
-                <foreignObject x="20" y="685" width="370" height="60">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      合法建築使用、排水排煙動線</p>
-                    <p
-                      style="font-size:13px; color:#CC4069; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      現有建物須確認產權及稅籍合法性</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="740" x2="205" y2="792" stroke="#CC4069" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="800" rx="18" ry="18" width="380" height="110" fill="#F8EBDF" stroke="#C9883C"
-                  stroke-width="2" /><text x="205" y="830" class="svglabel" text-anchor="middle">6.
-                  設備清單與環保/消防/衛生申請</text>
-                <foreignObject x="20" y="845" width="370" height="70">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      列主要機具規格、功率與布局</p>
-                    <p
-                      style="font-size:13px; color:#C9883C; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      環保/消防/衛生證明齊備，流程圖說須清楚標示。</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="910" x2="205" y2="962" stroke="#C9883C" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="970" rx="18" ry="18" width="380" height="100" fill="#EAF7EA" stroke="#51AC9A"
-                  stroke-width="2" /><text x="205" y="1000" class="svglabel" text-anchor="middle">7. 準備登記申請全套文件</text>
-                <foreignObject x="20" y="1015" width="370" height="60">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      蒐集公司設立證明、產權、建照、設備明細、消防/環保等字號文件，檢查簽章與正本、影印本齊全。</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="1070" x2="205" y2="1122" stroke="#51AC9A" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="1130" rx="18" ry="18" width="380" height="100" fill="#FFFCE0" stroke="#EDCB48"
-                  stroke-width="2" /><text x="205" y="1160" class="svglabel" text-anchor="middle">8. 向經發局正式遞件</text>
-                <foreignObject x="20" y="1175" width="370" height="60">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      臨櫃或線上方式申辦，留意各縣市受理窗口不同</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="1230" x2="205" y2="1282" stroke="#EDCB48" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="1290" rx="18" ry="18" width="380" height="100" fill="#D4EAF2" stroke="#53AED4"
-                  stroke-width="2" /><text x="205" y="1320" class="svglabel" text-anchor="middle">9. 聯合現地會勘審查</text>
-                <foreignObject x="20" y="1335" width="370" height="60">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      主管機關協同消防、衛生等查驗</p>
-                    <p
-                      style="font-size:13px; color:#53AED4; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      如需改善，會收到補正通知</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <line x1="205" y1="1390" x2="205" y2="1442" stroke="#53AED4" stroke-width="2" marker-end="url(#arrow)" />
-              <g class="svgblock">
-                <rect x="15" y="1450" rx="18" ry="18" width="380" height="100" fill="#FFFCE0" stroke="#EDCB48"
-                  stroke-width="2" /><text x="205" y="1480" class="svglabel" text-anchor="middle">10. 最終補正/核准與營運</text>
-                <foreignObject x="20" y="1495" width="370" height="60">
-
-                  <body xmlns="http://www.w3.org/1999/xhtml">
-                    <p style="font-size:15px; color:#445088; font-family:Arial; margin:0; text-align:center;">
-                      收到核准公文，申請水電/合法生產</p>
-                    <p
-                      style="font-size:13px; color:#EDCB48; font-family:Arial; margin:0; text-align:center; word-wrap:break-word;">
-                      可做補助、融資與移工憑證使用</p>
-                  </body>
-                </foreignObject>
-              </g>
-              <defs>
-                <marker id="arrow" markerWidth="23" markerHeight="23" refX="6" refY="6" orient="auto"
-                  markerUnits="strokeWidth">
-                  <path d="M1,2 L10,6 L1,10 L4,6 Z" fill="#888" />
-                </marker>
-              </defs>
-            </svg>
-          </div>
-          <div class="steps-container">
-            <div class="step"><strong>1. 用地查核</strong>
-              <div class="step-detail">查核土地是否工業/產業用地，並確認地號與分區。若為非工業用途，需先辦理都計變更。</div>
-            </div>
-            <div class="step"><strong>2. 都市計畫審查許可</strong>
-              <div class="step-detail">申請土地分區證明及使用性相關審查，避免日後違法。建議早期諮詢工業區/市府窗口。</div>
-            </div>
-            <div class="step"><strong>3. 成立公司或商號登記</strong>
-              <div class="step-detail">依實際營運型態完成辦理，取得營業統編，設定負責人資訊。章程內容符合設廠需求。</div>
-            </div>
-            <div class="step"><strong>4. 工廠空間規劃設計</strong>
-              <div class="step-detail">設計產線動線、產線流程與消防安全。合格建築師/建設單位規劃設計，預留未來擴建彈性。</div>
-            </div>
-            <div class="step"><strong>5. 申請建照與使用執照</strong>
-              <div class="step-detail">建照須經官方審核，確保建物用途、排煙、排水、消防動線等合格。既有舊建物須補正產權、稅籍、合法證明。</div>
-            </div>
-            <div class="step"><strong>6. 設備清單與環保/消防/衛生申請</strong>
-              <div class="step-detail">列主要機具與生產設備、規格、功率等。需附環保、消防、衛生相關合格證明，流程/管線設置須清楚標示。</div>
-            </div>
-            <div class="step"><strong>7. 準備登記申請全套文件</strong>
-              <div class="step-detail">蒐集公司設立證明、產權、建照、設備明細、消防/環保等字號文件，檢查簽章與正本、影印本齊全。</div>
-            </div>
-            <div class="step"><strong>8. 向經發局正式遞件</strong>
-              <div class="step-detail">採臨櫃或線上方式申辦，留意各縣市受理機關及資料差異。建議提前預約/查詢申請流程。</div>
-            </div>
-            <div class="step"><strong>9. 聯合現地會勘審查</strong>
-              <div class="step-detail">由主管機關、消防局、衛生局等共同查驗現場設施，細查機具、動線安全與環境衛生。收到補正通知時應盡速改善。</div>
-            </div>
-            <div class="step"><strong>10. 最終補正/核准與營運</strong>
-              <div class="step-detail">通過審查取得核准公文。可辦理水電申請並合法投入生產。未來各項政策補助、融資與移工皆可憑工廠登記核准件辦理。</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container" style="text-align: center;">
-        <h2 class="section-title fade-in-up" style="font-size: 2rem; margin-bottom: 30px;">您是我們正在尋覓的仲介伙伴嗎?</h2>
-        <a href="new-html-211-broker.html" class="cta-button fade-in-up" style="margin-bottom: 80px;">
-          <img src="團隊合作-48.png" alt="icon"
-            style="width: 30px; vertical-align: middle; margin-right: 10px; filter: brightness(0) invert(1);">點我 進合作專區
-        </a>
-
-        <div class="marquee-container fade-in-up" style="margin-top: 50px;">
-          <div class="marquee-content">我想開工廠賺大錢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我想開工廠賺大錢</div>
-        </div>
-
-        <h2 class="section-title fade-in-up" style="margin-top: 0;">準備好啟動您的事業了嗎？</h2>
-        <p class="fade-in-up contact-subtitle">將繁瑣的流程交給我們，讓您專注於產品與市場的開拓。立即聯繫我們，取得免費初步諮詢。</p>
-        <a href="#" class="cta-button js-open-consult-modal fade-in-up" style="transition-delay: 0.2s;">
-          <svg class="line-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M24 10.304c0-5.231-5.37-9.504-12-9.504-6.63 0-12 4.273-12 9.504 0 4.684 4.255 8.604 10 9.339.388.084.917.257 1.047.584.12.3-.081.777-.156 1.082l-.463 1.919c-.074.303-.343 1.185 1.488.646 1.83-.539 9.874-5.813 11.666-8.243.682-.924.418-1.745.418-5.327z" />
-          </svg>
-          立即諮詢
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-container">
-      &copy; 2025 創新國際管理顧問有限公司 All Rights Reserved.
     </div>
-  </footer>
 
-  <div class="modal-overlay" id="modal-template">
-    <div class="modal-container">
-      <button class="modal-close">&times;</button>
-      <h3 class="modal-title"></h3>
-      <p class="modal-date"></p>
-      <img class="modal-img" src="" alt="詳細內容圖片">
-      <div class="modal-text"></div>
+    <!-- 手開發票小幫手 (自 SUN77.html 完整整合) -->
+    <div class="page-section" id="invoice">
+        <div class="page-section-title">手開發票小幫手</div>
+        <div style="max-width: 950px; margin: -20px auto 20px auto; text-align: left;">
+            <a href="#home" class="nav-btn-back"
+                style="text-decoration: none; color: #666; font-size: 1rem; display: inline-flex; align-items: center; gap: 5px;">
+                <span style="font-size: 1.2rem;">←</span> 返回主站
+            </a>
+        </div>
+
+        <div class="invoice-steps-box">
+            <h3>手開發票步驟</h3>
+            <ol>
+                <li>選對聯式：
+                    <ul>
+                        <li>二聯式：一般消費者使用，不需買方統編。</li>
+                        <li>三聯式：B2B交易，需買方提供統編報帳。</li>
+                    </ul>
+                </li>
+                <li>填寫內容：
+                    <ul>
+                        <li>日期：例如「114年01月21日」。</li>
+                        <li>買方資訊：若是三聯式，填寫買方統編與名稱；二聯式可不填。</li>
+                        <li>金額：銷售額(未稅)、營業稅金額、總計(含稅金額)；二聯式不區分出營業稅額。</li>
+                        <li>銷售內容：例如顧問服務、服飾一批等依實際銷售內容填寫。</li>
+                    </ul>
+                </li>
+                <li>蓋發票章：確認無誤後蓋章。</li>
+                <li>保存及交付發票：第一聯存根聯自行保留、第二聯扣抵聯及第三聯收執聯交給客戶。</li>
+            </ol>
+        </div>
+
+        <div class="control-panel">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>發票種類 <small
+                            style="color: #666; font-weight: normal; font-size: 0.85rem;">(請選擇)</small></label>
+                    <select class="form-control" id="invType" onchange="updateInvoiceUI()">
+                        <option value="3">三聯式 (B2B)</option>
+                        <option value="2">二聯式 (B2C)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>買受人統編 <small id="hint-taxid"
+                            style="color: #666; font-weight: normal; font-size: 0.85rem;">(應填)</small></label>
+                    <input type="text" id="in-taxid" class="form-control" placeholder="8位數字" maxlength="8"
+                        oninput="updateInvoiceUI()">
+                </div>
+                <div class="form-group">
+                    <label>買受人名稱 <small id="hint-buyer"
+                            style="color: #666; font-weight: normal; font-size: 0.85rem;">(應填)</small></label>
+                    <input type="text" id="in-buyer" class="form-control" placeholder="公司或行號名稱"
+                        oninput="updateInvoiceUI()">
+                </div>
+                <div class="form-group" id="group-tax-type">
+                    <label>營業稅 <small id="hint-tax-type"
+                            style="color: #666; font-weight: normal; font-size: 0.85rem;">(應填)</small></label>
+                    <select class="form-control" id="in-tax-type" onchange="updateInvoiceUI()">
+                        <option value="1">應稅 5%</option>
+                        <option value="2">零稅率</option>
+                        <option value="3">免稅</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>日期 <small style="color: #666; font-weight: normal; font-size: 0.85rem;">(應填)</small></label>
+                    <input type="date" id="in-date" class="form-control" onchange="updateInvoiceUI()">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%">品名</th>
+                            <th style="width: 15%">數量</th>
+                            <th style="width: 20%">單價</th>
+                            <th style="width: 25%">金額</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-tbody">
+                        <script>
+                            for (let i = 0; i < 7; i++) {
+                                document.write(`
+                                    <tr class="item-row">
+                                        <td><input type="text" class="form-control it-name" oninput="updateInvoiceUI()"></td>
+                                        <td><input type="number" class="form-control it-qty" oninput="updateInvoiceUI()"></td>
+                                        <td><input type="number" class="form-control it-price" oninput="updateInvoiceUI()"></td>
+                                        <td><input type="text" class="form-control it-sum" readonly style="background:#f8f9fa"></td>
+                                    </tr>
+                                `);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: right;">
+                <button onclick="clearInvoiceForm()"
+                    style="padding: 8px 20px; border-radius: 4px; border: 1px solid #ccc; background: #fff; cursor: pointer;">清空內容</button>
+            </div>
+        </div>
+
+        <div class="invoice-scroll-wrapper">
+            <div class="invoice-outer">
+                <div class="invoice-paper" id="invoice-capture-area">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="font-size: 1.5rem; letter-spacing: 2px;">AB 51685168</div>
+                        <div style="text-align: center; flex: 1;">
+                            <h1 id="v-title"
+                                style="margin: 0; font-size: 1.5rem; letter-spacing: 6px; font-weight: normal;">統 一 發 票
+                                (三聯式)</h1>
+                            <div style="margin-top: 6px; font-size: 1.1rem;">
+                                <span id="v-yr" class="inv-write-text"></span> 年 <span id="v-mth-range"
+                                    class="inv-write-text"></span> 月份
+                            </div>
+                            <div style="margin-top: 4px;">
+                                中 華 民 國 <span id="h-y" class="inv-write-text"></span> 年 <span id="h-m"
+                                    class="inv-write-text"></span> 月 <span id="h-d" class="inv-write-text"></span> 日
+                            </div>
+                        </div>
+                        <div style="width: 10px;"></div>
+                    </div>
+
+                    <div style="margin-bottom: 8px; font-size: 1.1rem;">
+                        <div style="display: flex; align-items: flex-end; margin-bottom: 6px;">
+                            <label style="letter-spacing: 12px; min-width: 90px;">買受人：</label>
+                            <div class="inv-write-text" id="v-buyer"
+                                style="flex: 1; padding: 0 10px; min-height: 25px;">
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;" id="v-taxid-row">
+                            <label style="letter-spacing: 2px; min-width: 90px;">統一編號：</label>
+                            <div style="display: flex; margin-left: 10px;">
+                                <script>
+                                    for (let i = 0; i < 8; i++) {
+                                        document.write('<div class="tax-box inv-write-text"></div>');
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        <div
+                            style="display: flex; align-items: flex-end; gap: 0; font-size: 0.9rem; margin-top: 8px; border-bottom: 1px solid #000; padding-bottom: 1px; max-width: 720px;">
+                            <span style="letter-spacing: 12px; min-width: 75px;">地址：</span>
+                            <span class="inv-write-text" style="width: 45px; text-align: center;"></span> 縣市
+                            <span class="inv-write-text" style="width: 65px; text-align: center;"></span> 鄉鎮市區
+                            <span class="inv-write-text" style="width: 130px; text-align: center;"></span> 路街
+                            <span class="inv-write-text" style="width: 35px; text-align: center;"></span> 段
+                            <span class="inv-write-text" style="width: 35px; text-align: center;"></span> 巷
+                            <span class="inv-write-text" style="width: 35px; text-align: center;"></span> 弄
+                            <span class="inv-write-text" style="width: 40px; text-align: center;"></span> 號
+                            <span class="inv-write-text" style="width: 35px; text-align: center;"></span> 樓
+                            <span class="inv-write-text" style="width: 30px; text-align: center;"></span> 室
+                        </div>
+                    </div>
+
+                    <table class="main-table" style="width: 720px; border: 2px solid #000;">
+                        <colgroup>
+                            <col style="width: 180px;">
+                            <col style="width: 70px;">
+                            <col style="width: 110px;">
+                            <col style="width: 135px;">
+                            <col style="width: 225px;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th style="padding: 0; text-align: center; letter-spacing: 20px;">品 名</th>
+                                <th>數 量</th>
+                                <th>單 價</th>
+                                <th>金 額</th>
+                                <th style="padding: 2px 15px; border: 1px solid #000; background-color: #fafafa;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>備</span><span>註</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="v-main-tbody">
+                            <script>
+                                for (let i = 0; i < 7; i++) {
+                                    let remarkHtml = '';
+                                    if (i === 0) remarkHtml = '<td rowspan="2" style="border: 1px solid #000; vertical-align: top; padding: 5px;"></td>';
+                                    if (i === 2) remarkHtml = '<td style="font-size: 0.8rem; text-align: center; background: #fafafa; border: 1px solid #000; letter-spacing: 1px; height: 25px;">營業人蓋用統一發票專用章</td>';
+                                    if (i === 3) remarkHtml = '<td rowspan="8" style="text-align: center; vertical-align: middle; border: 1px solid #000;"><div class="seal-oval" style="border: 2px solid #e74c3c;">這裏蓋<br>發票章</div></td>';
+                                    document.write(`
+                                        <tr style="height: 35px;">
+                                            <td class="inv-write-text" style="text-align: left; padding-left: 10px;"></td>
+                                            <td class="inv-write-text" style="text-align: right; padding-right: 15px;"></td>
+                                            <td class="inv-write-text" style="text-align: right; padding-right: 15px;"></td>
+                                            <td class="inv-write-text" style="text-align: right; padding-right: 15px;"></td>
+                                            ${remarkHtml}
+                                        </tr>
+                                    `);
+                                }
+                            </script>
+                            <tr id="row-sales-3">
+                                <td colspan="3" class="stat-lbl-center"
+                                    style="letter-spacing: 24px; padding-left: 24px; font-size: 1.1rem;">銷 售 額 合 計</td>
+                                <td id="v-sales-3" class="inv-write-text"
+                                    style="text-align: right; padding-right: 15px;"></td>
+                            </tr>
+                            <tr id="row-tax-3">
+                                <td class="stat-lbl-center"
+                                    style="letter-spacing: 14px; padding-left: 14px; font-size: 1.1rem;">營 業 稅</td>
+                                <td colspan="2" style="padding: 0;">
+                                    <div
+                                        style="display: flex; justify-content: space-around; font-size: 0.85rem; align-items: center; height: 100%;">
+                                        <span>應 稅 <span id="v3-tax-v"
+                                                style="display: inline-block; border: 1px solid #000; width: 14px; height: 14px; line-height: 12px; text-align: center; font-size: 12px;"
+                                                class="inv-write-text"></span></span>
+                                        <span>零稅率 <span id="v3-tax-zero-v"
+                                                style="display: inline-block; border: 1px solid #000; width: 14px; height: 14px; line-height: 12px; text-align: center; font-size: 12px;"
+                                                class="inv-write-text"></span></span>
+                                        <span>免 稅 <span id="v3-tax-exempt-v"
+                                                style="display: inline-block; border: 1px solid #000; width: 14px; height: 14px; line-height: 12px; text-align: center; font-size: 12px;"
+                                                class="inv-write-text"></span></span>
+                                    </div>
+                                </td>
+                                <td id="v-tax-3" class="inv-write-text" style="text-align: right; padding-right: 15px;">
+                                </td>
+                            </tr>
+                            <tr id="row-total">
+                                <td colspan="3" class="stat-lbl-center" style="padding: 0;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; padding: 2px 70px; font-size: 1.1rem;">
+                                        <span>總</span><span>計</span>
+                                    </div>
+                                </td>
+                                <td id="v-total" class="inv-write-text" style="text-align: right; padding-right: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="padding: 0;">
+                                    <div class="chinese-row-wrap">
+                                        <div
+                                            style="font-size: 0.85rem; letter-spacing: 2px; text-align: left; line-height: 1.2; margin-right: 30px;">
+                                            總計新臺幣<br>(中文大寫)</div>
+                                        <div id="v-chinese"
+                                            style="display: flex; flex: 1; justify-content: space-between; align-items: baseline; padding: 0 10px;">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 0.8rem;">
+                        <div style="font-size: 0.65rem; color: #333; transform: scale(0.9); transform-origin: left;">
+                            ※應稅、零稅率、免稅之銷售額應分別開立統一發票，並應於各該欄打「V」。</div>
+                        <div style="width: 10px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="print-btn" onclick="handlePrint()">點此列印 / 另存為 PDF</button>
     </div>
-  </div>
 
-  <div class="line-modal-overlay" id="line-modal-consult">
-    <div class="line-modal-content">
-      <!-- Top Section -->
-      <div class="qr-section" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        <a href="http://www.innovation-intl.com.tw/" target="_blank"
-          style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-          <img src="創新innovation-intl_QRcode03_看成功案例.png" alt="看成功案例"
-            style="width: auto; max-width: 400px; max-height: 35vh; display: block; border-radius: 10px; margin-bottom: 5px; cursor: pointer;">
-          <span
-            style="color: #00B900; font-size: 0.9rem; text-decoration: none; font-weight: bold; animation: blink 1.5s infinite; display: block; word-break: break-all; text-align: center; margin-top: 2px;">點我
-            http://www.innovation-intl.com.tw/</span>
-        </a>
-      </div>
-
-      <!-- Bottom Section -->
-      <div class="qr-section" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        <a href="https://line.me/ti/p/TNuzvB3g6m" target="_blank"
-          style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-          <img src="陳總經理QRcode02_立即諮詢02.jpg" alt="立即諮詢"
-            style="width: auto; max-width: 400px; max-height: 35vh; display: block; border-radius: 10px; margin-bottom: 5px; cursor: pointer; transition: transform 0.2s;">
-          <span
-            style="color: #00B900; font-size: 0.9rem; text-decoration: none; font-weight: bold; display: block; word-break: break-all; text-align: center; margin-top: 2px;">點我
-            https://line.me/ti/p/TNuzvB3g6m</span>
-        </a>
-      </div>
-      <button class="cta-button back-btn close-line-modal-btn"
-        style="margin-top: 5px; padding: 10px 30px; font-size: 0.9rem;">回上一頁</button>
+    <div class="cta-bar">
+        ☎ 專業諮詢專線：(02) 8994-4966<br>
+        LINE官方ID：加入0958046985 | Email：sunrise89944966@gmail.com
     </div>
-  </div>
 
-  <script>
-    // --- 資料庫 ---
-    const modalData = {
-      "audit-0": { title: "九大程序書", date: "2025/11/20", img: "j20250312112736_o.jpg", text: "<ul><li>1. 衛生管理作業程序書</li><li>2. 製程及品質管制作業程序書</li><li>3. 倉儲管制作業程序書</li><li>4. 運輸管制作業程序書</li><li>5. 檢驗與量測管制作業程序書</li><li>6. 客訴管制作業程序書</li><li>7. 成品回收管制作業程序書</li><li>8. 文件管制作業程序書</li><li>9. 教育訓練作業程序書</li></ul><p><strong>會勘現場顧問全程陪同</strong></p>" },
-      "audit-1": { title: "問：工廠是否已完成合法登記，並如實登載食品業資料？", date: "2025/11/06", img: "IMG_20250109_105040口罩03.webp", text: "答：必須出示工廠登記證及食品業者登錄資料，資料需與實際營業型態一致，避免掛羊頭賣狗肉。" },
-      "audit-2": { title: "問：原物料來源是否有明確追溯記錄？", date: "2025/11/06", img: "IMG_20250904_144849.jpg", text: "答：應備妥所有原料進貨憑證、來源證明與流向記錄，若為進口需查驗報關單及產地證明，符「源頭控管」原則。" },
-      "audit-3": { title: "問：有無落實環境衛生管理、設備是否符合衛生要求？", date: "2025/11/06", img: "IMG_20250224_152330.jpg", text: "答：生產區必須乾淨分區、有防鼠蚊設施，定時清潔消毒並有紀錄，避免污染食品。" },
-      "audit-4": { title: "問：是否建立食品生產流程與產品追溯追蹤制度？", date: "2025/11/06", img: "IMG_20250904_143025.jpg", text: "答：每批產品應可追蹤從原料到成品出貨的所有紀錄，包括批號、日期、負責人，以便回溯。" },
-      "audit-5": { title: "問：食品製程及產品有無定期自主檢驗、安全監測？", date: "2025/11/06", img: "IMG_20250901_151238.jpg", text: "答：業者需有自主管理計畫，定期檢驗水質、原料及成品的衞生安全，並保存檢查記錄。" },
-      "audit-6": { title: "問：成品或包材有無完整標示？", date: "2025/11/06", img: "IMAG3098.jpg", text: "答：包裝必須按照食安法規標示，內容真實、無瞞漏，並含製造商、登錄字號等須揭露資料。" },
-      "audit-7": { title: "問：有無依規定申報及配合衛生局查驗與抽樣檢驗？", date: "2025/11/06", img: "IMG_20250225_160217.jpg", text: "答：必須主動申報及配合衛生局現場稽查及產品抽驗，不得拒絕或規避。" },
-      "audit-8": { title: "問：若發現異常事件（如產品不符、客訴），有無啟動通報及回收應變？", date: "2025/11/06", img: "IMAG7841.jpg", text: "答：需建立異常通報與產品回收流程，出現疑慮時應即時向衞生局報告，切勿隱匿或拖延。" },
-      "guide-1": { title: "食品工廠動線規劃實例", date: "2025/09/11", img: "IMG_20250415_173637.jpg", text: "一個好的動線規劃應遵循「單向流」原則，從原料入口、倉儲、前處理、加工、包裝到成品出口，形成一條不交叉、不回流的路線。這不僅能有效降低交叉污染的風險，更能大幅提升生產與物流效率，給查核人員留下專業的印象。" },
-      "guide-2": { title: "廠房隔間材質選擇", date: "2025/08/24", img: "食品廠02.jpg", text: "食品廠隔間需同時考量衛生、防火與成本。常見的庫板（金屬面夾心板）施工快速、表面平滑易清潔，是主流選擇。不鏽鋼材質雖然成本高，但耐用與抗腐蝕性最佳。傳統磚牆則在防火與隔音上表現優異。我們會根據您的預算與製程需求，提供最佳建議。" },
-      "guide-3": { title: "衛生設施標準規劃", date: "2025/08/12", img: "IMG_0147消毒池.png", text: "進入生產區前的衛生設施是食安的第一道防線。標準配置應包含：更衣室、鞋櫃、洗手區、乾手區、消毒區。洗手台應為非手動式（感應 or 腳踏），並提供皂液、乾手機或擦手紙、酒精消毒液。清晰的圖示與流程說明也必不可少。" },
-      "guide-4": { title: "節能環保廠房設計趨勢", date: "2025/07/25", img: "食品廠-黑三-加寬01.jpg", text: "在規劃初期導入節能設計，能有效降低未來長期的營運成本。例如，全面採用LED照明、選擇變頻式高效率的空調與冷凍設備、在屋頂加裝太陽能光電板等。這些投資不僅能節省電費，更能提升企業的ESG形象，並可能符合政府的補助資格。" },
-      "guide-5": { title: "地坪工程：Epoxy與PU的選擇", date: "2025/07/11", img: "食品廠神能04.jpg", text: "食品廠地坪要求無縫、易清潔、耐磨、防滑。環氧樹脂（Epoxy）是常見選擇，硬度高、耐化學品，但缺乏彈性。聚氨酯（PU）則更有韌性，耐衝擊與溫差變化。我們會根據您的作業區（如常溫區、冷凍庫、有化學品清潔需求的區域）建議最適合的材質。" },
-      "guide-6": { title: "空調與正負壓設計", date: "2025/06/15", img: "IMG_20250904_134653.jpg", text: "為了維持產品品質與衛生，不同作業區需要不同的空氣潔淨度。透過空調系統（HVAC）的設計，可以讓潔淨度要求最高的區域（如內包裝區）維持「正壓」，防止外部空氣帶入污染物。反之，易產生粉塵或氣味的區域則可設計為「負壓」，將污染空氣抽出。" },
-      "guide-7": { title: "消防管線與設備配置", date: "2025/05/28", img: "IMAG7679.jpg", text: "消防規劃必須在廠房設計初期就介入。我們會與消防技師合作，根據廠房面積、樓高與危險品級別，規劃偵煙器、灑水頭、消防栓、排煙窗的最適位置與數量，確保符合消防法規，保障人員與財產安全。" },
-      "guide-8": { title: "廢水處理槽的規劃與設計", date: "2025/04/30", img: "IMG_5922(1).png", text: "食品廠廢水通常含有高濃度的有機物（BOD/COD）。我們會根據您的預估產能與廢水水質，協助您規劃適當的處理槽容量與工法（如活性污泥法、接觸氧化法），確保處理後的排放水質符合環保法規的標準。" }
-    };
+    <footer>
+        &copy; 2025 日盛國際聯合稅務記帳士事務所 | 版權所有
+    </footer>
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const bgVideo = document.querySelector('.body-background-video');
-      if (bgVideo) {
-        bgVideo.playbackRate = 0.4;
-      }
-      const header = document.querySelector('.site-header');
-      const hamburger = document.querySelector('.hamburger-menu');
-      const nav = document.querySelector('.main-nav');
-      const navLinks = document.querySelectorAll('.main-nav a.nav-link');
-      const sections = document.querySelectorAll('section');
-      const animatedElements = document.querySelectorAll('.fade-in-up');
-      const cards = document.querySelectorAll('.item-card');
-      const modalOverlay = document.getElementById('modal-template');
-      const modalContainer = modalOverlay.querySelector('.modal-container');
-      const modalCloseBtn = modalOverlay.querySelector('.modal-close');
+    <script>
+        // --- 輪播邏輯 ---
+        let homeCarouselInterval;
+        function startHomeCarousel() {
+            if (homeCarouselInterval) clearInterval(homeCarouselInterval);
+            const carousel = document.querySelector('.home-carousel-container');
+            if (!carousel) return;
+            const images = carousel.querySelectorAll('.home-carousel-image');
+            const caption = carousel.querySelector('.home-carousel-caption');
+            const slogans = ['精密規劃您的財務藍圖，讓每分資源發揮最大效益。', '從選址到建廠一站式服務，為您打造最優生產環境。', '洞悉最新稅務法規，提供專業建議，為您聰明節稅。', '輔導您通過繁瑣的食品廠登，快速啟動您的美味事業。', '媒合最佳政府補助與貸款方案，做您創業路上的堅實後盾。'];
+            let currentIndex = 0;
 
-      // --- Header Scroll Effect ---
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
-
-      // --- Hamburger Menu ---
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('is-active');
-        nav.classList.toggle('is-open');
-        const hamburgerLabel = document.querySelector('.hamburger-label');
-        if (hamburgerLabel) {
-          if (nav.classList.contains('is-open')) {
-            hamburgerLabel.style.display = 'none'; // Menu is open, hide label
-          } else {
-            // Menu is closed, show label only on mobile
-            if (window.innerWidth <= 768) {
-              hamburgerLabel.style.display = 'block';
-            }
-          }
-        }
-      });
-
-      // --- Navigation Click Handling ---
-      navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          // Close mobile menu
-          if (nav.classList.contains('is-open')) {
-            hamburger.classList.remove('is-active');
-            nav.classList.remove('is-open');
-          }
-        });
-      });
-
-      // --- Active Nav Link on Scroll ---
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.4
-      };
-
-      const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              }
+            images.forEach((img, index) => {
+                img.classList.remove('active');
+                if (index === 0) img.classList.add('active');
             });
-          }
-        });
-      }, observerOptions);
+            caption.textContent = slogans[0];
+            setTimeout(() => { caption.classList.add('visible'); }, 100);
 
-      sections.forEach(section => {
-        sectionObserver.observe(section);
-      });
-
-      // --- Scroll Animations ---
-      const animationObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      animatedElements.forEach(el => {
-        animationObserver.observe(el);
-      });
-
-      // --- Modal Logic ---
-      function openModal(id) {
-        const data = modalData[id];
-        if (!data) return;
-
-        modalContainer.querySelector('.modal-title').textContent = data.title;
-        modalContainer.querySelector('.modal-date').textContent = data.date;
-        modalContainer.querySelector('.modal-img').src = data.img;
-        modalContainer.querySelector('.modal-img').alt = data.title;
-        modalContainer.querySelector('.modal-text').innerHTML = data.text.replace(/\n/g, '<br>');
-
-        modalOverlay.classList.add('is-visible');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modalOverlay.classList.remove('is-visible');
-        document.body.style.overflow = '';
-      }
-
-      cards.forEach(card => {
-        card.addEventListener('click', () => {
-          const id = card.dataset.id;
-          openModal(id);
-        });
-      });
-
-      modalCloseBtn.addEventListener('click', closeModal);
-      modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          closeModal();
+            homeCarouselInterval = setInterval(() => {
+                caption.classList.remove('visible');
+                setTimeout(() => {
+                    images[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add('active');
+                    caption.textContent = slogans[currentIndex];
+                    setTimeout(() => { caption.classList.add('visible'); }, 500);
+                }, 700);
+            }, 7000);
         }
-      });
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('is-visible')) {
-          closeModal();
+        // --- 導覽切換 ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-bar a');
+            const sections = document.querySelectorAll('.page-section');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navBar = document.querySelector('.nav-bar');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const navBackBtns = document.querySelectorAll('.nav-btn-back');
+
+            function toggleMenu() {
+                navBar.classList.toggle('is-open');
+                navOverlay.classList.toggle('is-active');
+            }
+
+            // Function to handle section switching
+            function showSection(targetId, clickedElement = null) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                if (clickedElement && clickedElement.classList.contains('nav-bar-link')) {
+                    clickedElement.classList.add('active');
+                } else {
+                    // If not a nav-bar-link, try to find the corresponding nav link to activate
+                    const correspondingNavLink = document.querySelector(`.nav-bar a[href="#${targetId}"]`);
+                    if (correspondingNavLink) {
+                        correspondingNavLink.classList.add('active');
+                    }
+                }
+
+                sections.forEach(s => s.classList.remove('active'));
+                document.getElementById(targetId).classList.add('active');
+                if (targetId === 'home') startHomeCarousel();
+                if (navBar.classList.contains('is-open')) toggleMenu();
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (!href.startsWith('#')) return; // Allow external/file links to navigate normally
+
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    showSection(targetId, this); // Pass 'this' to correctly set active class
+                });
+            });
+
+            navBackBtns.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target-section') || 'home'; // Default to 'home'
+                    showSection(targetId);
+                });
+            });
+
+            hamburger.addEventListener('click', toggleMenu);
+            navOverlay.addEventListener('click', toggleMenu);
+            startHomeCarousel();
+        });
+
+        // --- FAQ 顯示控制 ---
+        function showFaqAns(num) {
+            document.getElementById('faq-main-list').style.display = 'none';
+            document.querySelectorAll('.faq-ans-box').forEach(box => box.style.display = 'none');
+            const target = document.getElementById('faq-ans-' + num);
+            if (target) {
+                target.style.display = 'block';
+                // 讓問題解答區塊直接置頂，並稍微調整邊界避免被 header 遮擋
+                const headerHeight = document.querySelector('.site-header-content').offsetHeight + document.querySelector('.nav-bar').offsetHeight;
+                window.scrollTo({
+                    top: target.offsetTop - headerHeight - 40,
+                    behavior: 'smooth'
+                });
+            }
         }
-      });
 
-      // --- Setup card images with dual backgrounds ---
-      function setupCardImages() {
-        const cardImageContainers = document.querySelectorAll('.item-card-img');
-        const spriteImage = 'Ben__8.png';
-        const positionsX = ['0%', '50%', '100%'];
-        const positionsY = ['0%', '50%', '100%'];
-
-        cardImageContainers.forEach(container => {
-          const randomX = positionsX[Math.floor(Math.random() * positionsX.length)];
-          const randomY = positionsY[Math.floor(Math.random() * positionsY.length)];
-
-          container.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${spriteImage}')`;
-          container.style.backgroundSize = '300% 300%';
-          container.style.backgroundPosition = `${randomX} ${randomY}`;
-          container.style.backgroundRepeat = 'no-repeat';
-
-          const originalImg = container.querySelector('img');
-          if (originalImg) {
-            const imgSrc = originalImg.getAttribute('src');
-            const photoBgDiv = document.createElement('div');
-            photoBgDiv.classList.add('photo-bg');
-            photoBgDiv.style.backgroundImage = `url('${imgSrc}')`;
-            originalImg.parentNode.replaceChild(photoBgDiv, originalImg);
-          }
-        });
-      }
-
-      setupCardImages();
-
-      // --- LINE Modal Logic ---
-      const consultModal = document.getElementById('line-modal-consult');
-
-      const openConsultBtns = document.querySelectorAll('.js-open-consult-modal');
-      const closeButtons = document.querySelectorAll('.close-line-modal-btn');
-
-      function openLineModal(modal) {
-        if (!modal) return;
-        modal.classList.add('is-visible');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLineModal(modal) {
-        if (!modal) return;
-        modal.classList.remove('is-visible');
-        document.body.style.overflow = '';
-      }
-
-      openConsultBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          openLineModal(consultModal);
-        });
-      });
-
-      closeButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const modal = btn.closest('.line-modal-overlay');
-          closeLineModal(modal);
-        });
-      });
-
-      if (consultModal) {
-        consultModal.addEventListener('click', (e) => {
-          if (e.target === consultModal) {
-            closeLineModal(consultModal);
-          }
-        });
-      }
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeLineModal(consultModal);
+        function showFaqList() {
+            document.getElementById('faq-main-list').style.display = 'block';
+            document.querySelectorAll('.faq-ans-box').forEach(box => box.style.display = 'none');
+            // 回到 FAQ 列表的最頂部
+            const faqSection = document.getElementById('faq');
+            const headerHeight = document.querySelector('.site-header-content').offsetHeight + document.querySelector('.nav-bar').offsetHeight;
+            window.scrollTo({
+                top: faqSection.offsetTop - headerHeight - 20,
+                behavior: 'smooth'
+            });
         }
-      });
 
-    });
-  </script>
+        document.querySelectorAll('.faq-question-list li').forEach(li => {
+            li.addEventListener('click', function () { showFaqAns(this.dataset.faq); });
+        });
 
+        // --- 發票邏輯 (從 SUN77.html 完整移植) ---
+        const invDateInput = document.getElementById('in-date');
+        invDateInput.valueAsDate = new Date();
+
+        function clearInvoiceForm() {
+            document.querySelectorAll('#invoice .form-control').forEach(el => {
+                if (el.id !== 'invType' && el.id !== 'in-date') el.value = '';
+            });
+            updateInvoiceUI();
+        }
+
+        function generateChineseHTML(num) {
+            const units = ['億', '仟', '佰', '拾', '萬', '仟', '佰', '拾', '元'];
+            const digits = "零壹貳參肆伍陸柒捌玖";
+            let html = '';
+            const s = Math.round(num).toString().padStart(9, '0');
+            for (let i = 0; i < 9; i++) {
+                let char = (s[i] === '0') ? '零' : digits[parseInt(s[i])];
+                let colorClass = (s[i] === '0') ? 'class="c-val-text c-val-zero"' : 'class="c-val-text inv-write-text"';
+                html += `<div class="c-unit-group" style="display: flex; align-items: baseline; gap: 4px;"><span ${colorClass} style="font-size: 1.15rem; font-weight: bold; width: 18px; text-align: center;">${char}</span><span style="font-size: 0.95rem; color: #333;">${units[i]}</span></div>`;
+            }
+            return html;
+        }
+
+        function updateInvoiceUI() {
+            const type = document.getElementById('invType').value;
+            const buyer = document.getElementById('in-buyer').value;
+            const taxid = document.getElementById('in-taxid').value;
+            const d = invDateInput.valueAsDate || new Date();
+
+            // 日期更新
+            const rocYear = d.getFullYear() - 1911;
+            const month = d.getMonth() + 1;
+            document.getElementById('v-yr').innerText = rocYear;
+            document.getElementById('v-mth-range').innerText = (month % 2 === 0) ? `${month - 1}、${month}` : `${month}、${month + 1}`;
+            document.getElementById('h-y').innerText = rocYear;
+            document.getElementById('h-m').innerText = month;
+            document.getElementById('h-d').innerText = d.getDate();
+
+            // 金額計算
+            let totalAmt = 0;
+            const rows = document.querySelectorAll('#items-tbody .item-row');
+            const dataRows = document.querySelectorAll('#v-main-tbody tr:not([id])');
+
+            rows.forEach((row, i) => {
+                const qty = parseFloat(row.querySelector('.it-qty').value) || 0;
+                const price = parseFloat(row.querySelector('.it-price').value) || 0;
+                const sum = qty * price;
+                row.querySelector('.it-sum').value = sum > 0 ? sum.toLocaleString() : '';
+                totalAmt += sum;
+
+                const vRow = dataRows[i];
+                if (vRow) {
+                    vRow.cells[0].innerText = row.querySelector('.it-name').value;
+                    vRow.cells[1].innerText = qty > 0 ? qty : '';
+                    vRow.cells[2].innerText = price > 0 ? price.toLocaleString() : '';
+                    vRow.cells[3].innerText = sum > 0 ? sum.toLocaleString() : '';
+                }
+            });
+
+            if (type === '3') {
+                const taxType = document.getElementById('in-tax-type').value;
+                const sales = Math.round(totalAmt);
+                let tax = 0;
+
+                // 清除所有稅別勾選
+                document.getElementById('v3-tax-v').innerText = '';
+                document.getElementById('v3-tax-zero-v').innerText = '';
+                document.getElementById('v3-tax-exempt-v').innerText = '';
+
+                if (taxType === '1') { // 應稅 5%
+                    tax = Math.round(sales * 0.05);
+                    document.getElementById('v3-tax-v').innerText = sales > 0 ? 'V' : '';
+                } else if (taxType === '2') { // 零稅率
+                    tax = 0;
+                    document.getElementById('v3-tax-zero-v').innerText = sales > 0 ? 'V' : '';
+                } else if (taxType === '3') { // 免稅
+                    tax = 0;
+                    document.getElementById('v3-tax-exempt-v').innerText = sales > 0 ? 'V' : '';
+                }
+
+                const total = sales + tax;
+                document.getElementById('v-title').innerText = '統 一 發 票 (三聯式)';
+                document.getElementById('v-sales-3').innerText = sales > 0 ? sales.toLocaleString() : '';
+                document.getElementById('v-tax-3').innerText = tax > 0 ? tax.toLocaleString() : (sales > 0 && (taxType === '2' || taxType === '3') ? '0' : '');
+                document.getElementById('v-total').innerText = total > 0 ? total.toLocaleString() : '';
+                document.getElementById('v-chinese').innerHTML = generateChineseHTML(total);
+
+                document.getElementById('v-taxid-row').style.visibility = 'visible';
+                document.getElementById('row-sales-3').style.display = 'table-row';
+                document.getElementById('row-tax-3').style.display = 'table-row';
+
+                // 動態顯示「(應填)」提示
+                document.getElementById('hint-taxid').innerText = '(應填)';
+                document.getElementById('hint-buyer').innerText = '(應填)';
+                document.getElementById('hint-tax-type').innerText = '(應填)';
+                document.getElementById('hint-taxid').style.display = 'inline';
+                document.getElementById('hint-buyer').style.display = 'inline';
+                document.getElementById('group-tax-type').style.display = 'flex';
+            } else {
+                const total = Math.round(totalAmt);
+                document.getElementById('v-title').innerText = '統 一 發 票 (二聯式)';
+                document.getElementById('v-total').innerText = total > 0 ? total.toLocaleString() : '';
+                document.getElementById('v-chinese').innerHTML = generateChineseHTML(total);
+                document.getElementById('v-taxid-row').style.visibility = 'hidden';
+                document.getElementById('row-sales-3').style.display = 'none';
+                document.getElementById('row-tax-3').style.display = 'none';
+
+                // 二聯式邏輯：清除三聯式專用勾選
+                document.getElementById('v3-tax-v').innerText = '';
+                document.getElementById('v3-tax-zero-v').innerText = '';
+                document.getElementById('v3-tax-exempt-v').innerText = '';
+
+                // 動態顯示「(免填)」提示
+                document.getElementById('hint-taxid').innerText = '(免填)';
+                document.getElementById('hint-buyer').innerText = '(免填)';
+                document.getElementById('group-tax-type').style.display = 'none';
+            }
+
+            document.getElementById('v-buyer').innerText = buyer;
+            const taxBoxes = document.querySelectorAll('.tax-box');
+            taxBoxes.forEach((box, i) => { box.innerText = taxid[i] || ''; });
+        }
+
+        function handlePrint() {
+            const isLine = /Line/i.test(navigator.userAgent);
+            if (isLine) {
+                document.getElementById('line-guide').style.display = 'block';
+            } else {
+                window.print();
+            }
+        }
+
+        // Line 環境偵測與跳脫強制外部瀏覽器
+        function checkBrowser() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isLine = ua.indexOf("Line") > -1;
+
+            if (isLine) {
+                // 如果在 Line 中，嘗試加上參數強制跳轉
+                if (window.location.href.indexOf('openExternalBrowser=1') === -1) {
+                    const sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+                }
+            }
+        }
+
+        checkBrowser();
+        // 初始化
+        updateInvoiceUI();
+    </script>
 </body>
 
 </html>
